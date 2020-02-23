@@ -61,12 +61,12 @@ function display_messages()
 {
     if (array_key_exists('messages', $_SESSION) and is_array($_SESSION['messages']) and count($_SESSION['messages']) > 0)
     {
-    echo ("<DIV class=\"messages\">\n");    
+    echo ("<DIV class=\"messages\">\n");
     // reverse array so FIFO
     $messages = array_reverse ($_SESSION['messages']);
     foreach ($messages as $key => $msg)
     {
-        display_message($msg['type'], $msg['message'], $msg['file'], $msg['line'], 
+        display_message($msg['type'], $msg['message'], $msg['file'], $msg['line'],
         $msg['sql'], $msg['sql_error']);
     }
 
@@ -109,12 +109,12 @@ echo ("</FORM>\n");
 
        echo ("<DIV class=\"tab_area noprint\">\n");
        echo ("This volunteer \n");
-       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid\">"._("Summary")."</A>\n");         
-       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=general\">"._("General")."</A>\n");      
+       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid\">"._("Summary")."</A>\n");
+       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=general\">"._("General")."</A>\n");
        echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=skills\">"._("Skills")."</A>\n");
        echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=availability\">"._("Availability")."</A>\n");
        echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=workhistory\">"._("Work history")."</A>\n");
-       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=notes\">"._("Notes")."</A>\n");      
+       echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=notes\">"._("Notes")."</A>\n");
        echo ("<A class=\"tab\" href=\"". SOS_PATH . "volunteer/?vid=$vid&amp;menu=relationships\">"._("Relationships")."</A>\n");
        echo ("</DIV>\n");
 
@@ -141,7 +141,9 @@ function make_html_begin($title, $options)
     echo ("<STYLE type=\"text/css\" media=\"print\">\n");
     echo ("  <!--  .noprint {display:none}  -->\n");
     echo ("</STYLE>\n");
-    echo ("<META name=\"robots\" content=\"noindex,nofollow\">\n");    
+    echo ("<META name=\"robots\" content=\"noindex,nofollow\">\n");
+    echo ("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+");
     echo ("</HEAD>\n");
     echo ("<BODY>\n");
 }
@@ -157,7 +159,7 @@ function make_html_end()
 <P><A href="<?php echo SOS_PATH; ?>src/about.php">Son of Service</A></P>
 <?php
 }
-?>    
+?>
 </BODY>
 </HTML>
 <?php
