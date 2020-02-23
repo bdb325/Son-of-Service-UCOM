@@ -1,3 +1,3 @@
 # sons-of-service
-NOTE: 
-NEWINDEX BRANCH NOT WORKING.
+TODO: 
+TEST ON AWS
