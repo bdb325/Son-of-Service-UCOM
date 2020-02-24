@@ -8,7 +8,7 @@
  * $Id: index.php,v 1.4 2009/02/12 04:11:20 andrewziem Exp $
  *
  */
- 
-header("Location: src/login.php");
+
+header("Location: src/publicvolunteer.php");
 
 ?>
