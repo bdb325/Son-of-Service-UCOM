@@ -184,14 +184,14 @@ function volunteer_add_form()
  <td><input type="Text" name="last"></td>
  </tr>
  <tr>
-  <th class ="vert"><?php echo_("Ethnicity"); ?> </th>
+  <th class ="vert"><?php echo _("Ethnicity"); ?></th>
   <td> <select id="ethnicity" name="ethnicity">
      <option value="Hispanic">Hispanic</option>
      <option value="Non-hispanic">Non-hispanic</option>
    </td>
  </tr>
  <tr>
-   <th class ="vert"><?php echo_("Race"); ?> </th>
+   <th class ="vert"><?php echo _("Race"); ?></th>
   <td> <select id="race" name="race">
   <option value="African">African</option>
   <option value="African American/Black">African American</option>
