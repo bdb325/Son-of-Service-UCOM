@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2011 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * Generates artificial volunteers for testing.
  *
  * $Id: randomvolunteer.php,v 1.7 2011/12/19 04:48:33 andrewziem Exp $

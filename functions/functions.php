@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2011 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * $Id: functions.php,v 1.20 2011/12/21 03:51:49 andrewziem Exp $
  *
  */

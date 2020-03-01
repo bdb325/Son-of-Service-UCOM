@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2009 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * Generates an HTML table from a set of data.
  *
  * $Id: table.php,v 1.20 2009/11/29 17:24:28 andrewziem Exp $
