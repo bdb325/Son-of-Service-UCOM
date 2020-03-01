@@ -184,12 +184,15 @@ function volunteer_add_form()
  <td><input type="Text" name="last"></td>
  </tr>
  <tr>
-   <select id="ethnicity" name="ethnicity">
+  <th class ="vert"><?php echo_("Ethnicity"); ?> </th>
+  <td> <select id="ethnicity" name="ethnicity">
      <option value="Hispanic">Hispanic</option>
      <option value="Non-hispanic">Non-hispanic</option>
+   </td>
  </tr>
  <tr>
-   <select id="race" name="race">
+   <th class ="vert"><?php echo_("Race"); ?> </th>
+  <td> <select id="race" name="race">
   <option value="African">African</option>
   <option value="African American/Black">African American</option>
   <option value="Asian">Asian</option>
@@ -199,6 +202,7 @@ function volunteer_add_form()
   <option value="Native Alaskan">Audi</option>
   <option value="Multi-racial">Multi-racial</option>
   <option value="Other">Other</option>
+</td>
 </select>
  </tr>
 <tr>
