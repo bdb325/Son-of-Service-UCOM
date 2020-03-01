@@ -58,23 +58,23 @@ function volunteer_add()
     $first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
     $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());
     $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());
-    $race = $db->qstr(htmlentities($_POST['race'])),
-    $ethnicity = $db->qstr(htmlentities($_POST['ethnicity'])),
-    $gender = $db->qstr(htmlentities($_POST['gender'])),
-    $veteran_status = $db->qstr(htmlentities($_POST['veteran_status'])),
-    $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type'])),
-    $referred_from = $db->qstr(htmlentities($_POST['referred_from'])),
-    $birth_date = $db->qstr(htmlentities($_POST['birth_date'])),
+    $race = $db->qstr(htmlentities($_POST['race']));
+    $ethnicity = $db->qstr(htmlentities($_POST['ethnicity']));
+    $gender = $db->qstr(htmlentities($_POST['gender']));
+    $veteran_status = $db->qstr(htmlentities($_POST['veteran_status']));
+    $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type']));
+    $referred_from = $db->qstr(htmlentities($_POST['referred_from']));
+    $birth_date = $db->qstr(htmlentities($_POST['birth_date']));
     $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
-    $phone_number = $db->qstr(htmlentities($_POST['phone_number'])),
-    $country = $db->qstr(htmlentities($_POST['country']))
+    $phone_number = $db->qstr(htmlentities($_POST['phone_number']));
+    $country = $db->qstr(htmlentities($_POST['country']));
     $street = $db->qstr(htmlentities($_POST['street']), get_magic_quotes_gpc());
     $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $state = $db->qstr(htmlentities($_POST['state']), get_magic_quotes_gpc());
     $postal_code = $db->qstr(htmlentities($_POST['postal_code']), get_magic_quotes_gpc());
     $country = $db->qstr(htmlentities($_POST['country']), get_magic_quotes_gpc());
-    $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname'])),
-    $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname'])),
+    $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname']));
+    $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname']));
 
 
 
