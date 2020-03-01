@@ -54,22 +54,34 @@ function volunteer_add()
 
     $organization = $db->qstr(htmlentities($_POST['organization']), get_magic_quotes_gpc());
 
-    $prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc());
+    //$prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc());
     $first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
     $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());
     $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());
-
+    $race = $db->qstr(htmlentities($_POST['race'])),
+    $ethnicity = $db->qstr(htmlentities($_POST['ethnicity'])),
+    $gender = $db->qstr(htmlentities($_POST['gender'])),
+    $veteran_status = $db->qstr(htmlentities($_POST['veteran_status'])),
+    $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type'])),
+    $referred_from = $db->qstr(htmlentities($_POST['referred_from'])),
+    $birth_date = $db->qstr(htmlentities($_POST['birth_date'])),
+    $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
+    $phone_number = $db->qstr(htmlentities($_POST['phone_number'])),
+    $country = $db->qstr(htmlentities($_POST['country']))
     $street = $db->qstr(htmlentities($_POST['street']), get_magic_quotes_gpc());
     $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $state = $db->qstr(htmlentities($_POST['state']), get_magic_quotes_gpc());
     $postal_code = $db->qstr(htmlentities($_POST['postal_code']), get_magic_quotes_gpc());
     $country = $db->qstr(htmlentities($_POST['country']), get_magic_quotes_gpc());
+    $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname'])),
+    $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname'])),
 
-    $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
+
+
 
     $sql = 'INSERT INTO volunteers '.
-	    '(prefix, first,middle,last,organization,street,city,state,postal_code,country,email_address, dt_added, uid_added, dt_modified, uid_modified) '.
-	    "VALUES ($prefix, $first, $middle, $last, $organization, $street, $city, $state, $postal_code, $country, $email_address, now(), ".get_user_id().", now(), uid_added)";
+	    '(first,middle,last,organization,street,city,state,postal_code,country,email_address, dt_added, uid_added, dt_modified, uid_modified) '.
+	    "VALUES ($first, $middle, $last, $organization, $street, $city, $state, $postal_code, $country, $email_address, now(), ".get_user_id().", now(), uid_added)";
 
     $result = $db->Execute($sql);
 
@@ -154,30 +166,40 @@ function volunteer_add()
 
 function volunteer_add_form()
 {
-
+// MUST ADD FUNCTIONALITY AT A LATER DATE
 ?>
     <form method="post" action="add_volunteer.php">
 
 <table border="0" width="50%" cellspacing="0" cellpadding="0">
 <tr>
- <th class="vert"><?php echo _("Prefix"); ?></th>
- <td><input type="Text" name="prefix"></td>
- </tr>
-<tr>
  <th class="vert"><?php echo _("First name"); ?></th>
  <td><input type="Text" name="first"></td>
  </tr>
 <tr>
- <th class="vert"><?php echo _("Middle name"); ?></th>
+ <th class="vert"><?php echo _("Middle Initial"); ?></th>
  <td><input type="Text" name="middle"></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("Last name"); ?></th>
  <td><input type="Text" name="last"></td>
  </tr>
-<tr>
- <th class="vert"><?php echo _("Organization"); ?></th>
- <td><input type="text" name="organization"></td>
+ <tr>
+   <select id="ethnicity" name="ethnicity">
+     <option value="Hispanic">Hispanic</option>
+     <option value="Non-hispanic">Non-hispanic</option>
+ </tr>
+ <tr>
+   <select id="race" name="race">
+  <option value="African">African</option>
+  <option value="African American/Black">African American</option>
+  <option value="Asian">Asian</option>
+  <option value="Caucasian/White">Caucasian/White</option>
+  <option value="Native American">Native American</option>
+  <option value="Native Pacific Islander">Native Pacific Islander</option>
+  <option value="Native Alaskan">Audi</option>
+  <option value="Multi-racial">Multi-racial</option>
+  <option value="Other">Other</option>
+</select>
  </tr>
 <tr>
  <th class="vert"><?php echo _("Street"); ?></th>
