@@ -69,13 +69,15 @@ function volunteer_add()
     $phone_number = $db->qstr(htmlentities($_POST['phone_number']));
     $country = $db->qstr(htmlentities($_POST['country']));
     $street = $db->qstr(htmlentities($_POST['street']), get_magic_quotes_gpc());
-    $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $state = $db->qstr(htmlentities($_POST['state']), get_magic_quotes_gpc());
+    $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $postal_code = $db->qstr(htmlentities($_POST['postal_code']), get_magic_quotes_gpc());
     $country = $db->qstr(htmlentities($_POST['country']), get_magic_quotes_gpc());
     $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname']));
     $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname']));
-
+    $emergency_phone = $db->qstr(htmlentities($_POST['emergency_phone']));
+    $emergency_relationship = $db->qstr(htmlentities($_POST['emergency_relationship']));
+    $e_newsletter = $db->qstr(htmlentities($_POST['e_newsletter']));
 
 
 
@@ -205,6 +207,46 @@ function volunteer_add_form()
 </td>
 </select>
  </tr>
+ <tr>
+   <th class="vert"><?php echo _("Gender Identity"); ?></th>
+   <td> <select id="gender" name="gender">
+     <option value="Male">Male</option>
+     <option value="Female">Female</option>
+     <option value="Non-binary">Non-binary</option>
+   </select>
+ </td>
+</tr>
+<tr>
+  <th class ="vert"><?php echo _("Please select your preferred area of work"); ?></th>
+ <td> <select id="volunteer_type" name="volunteer_type">
+ <option value="Art">Art/design/decorating</option>
+ <option value="Maintenance">Building maintenance</option>
+ <option value="Clothing">Clothing retail</option>
+ <option value="Computer">Computer work/data entry</option>
+ <option value="Custodial">Custodial/cleaning</option>
+ <option value="Driving">Driving (must provide license & insurance)</option>
+ <option value="Food packing">Food packing & repacking</option>
+ <option value="Gardening">Gardening/landscaping</option>
+ <option value="Grocery Stocking">Grocery stocking</option>
+ <option value="Grocery checkout">Grocery checkout</option>
+ <option value="Loading">Loading dock (unloading trucks)</option>
+ <option value="Office">Office work(copying,filing,etc)</option>
+ <option value="Reception">Reception/greeter/phone management</option>
+ <option value="Translating">Translating other languages</option>
+ <option value="Vehicle">Vehicle maintenance/auto detailing</option>
+ <option value="Children">Working with children</option>
+</td>
+</select>
+</tr>
+<tr>
+  <th class="vert"><?php echo _("Are you a veteran?"); ?></th>
+  <td> <select id="veteran_status" name="veteran_status">
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="N/A">N/A</option>
+  </select>
+</td>
+</tr>
 <tr>
  <th class="vert"><?php echo _("Street"); ?></th>
  <td><input type="Text" name="street"></td>
@@ -226,16 +268,8 @@ function volunteer_add_form()
  <td><input type="Text" name="country"></td>
  </tr>
 <tr>
- <th class="vert"><?php echo _("Home phone"); ?></th>
- <td><input type="Text" name="phone_home"></td>
- </tr>
-<tr>
- <th class="vert"><?php echo _("Work phone"); ?></th>
- <td><input type="Text" name="phone_work"></td>
- </tr>
-<tr>
- <th class="vert"><?php echo _("Cell phone"); ?></th>
- <td><input type="Text" name="phone_cell"></td>
+ <th class="vert"><?php echo _("Phone number"); ?></th>
+ <td><input type="Text" name="phone_number"></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("E-mail"); ?></th>
