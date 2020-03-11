@@ -167,6 +167,19 @@ function make_html_end()
 <?php
 
     }
+function public_html_end()
+    {
+
+
+    ?>
+    </BODY>
+    <footer>
+      <h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
+    </footer>
+    </HTML>
+    <?php
+
+        }
 
 
 function display_position_option($arg_1, $arg_2)
