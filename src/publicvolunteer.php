@@ -5,7 +5,7 @@
  * Copyright (C) 2003-2009 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
- * $Id: add_volunteer.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
+ * $Id: publicvolunteer.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
  *
  */
 
@@ -47,7 +47,7 @@ function volunteer_add()
 
     if ($errors_found)
     {
-	  echo ("<P>Try <A href=\"add_volunteer.php\">again</A>.</P>\n");
+	  echo ("<P>Try <A href=\"publicvolunteer.php\">again</A>.</P>\n");
 	  // todo: redisplay form here with values in place
 	  die();
     }
@@ -168,9 +168,9 @@ function volunteer_add()
 
 function volunteer_add_form()
 {
-// MUST ADD FUNCTIONALITY AT A LATER DATE
+// Below post statement includes an echo for security. Untested. Could break stuff
 ?>
-    <form method="post" action="add_volunteer.php">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 <table border="0" width="50%" cellspacing="0" cellpadding="0">
 <tr>
@@ -247,26 +247,42 @@ function volunteer_add_form()
   </select>
 </td>
 </tr>
-<tr>
- <th class="vert"><?php echo _("Street"); ?></th>
- <td><input type="Text" name="street"></td>
- </tr>
+ <tr>
+  <th class="vert"><?php echo _("Country"); ?></th>
+  <td>
+    <select name="country" class="countries order-alpha include-CA-FR-MX-ZA-ES-GB-US-UM-VE-VN-VI-ZM-ZW presel-US" id="countryId">
+        <option value="">Select Country</option>
+    </select>
+  </td>
+  </tr>
+
+  <tr>
+   <th class="vert"><?php echo _("State/Province"); ?></th>
+   <td>
+     <select name="state" class="states order-alpha" id="stateId">
+         <option value="">Select State</option>
+     </select>
+     ></td>
+   </tr>
 <tr>
  <th class="vert"><?php echo _("City"); ?></th>
- <td><input type="Text" name="city"></td>
+ <td>
+   <select name="city" class="cities order-alpha" id="cityId">
+       <option value="">Select City</option>
+   </select>
+ </td>
  </tr>
 <tr>
- <th class="vert"><?php echo _("State/Province"); ?></th>
- <td><input type="Text" name="state"></td>
- </tr>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
 <tr>
+  <th class="vert"><?php echo _("Street"); ?></th>
+  <td><input type="Text" name="street"></td>
+</tr>
  <th class="vert"><?php echo _("Zip/Postal code"); ?></th>
  <td><input type="Text" name="postal_code"></td>
  </tr>
-<tr>
- <th class="vert"><?php echo _("Country"); ?></th>
- <td><input type="Text" name="country"></td>
- </tr>
+
 <tr>
  <th class="vert"><?php echo _("Phone number"); ?></th>
  <td><input type="Text" name="phone_number"></td>
@@ -304,6 +320,6 @@ else
 
 
 
-public_html_endd();
+public_html_end();
 
 ?>
