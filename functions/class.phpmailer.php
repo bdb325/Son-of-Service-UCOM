@@ -8,6 +8,8 @@
 //
 // Copyright (C) 2001 - 2003  Brent R. Matzelle
 //
+// Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+//
 // License: LGPL, see LICENSE
 ////////////////////////////////////////////////////
 
