@@ -186,6 +186,10 @@ function volunteer_add_form()
  <td><input type="Text" name="last"></td>
  </tr>
  <tr>
+  <tr>
+    <th class="vert"><?php echo _("Birth date"); ?></th>
+    <td><input type="date" name="birth_date"> </td>
+  </tr>
   <th class ="vert"><?php echo _("Ethnicity"); ?></th>
   <td> <select id="ethnicity" name="ethnicity">
      <option value="Hispanic">Hispanic</option>
@@ -250,7 +254,7 @@ function volunteer_add_form()
  <tr>
   <th class="vert"><?php echo _("Country"); ?></th>
   <td>
-    <select name="country" class="countries order-alpha include-CA-FR-MX-ZA-ES-GB-US-UM-VE-VN-VI-ZM-ZW presel-US" id="countryId">
+    <select name="country" class="countries order-alpha include-CA-MX-US presel-US" id="countryId">
         <option value="">Select Country</option>
     </select>
   </td>
@@ -262,7 +266,7 @@ function volunteer_add_form()
      <select name="state" class="states order-alpha" id="stateId">
          <option value="">Select State</option>
      </select>
-     ></td>
+     </td>
    </tr>
 <tr>
  <th class="vert"><?php echo _("City"); ?></th>
@@ -291,7 +295,22 @@ function volunteer_add_form()
  <th class="vert"><?php echo _("E-mail"); ?></th>
  <td><input type="Text" name="email_address"></td>
  </tr>
-
+ <tr>
+  <th class="vert"><?php echo _("Emergency Contact First Name"); ?></th>
+  <td><input type="Text" name="emergency_fname"></td>
+  </tr>
+ <tr>
+  <th class="vert"><?php echo _("Emergency Contact Last Name"); ?></th>
+  <td><input type="Text" name="emergency_lname"></td>
+  </tr>
+ <tr>
+  <th class="vert"><?php echo _("Emergency Phone Number"); ?></th>
+  <td><input type="Text" name="emergency_phone"></td>
+  </tr>
+  <tr>
+   <th class="vert"><?php echo _("Relation of Emergency Contact"); ?></th>
+   <td><input type="Text" name="emergency_relationship"></td>
+   </tr>
 
 </table>
 <input type="submit" name="button_add_volunteer" value="<?php echo _("Add");?>">
