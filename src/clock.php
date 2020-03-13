@@ -41,7 +41,6 @@ $middle = mysqli_real_escape_string($_REQUEST['middle']);
 $last = mysqli_real_escape_string($_REQUEST['last']);
 $sql = "SELECT first,middle,last FROM volunteers WHERE first = $first AND middle = $middle and last = $last";
 // Queries the database with the given variables.
-$
 if ($result = mysqli_query($con, $sql)) {
 
     /* fetch associative array */
