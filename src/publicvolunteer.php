@@ -196,6 +196,7 @@ function volunteer_add_form()
   <td> <select id="ethnicity" name="ethnicity">
      <option value="Hispanic">Hispanic</option>
      <option value="Non-hispanic">Non-hispanic</option>
+     <option value="N/A">N/A</option>
    </td>
  </tr>
  <tr>
@@ -210,6 +211,7 @@ function volunteer_add_form()
   <option value="Native Alaskan">Audi</option>
   <option value="Multi-racial">Multi-racial</option>
   <option value="Other">Other</option>
+  <option value="N/A">N/A</option>
 </td>
 </select>
  </tr>
@@ -219,6 +221,7 @@ function volunteer_add_form()
      <option value="Male">Male</option>
      <option value="Female">Female</option>
      <option value="Non-binary">Non-binary</option>
+     <option value="N/A">N/A</option>
    </select>
  </td>
 </tr>
