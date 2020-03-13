@@ -32,7 +32,7 @@ echo "<h3>" . _("Add a volunteer") . "</h3>\n";
 function test_input($data) {
 	$data = trim($data);
 	$data = stripslashes($data);
-	$data = htmlspecialchars
+	$data = htmlspecialchars($data);
 	return $data;
 }
 
