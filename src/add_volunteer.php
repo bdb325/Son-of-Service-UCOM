@@ -68,7 +68,7 @@ function volunteer_add()
 
     $prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc()); 
     //$first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
-	$firstErr = ""
+	$firstErr = "";
 	if (empty($_POST["first"])) {
 		$firstErr = "First Name is Required";
 	} else {
