@@ -73,6 +73,7 @@ function volunteer_add()
 		$firstErr = "First Name is Required";
 	} else {
 		$first = $db->test_input($_POST['first']);
+	}
 	
     $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());      
     $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());      
