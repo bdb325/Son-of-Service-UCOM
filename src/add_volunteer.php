@@ -29,6 +29,13 @@ make_nav_begin();
 
 echo "<h3>" . _("Add a volunteer") . "</h3>\n";
 
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars
+	return $data;
+}
+
 function volunteer_add()
 {
     global $db;
@@ -60,7 +67,13 @@ function volunteer_add()
     $organization = $db->qstr(htmlentities($_POST['organization']), get_magic_quotes_gpc());
 
     $prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc()); 
-    $first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
+    //$first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
+	$firstErr = ""
+	if (empty($_POST["first"])) {
+		$firstErr = "First Name is Required";
+	} else {
+		$first = $db->test_input($_POST['first']);
+	
     $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());      
     $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());      
    
@@ -170,7 +183,7 @@ function volunteer_add_form()
  </tr>
 <tr>
  <th class="vert"><?php echo _("First name"); ?></th>
- <td><input type="Text" name="first"></td>
+ <td><input type="Text" name="first">* <?php echo $firstErr;?></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("Middle name"); ?></th>
