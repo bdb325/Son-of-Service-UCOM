@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2009 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * $Id: strings.php,v 1.13 2009/02/12 04:11:20 andrewziem Exp $
  *
  */

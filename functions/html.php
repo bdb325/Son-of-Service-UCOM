@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2011 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * Functions related to HTML, HTTP, and URLs.
  *
  * $Id: html.php,v 1.28 2011/12/21 04:32:25 andrewziem Exp $
