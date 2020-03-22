@@ -39,20 +39,58 @@ if ($conn->connect_error) {
 $first = mysqli_real_escape_string($_REQUEST['first']);
 $middle = mysqli_real_escape_string($_REQUEST['middle']);
 $last = mysqli_real_escape_string($_REQUEST['last']);
-$sql = "SELECT first,middle,last FROM volunteers WHERE first = $first AND middle = $middle and last = $last";
-// Queries the database with the given variables.
-if ($result = mysqli_query($con, $sql)) {
 
-    /* fetch associative array */
-    while ($row = mysqli_fetch_row($result)) {
-        $row[0] = $f;
-        $row[1] = $m;
-        $row[2] = $l;
-    }
 
-    /* free result set */
-    mysqli_free_result($result);
-}
+if (isset($_POST['punchIn'])) {
+      #Punch in was clicked
+      $sql = "SELECT f_name,m_initial,l_name FROM volunteers WHERE first = $first AND m_initial = $middle AND l_name = $last";
+      // Queries the database with the given variables. Todo: Test using echo statements
+      if ($result = mysqli_query($con, $sql)) {
+
+          /* fetch associative array */
+          while ($row = mysqli_fetch_row($result)) {
+              $row[0] = $f;
+              $row[1] = $m;
+              $row[2] = $l;
+              $punch ="INSERT INTO hours (f_name,m_initial,l_name,time_in)
+              VALUES('$f','$m','$l',now())";
+              // Executes the punch
+              if (mysqli_stmt_execute($punch)) {
+                echo "Punched in successfully!";
+              // Closes statement
+              mysqli_stmt_close($punch);
+            }
+            else {
+              echo "Something went wrong. Please try again";
+              mysqli_stmt_close($punch);
+            }
+              // Frees results
+              mysqli_free_result($result);
+              }
+
+          }
+
+
+  }
+
+  //Although unconventional, this second option is using a different way of coding for testing purposes.
+elseif (isset($_POST['punchOut'])) {
+
+$sql = "UPDATE hours SET time_out=mysqli_real_escape_stringnow(now()) WHERE $first = f_name AND $middle = m_initial AND $last = l_initial";
+
+  if ($con->query($sql) === TRUE) {
+      echo "Punched out successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+      }
+
+
+
+  }
+
+
 
 
 
