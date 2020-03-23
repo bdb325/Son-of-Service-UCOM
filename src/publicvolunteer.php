@@ -41,11 +41,11 @@ function volunteer_add()
        $errors_found++;
     }
 
-    if (!has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
+/*    if (!has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
     {
 	process_user_error(_("Insufficient permissions."));
 	$errors_found++;
-    }
+} */ //Login check
 
     if ($errors_found)
     {
@@ -97,7 +97,7 @@ function volunteer_add()
     $vid = $db->Insert_ID();
 
     // insert phone number records
-
+/*
     if (!empty($_POST['phone_home']) or !empty($_POST['phone_work']) or !empty($_POST['phone_cell']))
     {
 	// select an empty record
@@ -150,7 +150,7 @@ function volunteer_add()
 	    die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
 	}
     }
-
+*/ //THIS IS THE STUFF I COMMENTED OUT TO TEST
     // display success message
 
     $volunteer_row = volunteer_get($vid, $errstr);
