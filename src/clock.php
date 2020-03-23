@@ -88,7 +88,7 @@ $sql = "UPDATE hours SET time_out=mysqli_real_escape_stringnow(now()) WHERE $fir
 
 
 
-  }
+  
 
 
 
