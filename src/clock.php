@@ -76,7 +76,7 @@ if (isset($_POST['punchIn'])) {
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
 
-$sql = "UPDATE hours SET time_out=mysqli_real_escape_string(now()) WHERE $first = f_name AND $middle = m_initial AND $last = l_initial";
+$sql = "UPDATE hours SET time_out=now() WHERE $first = f_name AND $middle = m_initial AND $last = l_initial";
 
   if ($con->query($sql) === TRUE) {
       echo "Punched out successfully";
