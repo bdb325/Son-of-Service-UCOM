@@ -32,8 +32,8 @@ $con = new mysqli($servername, $username, $password, $db);
 
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 // note need to add two php codes. clock in and clock out
 $first = mysqli_real_escape_string($_REQUEST['first']);
@@ -81,7 +81,7 @@ $sql = "UPDATE hours SET time_out=mysqli_real_escape_string(now()) WHERE $first 
   if ($con->query($sql) === TRUE) {
       echo "Punched out successfully";
   } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $sql . "<br>" . $con->error;
   }
 
       }
