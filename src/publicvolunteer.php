@@ -65,7 +65,7 @@ function volunteer_add()
     $gender = $db->qstr(htmlentities($_POST['gender']));
     $veteran_status = $db->qstr(htmlentities($_POST['veteran_status']));
     $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type']));
-    $referred_from = $db->qstr(htmlentities($_POST['referred_from']));
+    $refered_from = $db->qstr(htmlentities($_POST['referred_from']));
     $birth_date = $db->qstr(htmlentities($_POST['birth_date']));
     $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
     $phone_number = $db->qstr(htmlentities($_POST['phone_number']));
@@ -84,8 +84,8 @@ function volunteer_add()
 
 
     $sql = 'INSERT INTO volunteers '.
-	    '(first,middle,last,organization,street,city,state,postal_code,country,email_address, dt_added, uid_added, dt_modified, uid_modified) '.
-	    "VALUES ($first, $middle, $last, $organization, $street, $city, $state, $postal_code, $country, $email_address, now(), ".get_user_id().", now(), uid_added)";
+	    '(f_name,m_initial,l_name,race,ethnicity,gender,veteran_status,volunteer_type,refered_from,birth_date,email_address,phone_number,country,street_address,state_providence,city,postal_code,emergency_fName,emergency_lName,emergency_relationship) '.
+	    "VALUES ($first, $middle, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $refered_from, $birth_date, $email_address, $phone_number, $country, $street_address, $state_providence, $city, $postal_code, $emergency_fname, $emergency_lname, $emergency_relationship)";
 
     $result = $db->Execute($sql);
 
