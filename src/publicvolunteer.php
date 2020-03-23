@@ -85,7 +85,7 @@ function volunteer_add()
 
     $sql = 'INSERT INTO volunteers '.
 	    '(f_name,m_initial,l_name,race,ethnicity,gender,veteran_status,volunteer_type,refered_from,birth_date,email_address,phone_number,country,street_address,state_providence,city,postal_code,emergency_fName,emergency_lName,emergency_relationship) '.
-	    "VALUES ($first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $refered_from, $birth_date, $email_address, $phone_number, 'US', $street_address, 'MI', 'Marysville', $postal_code, $emergency_fname, $emergency_lname, $emergency_relationship)";
+	    "VALUES ($first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $refered_from, $birth_date, $email_address, $phone_number, 'US', $street, 'MI', 'Marysville', $postal_code, $emergency_fname, $emergency_lname, $emergency_relationship)";
 
     $result = $db->Execute($sql);
 
