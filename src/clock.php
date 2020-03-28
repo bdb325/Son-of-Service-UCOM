@@ -53,7 +53,7 @@ if (isset($_POST['punchIn'])) {
                 $count =  $stmt->store_result();
                 if ($count > 0) {
                   echo "Punched in!";
-                  echo $count;
+                  echo $count
                 }
                 else {
                   echo "Name wasn't found. Check spelling and try again.";
