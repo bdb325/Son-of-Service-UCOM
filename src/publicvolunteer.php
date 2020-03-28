@@ -170,7 +170,6 @@ function volunteer_add()
 
 function volunteer_add_form()
 {
-// Below post statement includes an echo for security. Untested. Could break stuff
 ?>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 

@@ -73,12 +73,14 @@ if (isset($_POST['punchIn'])) {
               mysqli_free_result($result);
               }
               */
-              $time = now();
               $sql = "INSERT INTO HOURS (f_name,m_initial,l_name,time_in)
               SELECT v.f_name, v.m_initial, v.l_name, now()
               FROM VOLUNTEER v
-              WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
-
+              WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
+              $stmt = $con->prepare($sql);
+              $stmt->bind_param("sss", $first, $middle, $last);
+              $stmt->execute();
+/*
               if ($con->query($sql) === TRUE) {
                   echo "Punched in successfully!";
                   }
@@ -86,7 +88,7 @@ if (isset($_POST['punchIn'])) {
                     echo "Error : " . $sql . "<br>" . $con->error;
                       }
           }
-
+*/
 
 
 
