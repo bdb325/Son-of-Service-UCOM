@@ -98,7 +98,7 @@ if (isset($_POST['button_login']))
 	$username = $db->qstr($_POST['u']);
 	$password = $db->qstr(md5($_POST['p']));
 
-	$sql = "SELECT * FROM USERNAMES WHERE username = $username and password = $password";
+	$sql = "SELECT * FROM USERS WHERE username = $username and password = $password";
 
 	$result = $db->Execute($sql);
 
