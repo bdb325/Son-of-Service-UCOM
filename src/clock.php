@@ -50,7 +50,10 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
-                echo "Punched in!";
+                if ($stmt->rowCount() > 0) {
+                  echo "Punched in!";
+                }
+
                   /* if ($stmt->rowCount() === 0)
                     {echo "Your name wasn't found. Please check spelling and try again";}
                   else {
@@ -60,16 +63,6 @@ if (isset($_POST['punchIn'])) {
             else {
               echo "Error : " . $stmt . "<br>" . $con->error;
             }
-/*
-              if ($con->query($sql) === TRUE) {
-                  echo "Punched in successfully!";
-                  }
-                  else {
-                    echo "Error : " . $sql . "<br>" . $con->error;
-                      }
-          }
-*/
-
 }
 
   //Although unconventional, this second option is using a different way of coding for testing purposes.
@@ -80,9 +73,14 @@ elseif (isset($_POST['punchOut'])) {
   $sql = "UPDATE HOURS
   SET time_out=now()
   WHERE  f_name = ?  AND m_initial = ? AND l_name = ?";
-  $stmt = $con->prepare($sql);
-  $stmt->bind_param("sss", $first, $middle, $last);
-  $stmt->execute();
+  if($stmt = $con->prepare($sql)) {
+    $stmt->bind_param("sss", $first, $middle, $last);
+    $stmt->execute();
+    echo "Punched out successfully!";
+  }
+  else {
+    echo "Error : " . $stmt . "<br>" . $con->error;
+  }
 /*
   if ($stmt->execute() === TRUE) {
       echo "Punched out successfully";
