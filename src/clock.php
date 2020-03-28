@@ -75,7 +75,7 @@ if (isset($_POST['punchIn'])) {
               */
               $sql = "INSERT INTO HOURS (f_name,m_initial,l_name,time_in)
               SELECT v.f_name, v.m_initial, v.l_name
-              SET time_in = now()
+              SET time_in=now()
               FROM VOLUNTEER v
               WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
               $stmt = $con->prepare($sql);
@@ -91,7 +91,7 @@ if (isset($_POST['punchIn'])) {
           }
 */
 
-
+}
 
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
