@@ -53,7 +53,7 @@ if (isset($_POST['punchIn'])) {
                   echo "Punched in successfully!";
                 }
                 else {
-                  echo "die("Errormessage: ". $stmt->error)";
+                  echo "Error : "  . $stmt . "<br>" . $con->error;
                 }
             }
 /*
