@@ -36,9 +36,9 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 // note need to add two php codes. clock in and clock out
-$first = mysqli_real_escape_string($_REQUEST['first']);
-$middle = mysqli_real_escape_string($_REQUEST['middle']);
-$last = mysqli_real_escape_string($_REQUEST['last']);
+$first = mysqli_real_escape_string($_POST['first']);
+$middle = mysqli_real_escape_string($_POST['middle']);
+$last = mysqli_real_escape_string($_POST['last']);
 
 
 if (isset($_POST['punchIn'])) {
