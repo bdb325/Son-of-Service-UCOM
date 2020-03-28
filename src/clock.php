@@ -50,10 +50,10 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 if ($stmt->execute()) {
-                  echo "Punched in successfully!"
+                  echo "Punched in successfully!";
                 }
                 else {
-                  echo "die("Errormessage: ". $stmt->error);"
+                  echo "die("Errormessage: ". $stmt->error)";
                 }
             }
 /*
