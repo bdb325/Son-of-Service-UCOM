@@ -46,38 +46,27 @@ function addQuotes($str){
 
 if (isset($_POST['punchIn'])) {
       #Punch in was clicked
-      #UN COMMENT IF NEEDED
-
-    #  $sql = "SELECT f_name,m_initial,l_name FROM volunteers WHERE first = $first AND m_initial = $middle AND l_name = $last";
-      // Queries the database with the given variables. Todo: Test using echo statements
-    #  if ($result = mysqli_query($con, $sql)) {
-
-          /* fetch associative array */
-      #    while ($row = mysqli_fetch_row($result)) {
-    /*          $row[0] = $f;
-              $row[1] = $m;
-              $row[2] = $l;
-              $punch ="INSERT INTO hours (f_name,m_initial,l_name,time_in)
-              VALUES('$f','$m','$l',now())";
-              // Executes the punch
-              if (mysqli_stmt_execute($punch)) {
-                echo "Punched in successfully!";
-              // Closes statement
-              mysqli_stmt_close($punch);
-            }
-            else {
-              echo "Something went wrong. Please try again";
-              mysqli_stmt_close($punch);
-            }
-              // Frees results
-              mysqli_free_result($result);
-              }
-              */
+/*
               $sql = "INSERT INTO HOURS (f_name,m_initial,l_name,time_in)
               SELECT v.f_name, v.m_initial, v.l_name
               SET time_in=now()
               FROM VOLUNTEER v
-              WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
+              WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? "; */
+
+              $sql = "SELECT f_name, m_initial, l_name
+                      FROM VOLUNTEER
+                      WHERE f_name = ? AND m_initial = ? AND l_name = ?"
+              $stmt = $con->prepare($sql);
+              $stmt->bind_param("sss", $first, $middle, $last);
+              if ($stmt->execute() === TRUE) {
+                        $ins = "INSERT INTO HOURS (f_name,m_initial, l_name, time_in)
+                                VALUES(?,?,?, now())";
+                        $stmt = $con->prepare($ins);
+                        $stmt->bind_param("sss", $first, $middle, $last);
+                        $stmt->execute();
+
+                                              }
+              
               $stmt = $con->prepare($sql);
               $stmt->bind_param("sss", $first, $middle, $last);
               $stmt->execute();
