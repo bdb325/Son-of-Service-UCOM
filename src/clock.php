@@ -100,11 +100,13 @@ elseif (isset($_POST['punchOut'])) {
   WHERE  f_name = ?  AND m_initial = ? AND l_name = ?";
   $stmt = $con->prepare($sql);
   $stmt->bind_param("sss", $first, $middle, $last);
-  if ($stmt->query($sql) === TRUE) {
+  $stmt->execute();
+/*
+  if ($stmt->execute() === TRUE) {
       echo "Punched out successfully";
   } else {
       echo "Error: " . $sql . "<br>" . $stmt->error;
-  }
+  */
 
       }
 
