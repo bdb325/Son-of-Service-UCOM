@@ -95,8 +95,8 @@ if (isset($_POST['button_login']))
 	// Security: Do not allow variable poisoning
 	unset($uid);
 
-	$username = $db->qstr($_POST['u'];
-	$password = $db->qstr(md5($_POST['p']);
+	$username = $db->qstr($_POST['u']);
+	$password = $db->qstr(md5($_POST['p']));
 
 	$sql = "SELECT * FROM USERNAMES WHERE username = $username and password = $password";
 
