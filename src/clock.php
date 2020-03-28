@@ -93,18 +93,17 @@ if (isset($_POST['punchIn'])) {
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
 
-  addQuotes($first);
-  addQuotes($middle);
-  addquotes($last);
+
 
   $sql = "UPDATE HOURS
   SET time_out=now()
-  WHERE $first = f_name AND $middle = m_initial AND $last = l_name";
-
-  if ($con->query($sql) === TRUE) {
+  WHERE  f_name = ?  AND m_initial = ? AND l_name = ?";
+  $stmt = $con->prepare($sql)
+  $stmt->bind_param("sss", $first, $middle, $last);
+  if ($stmt->query($sql) === TRUE) {
       echo "Punched out successfully";
   } else {
-      echo "Error: " . $sql . "<br>" . $con->error;
+      echo "Error: " . $sql . "<br>" . $stmt->error;
   }
 
       }
