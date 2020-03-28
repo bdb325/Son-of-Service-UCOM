@@ -49,11 +49,11 @@ if (isset($_POST['punchIn'])) {
               WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
-                if ($stmt->execute()) {
-                  echo "Punched in successfully!";
-                }
+                $stmt->execute());
+                if ($stmt->rowCount() === 0)
+                  {echo "Your name wasn't found. Please check spelling and try again"}
                 else {
-                  echo "Error : "  . $stmt . "<br>" . $con->error;
+                  echo "Punched in!"
                 }
             }
 /*
