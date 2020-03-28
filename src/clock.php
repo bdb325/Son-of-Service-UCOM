@@ -77,10 +77,17 @@ SELECT v.f_name, v.m_initial, v.l_name
 FROM volunteers v
 
 WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last"
+
+if ($con->query($sql) === TRUE) {
+  echo "Punched in successfully!"
+}
+else {
+  echo "Error : " . $sql . "<br>" . $con->error;
+}
           }
 
 
-  }
+
 
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
