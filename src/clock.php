@@ -74,7 +74,7 @@ if (isset($_POST['punchIn'])) {
               $sql = "INSERT INTO HOURS (f_name,m_initial,l_name,time_in)
               SELECT v.f_name, v.m_initial, v.l_name, now()
               FROM VOLUNTEER v
-              WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
+              WHERE v.f_name = '$first' AND v.m_initial = '$middle' AND v.l_name = '$last'";
 
               if ($con->query($sql) === TRUE) {
                   echo "Punched in successfully!";
