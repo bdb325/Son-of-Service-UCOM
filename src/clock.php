@@ -50,7 +50,7 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
-                if ($stmt->numRows() > 0) {
+                if ($stmt->mysqli_stmt_num_row() > 0) {
                   echo "Punched in!";
                 }
                 else {
