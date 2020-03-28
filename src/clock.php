@@ -43,13 +43,15 @@ $last = mysqli_real_escape_string($_REQUEST['last']);
 
 if (isset($_POST['punchIn'])) {
       #Punch in was clicked
-      $sql = "SELECT f_name,m_initial,l_name FROM volunteers WHERE first = $first AND m_initial = $middle AND l_name = $last";
+      #UN COMMENT IF NEEDED
+
+    #  $sql = "SELECT f_name,m_initial,l_name FROM volunteers WHERE first = $first AND m_initial = $middle AND l_name = $last";
       // Queries the database with the given variables. Todo: Test using echo statements
-      if ($result = mysqli_query($con, $sql)) {
+    #  if ($result = mysqli_query($con, $sql)) {
 
           /* fetch associative array */
-          while ($row = mysqli_fetch_row($result)) {
-              $row[0] = $f;
+      #    while ($row = mysqli_fetch_row($result)) {
+    /*          $row[0] = $f;
               $row[1] = $m;
               $row[2] = $l;
               $punch ="INSERT INTO hours (f_name,m_initial,l_name,time_in)
@@ -67,7 +69,14 @@ if (isset($_POST['punchIn'])) {
               // Frees results
               mysqli_free_result($result);
               }
+              */
+              $sql = "INSERT INTO hours ($first, $middle, $last, now())
 
+SELECT v.f_name, v.m_initial, v.l_name
+
+FROM volunteers v
+
+WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last"
           }
 
 
