@@ -39,6 +39,9 @@ if ($con->connect_error) {
 $first = $con->real_escape_string($_POST['first']);
 $middle =$con->real_escape_string($_POST['middle']);
 $last = $con->real_escape_string($_POST['last']);
+function addQuotes($str){
+    return "'$str'";
+}
 
 
 if (isset($_POST['punchIn'])) {
@@ -74,7 +77,7 @@ if (isset($_POST['punchIn'])) {
               $sql = "INSERT INTO HOURS (f_name,m_initial,l_name,time_in)
               SELECT v.f_name, v.m_initial, v.l_name, now()
               FROM VOLUNTEER v
-              WHERE v.f_name = '$first' AND v.m_initial = '$middle' AND v.l_name = '$last'";
+              WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
 
               if ($con->query($sql) === TRUE) {
                   echo "Punched in successfully!";
@@ -89,6 +92,10 @@ if (isset($_POST['punchIn'])) {
 
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
+
+  addQuotes($first);
+  addQuotes($middle);
+  addquotes($last);
 
   $sql = "UPDATE HOURS
   SET time_out=now()
