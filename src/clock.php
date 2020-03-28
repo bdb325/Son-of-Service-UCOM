@@ -50,12 +50,14 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
-                if ($stmt->mysqli_stmt_num_row() > 0) {
+                $stmt->store_result();
+                if ($stmt->num_row() > 0) {
                   echo "Punched in!";
                 }
                 else {
                   echo "Name wasn't found. Check spelling and try again.";
                 }
+                $stmt->free_result();
 
                   /* if ($stmt->rowCount() === 0)
                     {echo "Your name wasn't found. Please check spelling and try again";}
