@@ -50,8 +50,8 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
-                $stmt->store_result();
-                if ($stmt->num_row() > 0) {
+                $count =  $stmt->store_result();
+                if ($count > 0) {
                   echo "Punched in!";
                 }
                 else {
