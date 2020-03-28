@@ -51,9 +51,9 @@ if (isset($_POST['punchIn'])) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute());
                   if ($stmt->rowCount() === 0)
-                    {echo "Your name wasn't found. Please check spelling and try again"}
+                    {echo "Your name wasn't found. Please check spelling and try again";}
                   else {
-                    echo "Punched in!"
+                    echo "Punched in!";
                 }
             }
 /*
