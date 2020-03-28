@@ -1,4 +1,4 @@
-/**@font-face {
+@font-face {
     font-family: 'AvenirLTStd55Roman';
     src: url('http://ucomgr.org/css/fonts/avenirltstd-roman-webfont.eot');
     src: url('http://ucomgr.org/css/fonts/fonts/avenirltstd-roman-webfont.eot?#iefix') format('embedded-opentype'),
@@ -8,13 +8,14 @@
 	font-weight: normal;
 	font-style: normal;
 
-}**/
+}
 
 BODY {
 	font-size: 100%;
 	background-color: #C4C760;
 	color: #000;
 }
+
 
 /**P, TD, H1, H2, H3, H4, H5 {
  color: #000;
