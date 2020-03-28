@@ -98,7 +98,7 @@ elseif (isset($_POST['punchOut'])) {
   $sql = "UPDATE HOURS
   SET time_out=now()
   WHERE  f_name = ?  AND m_initial = ? AND l_name = ?";
-  $stmt = $con->prepare($sql)
+  $stmt = $con->prepare($sql);
   $stmt->bind_param("sss", $first, $middle, $last);
   if ($stmt->query($sql) === TRUE) {
       echo "Punched out successfully";
