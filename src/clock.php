@@ -55,18 +55,18 @@ if (isset($_POST['punchIn'])) {
 
               $sql = "SELECT f_name, m_initial, l_name
                       FROM VOLUNTEER
-                      WHERE f_name = ? AND m_initial = ? AND l_name = ?"
+                      WHERE f_name = ? AND m_initial = ? AND l_name = ?";
               $stmt = $con->prepare($sql);
               $stmt->bind_param("sss", $first, $middle, $last);
               if ($stmt->execute() === TRUE) {
                         $ins = "INSERT INTO HOURS (f_name,m_initial, l_name, time_in)
-                                VALUES(?,?,?, now())";
+                                VALUES(?,?,?,now())";
                         $stmt = $con->prepare($ins);
                         $stmt->bind_param("sss", $first, $middle, $last);
                         $stmt->execute();
 
                                               }
-              
+
               $stmt = $con->prepare($sql);
               $stmt->bind_param("sss", $first, $middle, $last);
               $stmt->execute();
