@@ -70,7 +70,8 @@ if (isset($_POST['punchIn'])) {
               mysqli_free_result($result);
               }
               */
-              $sql = "INSERT INTO hours ($first, $middle, $last, now())
+              $time = now();
+              $sql = "INSERT INTO hours ($first, $middle, $last, $time)
               SELECT v.f_name, v.m_initial, v.l_name
               FROM volunteers v
               WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
