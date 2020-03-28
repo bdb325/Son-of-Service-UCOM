@@ -71,19 +71,16 @@ if (isset($_POST['punchIn'])) {
               }
               */
               $sql = "INSERT INTO hours ($first, $middle, $last, now())
+              SELECT v.f_name, v.m_initial, v.l_name
+              FROM volunteers v
+              WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
 
-SELECT v.f_name, v.m_initial, v.l_name
-
-FROM volunteers v
-
-WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last"
-
-if ($con->query($sql) === TRUE) {
-  echo "Punched in successfully!"
-}
-else {
-  echo "Error : " . $sql . "<br>" . $con->error;
-}
+              if ($con->query($sql) === TRUE) {
+                  echo "Punched in successfully!";
+                  }
+                  else {
+                    echo "Error : " . $sql . "<br>" . $con->error;
+                      }
           }
 
 
