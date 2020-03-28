@@ -50,11 +50,15 @@ if (isset($_POST['punchIn'])) {
               if ($stmt = $con->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
-                  if ($stmt->rowCount() === 0)
+                echo "Punched in!";
+                  /* if ($stmt->rowCount() === 0)
                     {echo "Your name wasn't found. Please check spelling and try again";}
                   else {
                     echo "Punched in!";
-                }
+                } */
+            }
+            else {
+              echo "Error : " . $stmt . "<br>" . $con->error;
             }
 /*
               if ($con->query($sql) === TRUE) {
