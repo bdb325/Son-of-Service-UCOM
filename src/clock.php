@@ -90,7 +90,10 @@ if (isset($_POST['punchIn'])) {
   //Although unconventional, this second option is using a different way of coding for testing purposes.
 elseif (isset($_POST['punchOut'])) {
 
-$sql = "UPDATE HOURS SET time_out=now() WHERE f_name = $first  AND m_initial = $middle AND l_name = $last";
+$sql = "UPDATE HOURS SET time_out=now()
+        SELECT v.f_name, v.m_initial, v.l_name
+        FROM VOLUNTEER V
+        WHERE v.f_name = $first AND v.m_initial = $middle AND v.l_name = $last";
 
   if ($con->query($sql) === TRUE) {
       echo "Punched out successfully";
