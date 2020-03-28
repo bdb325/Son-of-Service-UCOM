@@ -39,9 +39,6 @@ if ($con->connect_error) {
 $first = $con->real_escape_string($_POST['first']);
 $middle =$con->real_escape_string($_POST['middle']);
 $last = $con->real_escape_string($_POST['last']);
-function addQuotes($str){
-    return "'$str'";
-}
 
 
 if (isset($_POST['punchIn'])) {
@@ -51,8 +48,13 @@ if (isset($_POST['punchIn'])) {
               FROM VOLUNTEER v
               WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
               if ($stmt = $con->prepare($sql)) {
-              $stmt->bind_param("sss", $first, $middle, $last);
-              $stmt->execute();
+                $stmt->bind_param("sss", $first, $middle, $last);
+                if ($stmt->execute()) {
+                  echo "Punched in successfully!"
+                }
+                else {
+                  echo "die("Errormessage: ". $stmt->error);"
+                }
             }
 /*
               if ($con->query($sql) === TRUE) {
