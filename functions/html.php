@@ -305,6 +305,12 @@ function make_html_begin($title, $options)
 			<ul id=\"nav\" class=\"sf-menu\">
 				<li><a href=\"home\" title=\"Home\"  id=\"home\" >Home</a></li><li><a href=\"about\" title=\"About\"  id=\"about\" >About</a><ul><li><a href=\"partners\" title=\"Community Partners\"  id=\"partners\" >Community Partners</a></li><li><a href=\"hours\" title=\"Hours and Eligibility\"  id=\"hours\" >Hours and Eligibility</a></li><li><a href=\"mission\" title=\"Mission and Values\"  id=\"mission\" >Mission and Values</a></li><li><a href=\"Ourteam\" title=\"Our Team\"  id=\"Ourteam\" >Our Team</a><ul><li><a href=\"staff\" title=\"Staff\"  id=\"staff\" >Staff</a></li><li><a href=\"board\" title=\"Board\"  id=\"board\" >Board</a></li></ul></li><li><a href=\"history\" title=\"History\"  id=\"history\" >History</a></li><li><a href=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" title=\"Annual Report\"  id=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" >Annual Report</a></li><li><a href=\"diversity\" title=\"Commitment to Diversity\"  id=\"diversity\" >Commitment to Diversity</a></li><li><a href=\"healthyfood\" title=\"UCOM Healthy Food Policy\"  id=\"healthyfood\" >UCOM Healthy Food Policy</a></li></ul></li><li><a href=\"news-events\" title=\"News/Events\"  id=\"news-events\" >News/Events</a><ul><li><a href=\"newsletters\" title=\"Newsletters\"  id=\"newsletters\" >Newsletters</a><ul><li><a href=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" title=\"Winter '20 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" >Winter '20 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" title=\"Fall '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" >Fall '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" title=\"Summer '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" >Summer '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" title=\"Spring '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" >Spring '19 Newsletter</a></li></ul></li><li><a href=\"directors_blog\" title=\"Bruce's Blog\"  id=\"directors_blog\" >Bruce's Blog</a></li><li><a href=\"events\" title=\"Events\"  id=\"events\" >Events</a></li><li><a href=\"concert2020\" title=\"17th Annual Friends of UCOM Benefit Concert\"  id=\"concert2020\" >17th Annual Friends of UCOM Benefit Concert</a></li></ul></li><li><a href=\"programs\" title=\"Programs\"  id=\"programs\" >Programs</a><ul><li><a href=\"food\" title=\"Food Support\"  id=\"food\" >Food Support</a><ul><li><a href=\"foodpantry\" title=\"Healthy Choice Food Pantry\"  id=\"foodpantry\" >Healthy Choice Food Pantry</a></li><li><a href=\"farmstand\" title=\"UCOM Farm Stand\"  id=\"farmstand\" >UCOM Farm Stand</a></li><li><a href=\"ggn\" title=\"Growing Green Neighbors\"  id=\"ggn\" >Growing Green Neighbors</a><ul><li><a href=\"sfg\" title=\"Square Foot Gardening\"  id=\"sfg\" >Square Foot Gardening</a></li><li><a href=\"projectfresh\" title=\"Project Fresh\"  id=\"projectfresh\" >Project Fresh</a></li></ul></li></ul></li><li><a href=\"clothing\" title=\"Clothing Pantry\"  id=\"clothing\" >Clothing Pantry</a></li><li><a href=\"financial_literacy\" title=\"Financial Literacy\"  id=\"financial_literacy\" >Financial Literacy</a></li><li><a href=\"health_screening\" title=\"Health Screening\"  id=\"health_screening\" >Health Screening</a></li><li><a href=\"work_skills\" title=\"Work Skills Training Site\"  id=\"work_skills\" >Work Skills Training Site</a></li></ul></li><li><a href=\"get_involved\" title=\"Get Involved\"  id=\"get_involved\" >Get Involved</a><ul><li><a href=\"donate\" title=\"Donate\"  id=\"donate\" >Donate</a></li><li><a href=\"emaillistjoin\" title=\"E-Mailing List\"  id=\"emaillistjoin\" >E-Mailing List</a></li><li><a href=\"missiongroups\" title=\"Mission Groups\"  id=\"missiongroups\" >Mission Groups</a></li><li><a href=\"volunteer\" title=\"Volunteer\"  id=\"volunteer\" >Volunteer</a></li><li><a href=\"employment\" title=\"Employment Opportunities\"  id=\"employment\" >Employment Opportunities</a></li><li><a href=\"needs\" title=\"Needs\"  id=\"needs\" >Needs</a></li></ul></li><li><a href=\"links\" title=\"Links\"  id=\"links\" >Links</a></li><li><a href=\"contact\" title=\"Contact Us\"  id=\"contact\" >Contact Us</a></li>			</ul>	
 		</div>\n");
+
+}
+
+
+function make_html_end()
+{
 			echo ("	<div id=\"footer\">
 				<div class=\"clear\"></div>
 			
@@ -330,12 +336,6 @@ function make_html_begin($title, $options)
 			<div class=\"clear\"></div>
  	</div><!-- close footer -->
 </div><!-- close wrapper -->\n");
-}
-
-
-function make_html_end()
-{
-
     if (is_logged_in(FALSE))
     {
 ?>
