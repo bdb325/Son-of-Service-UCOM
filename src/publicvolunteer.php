@@ -250,12 +250,15 @@ if (array_key_exists('button_add_volunteer', $_POST))
                             }
     }
 
+
+    else
+    {
+        volunteer_add_form();
+    }
+
+
     volunteer_add();
 
-else
-{
-    volunteer_add_form();
-}
 
 
 
