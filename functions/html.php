@@ -140,7 +140,7 @@ function make_html_begin($title, $options)
 	echo ("<meta name=\"keywords\" content=\"ucom, ucomgr, united church outreach ministry, bruce roller, food pantry, grandville, wyoming\" />\n");
 	echo ("<meta name=\"description\" content=\"United Church Outreach Ministry values individuals and builds community in southwestern Kent County by providing material and educational assistance to meet basic needs, improve quality of life, and promote self-sufficiency.\" />\n");
 	echo ("<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold' rel='stylesheet' type='text/css' />\n");
-	echo ("<link href=\"css/reset.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />"\n);
+	echo ("<link href=\"css/reset.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n");
 	echo ("<link href=\"js/fancybox/jquery.fancybox-1.3.4.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n");
 	echo ("<link href=\"css/superfish.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n");
 	echo ("<link href=\"css/custom-theme/jquery-ui-1.8.2.custom.css\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />\n");
