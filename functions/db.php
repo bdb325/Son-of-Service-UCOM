@@ -69,7 +69,7 @@ function conn_db ()
   global $db;
 
 
-  if(isset)($db)) //check for existing connection
+  if(isset($db)) //check for existing connection
   {
     return $db;
   }
