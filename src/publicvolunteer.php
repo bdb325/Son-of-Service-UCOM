@@ -89,7 +89,7 @@ function volunteer_add()
     }
 
     elseif ($result) {
-      echo ("Added" . $first . " to the database!")
+      echo ("Added" . $first . " to the database!");
     }
 
     $vid = $db->Insert_ID();
