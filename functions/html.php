@@ -336,17 +336,7 @@ function make_html_end()
 			<div class=\"clear\"></div>
  	</div><!-- close footer -->
 </div><!-- close wrapper -->\n");
-    if (is_logged_in(FALSE))
-    {
-?>
-<HR>
-<P><A href="<?php echo SOS_PATH; ?>src/about.php">Son of Service</A></P>
-<?php
-}
-?>
-</BODY>
-</HTML>
-<?php
+  
 
     }
 
