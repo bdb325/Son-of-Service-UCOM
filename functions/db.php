@@ -62,6 +62,21 @@ function volunteer_get($vid, &$errstr)
     return $volunteer;
 
  } /* volunteer_get() */
+/* Blaine's custom SQLI connection function. Original recipe */
+function conn_db ()
+{
+  global $cfg; //config
+  global $db;
+
+
+  if(isset)($db)) //check for existing connection
+  {
+    return $db;
+  }
+
+  $db = new mysqli($cfg['dbhost'], $cfg['dbuser'], $cfg['dbpass'], $cfg['dbname']);
+  return $db;
+  }
 
 
 function connect_db ()

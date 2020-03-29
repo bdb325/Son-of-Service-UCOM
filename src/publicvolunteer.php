@@ -47,61 +47,56 @@ function volunteer_add()
 	  // todo: redisplay form here with values in place
 	  die();
     }
-
-    $organization = $db->qstr(htmlentities($_POST['organization']), get_magic_quotes_gpc());
-
-    //$prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc());
-    $first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
-    $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());
-    $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());
-    $race = $db->qstr(htmlentities($_POST['race']));
-    $ethnicity = $db->qstr(htmlentities($_POST['ethnicity']));
-    $gender = $db->qstr(htmlentities($_POST['gender']));
-    $veteran_status = $db->qstr(htmlentities($_POST['veteran_status']));
-    $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type']));
-    $refered_from = $db->qstr(htmlentities($_POST['referred_from']));
-    $birth_date = $db->qstr(htmlentities($_POST['birth_date']));
-    $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
-    $phone_number = $db->qstr(htmlentities($_POST['phone_number']));
-    $country = $db->qstr(htmlentities($_POST['country']));
-    $street = $db->qstr(htmlentities($_POST['street']), get_magic_quotes_gpc());
-    $state = $db->qstr(htmlentities($_POST['state']), get_magic_quotes_gpc());
-    $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
-    $postal_code = $db->qstr(htmlentities($_POST['postal_code']), get_magic_quotes_gpc());
-    $country = $db->qstr(htmlentities($_POST['country']), get_magic_quotes_gpc());
-    $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname']));
-    $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname']));
-    $emergency_phone = $db->qstr(htmlentities($_POST['emergency_phone']));
-    $emergency_relationship = $db->qstr(htmlentities($_POST['emergency_relationship']));
-    $e_newsletter = $db->qstr(htmlentities($_POST['e_newsletter']));
+    $first = $db->real_escape_string($_POST['first']));
+    $middle = $db->real_escape_string($_POST['middle']));
+    $last = $db->real_escape_string($_POST['last']));
+    $race = $db->real_escape_string($_POST['race']));
+    $ethnicity = $db->real_escape_string($_POST['ethnicity']));
+    $gender = $db->real_escape_string($_POST['gender']));
+    $veteran_status = $db->real_escape_string($_POST['veteran_status']));
+    $volunteer_type = $db->real_escape_string($_POST['volunteer_type']));
+    $refered_from = $db->real_escape_string($_POST['referred_from']));
+    $birth_date = $db->real_escape_string($_POST['birth_date']));
+    $email_address = $db->real_escape_string($_POST['email_address']));
+    $phone_number = $db->real_escape_string($_POST['phone_number']));
+    $country = $db->real_escape_string($_POST['country']));
+    $street = $db->real_escape_string($_POST['street']));
+    $state = $db->real_escape_string($_POST['state']));
+    $city = $db->real_escape_string($_POST['city']));
+    $postal_code = $db->real_escape_string($_POST['postal_code']));
+    $country = $db->real_escape_string($_POST['country'])));
+    $emergency_fname = $db->real_escape_string($_POST['emergency_fname']));
+    $emergency_lname = $db->real_escape_string($_POST['emergency_lname']));
+    $emergency_phone = $db->real_escape_string($_POST['emergency_phone']));
+    $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']));
+    $e_newsletter = $db->real_escape_string($_POST['e_newsletter']));
 
 
 
     $sql = 'INSERT INTO VOLUNTEER '.
 	    '(f_name,m_initial,l_name,race,ethnicity,gender,veteran_status,volunteer_type,refered_from,birth_date,email_address,phone_number,country,street_address,state_providence,city,postal_code,emergency_fName,emergency_lName,emergency_relationship) '.
-	    "VALUES ($first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $refered_from, $birth_date, $email_address, $phone_number, 'US', $street, 'MI', 'Marysville', $postal_code, $emergency_fname, $emergency_lname, $emergency_relationship)";
+	    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      if ($stmt = $db->prepare($sql)) {
+                $stmt->bind_param("sssssssssssdissssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $refered_from, $birth_date, $email_address, $phone_number '0', $street, $state, $city, $postal_code, $emergency_fname, $emergency_lname, $emergency_relationship);
+                $stmt->execute();
+                $count =  $stmt->store_result();
+                if ($stmt) {
+                  echo "Added " . $first " to the database!";
+                }
+                else {
+                  echo "Something went wrong!";
+                }
+                $stmt->free_result();
 
-    $result = $db->Execute($sql);
+                  /* if ($stmt->rowCount() === 0)
+                    {echo "Your name wasn't found. Please check spelling and try again";}
+                  else {
+                    echo "Punched in!";
+                } */
+            }
 
-    if (!$result)
-    {
-	die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
-    }
-
-    elseif ($result) {
-      echo ("Added" . $first . " to the database!");
-    }
-
-    $vid = $db->Insert_ID();
-    $volunteer_row = volunteer_get($vid, $errstr);
-
-    if ($volunteer_row)
-    {
-        echo ("<P>" . _("Added:") . " <A href=\"". SOS_PATH . "volunteer/?vid=$vid\">" . make_volunteer_name($volunteer_row) . ' (#'.$vid.")</A>.</P>\n");
-    }
-    else
-    {
-	echo ("<P>volunteer_get() error:  $errstr</P>\n");
+    if (!$stmt) {
+      echo "Error : " . $stmt . "<br>" . $con->error;
     }
 
 
@@ -267,11 +262,10 @@ function volunteer_add_form()
 
 if (array_key_exists('button_add_volunteer', $_POST))
 {
-    $db = connect_db();
-
-    if (!$db)
-    {
-        die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
+    $db = conn_db();
+    if ($db->connect_error) {
+      die("Connection failed: " . $db->connect_error);
+                            }
     }
 
     volunteer_add();
