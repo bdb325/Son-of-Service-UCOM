@@ -67,12 +67,14 @@ function volunteer_add()
                   echo "Redirecting in 3 seconds";
                   sleep(3);
                   header('Location: ../index.php');
+                  die();
                 }
                 else {
                   echo "Something went wrong! Please try again.";
                   echo "Redirecting in 3 seconds";
                   sleep(3);
                   header('Location: ../index.php');
+                  die();
                 }
                 $stmt->free_result();
 
