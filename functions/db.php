@@ -85,9 +85,9 @@ function connect_db ()
 		$db = &NewADOConnection('mysqli');
 
 		// toggle persistant connections
-		if (TRUE == $cfg['dbpersis'])
+		if (TRUE == $cfg['dbpersist'])
 		{
-			$db->PConnect($cfg['dbhost'], $cfg['dbuser'],
+			$db->Connect($cfg['dbhost'], $cfg['dbuser'],
 				$cfg['dbpass'], $cfg['dbname']);
 		}
 		else
