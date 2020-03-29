@@ -29,29 +29,29 @@ echo "<h3>" . _("Add a volunteer") . "</h3>\n";
 function volunteer_add()
 {
     global $db;
-    $first = $db->real_escape_string($_POST['first']));
-    $middle = $db->real_escape_string($_POST['middle']));
-    $last = $db->real_escape_string($_POST['last']));
-    $race = $db->real_escape_string($_POST['race']));
-    $ethnicity = $db->real_escape_string($_POST['ethnicity']));
-    $gender = $db->real_escape_string($_POST['gender']));
-    $veteran_status = $db->real_escape_string($_POST['veteran_status']));
-    $volunteer_type = $db->real_escape_string($_POST['volunteer_type']));
-    $refered_from = $db->real_escape_string($_POST['referred_from']));
-    $birth_date = $db->real_escape_string($_POST['birth_date']));
-    $email_address = $db->real_escape_string($_POST['email_address']));
-    $phone_number = $db->real_escape_string($_POST['phone_number']));
-    $country = $db->real_escape_string($_POST['country']));
-    $street = $db->real_escape_string($_POST['street']));
-    $state = $db->real_escape_string($_POST['state']));
-    $city = $db->real_escape_string($_POST['city']));
-    $postal_code = $db->real_escape_string($_POST['postal_code']));
-    $country = $db->real_escape_string($_POST['country'])));
-    $emergency_fname = $db->real_escape_string($_POST['emergency_fname']));
-    $emergency_lname = $db->real_escape_string($_POST['emergency_lname']));
-    $emergency_phone = $db->real_escape_string($_POST['emergency_phone']));
-    $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']));
-    $e_newsletter = $db->real_escape_string($_POST['e_newsletter']));
+    $first = $db->real_escape_string($_POST['first']);
+    $middle = $db->real_escape_string($_POST['middle']);
+    $last = $db->real_escape_string($_POST['last']);
+    $race = $db->real_escape_string($_POST['race']);
+    $ethnicity = $db->real_escape_string($_POST['ethnicity']);
+    $gender = $db->real_escape_string($_POST['gender']);
+    $veteran_status = $db->real_escape_string($_POST['veteran_status']);
+    $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
+    $refered_from = $db->real_escape_string($_POST['referred_from']);
+    $birth_date = $db->real_escape_string($_POST['birth_date']);
+    $email_address = $db->real_escape_string($_POST['email_address']);
+    $phone_number = $db->real_escape_string($_POST['phone_number']);
+    $country = $db->real_escape_string($_POST['country']);
+    $street = $db->real_escape_string($_POST['street']);
+    $state = $db->real_escape_string($_POST['state']);
+    $city = $db->real_escape_string($_POST['city']);
+    $postal_code = $db->real_escape_string($_POST['postal_code']);
+    $country = $db->real_escape_string($_POST['country']);
+    $emergency_fname = $db->real_escape_string($_POST['emergency_fname']);
+    $emergency_lname = $db->real_escape_string($_POST['emergency_lname']);
+    $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
+    $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
+    $e_newsletter = $db->real_escape_string($_POST['e_newsletter']);
 
 
 
