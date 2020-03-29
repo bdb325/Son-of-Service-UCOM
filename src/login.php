@@ -112,7 +112,6 @@ if (isset($_POST['button_login']))
 		sleep(3);
 		process_user_error(_("Invalid user name or password."), _("Is your caps lock key on?"));
 		request_login();
-		echo $password;
 		exit();
 	}
 
