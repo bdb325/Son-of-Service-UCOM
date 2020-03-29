@@ -29,24 +29,6 @@ echo "<h3>" . _("Add a volunteer") . "</h3>\n";
 function volunteer_add()
 {
     global $db;
-
-
-    // validate form input
-
-
-
-/*    if (!has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
-    {
-	process_user_error(_("Insufficient permissions."));
-	$errors_found++;
-} */ //Login check
-
-    if ($errors_found)
-    {
-	  echo ("<P>Try <A href=\"publicvolunteer.php\">again</A>.</P>\n");
-	  // todo: redisplay form here with values in place
-	  die();
-    }
     $first = $db->real_escape_string($_POST['first']));
     $middle = $db->real_escape_string($_POST['middle']));
     $last = $db->real_escape_string($_POST['last']));
