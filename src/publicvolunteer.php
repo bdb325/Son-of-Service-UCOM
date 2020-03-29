@@ -64,9 +64,15 @@ function volunteer_add()
                 $count =  $stmt->store_result();
                 if ($stmt) {
                   echo "Added " . $first . " to the database!";
+                  echo "Redirecting in 3 seconds";
+                  sleep(3);
+                  header('Location: ../index.php');
                 }
                 else {
-                  echo "Something went wrong!";
+                  echo "Something went wrong! Please try again.";
+                  echo "Redirecting in 3 seconds";
+                  sleep(3);
+                  header('Location: ../index.php');
                 }
                 $stmt->free_result();
 
