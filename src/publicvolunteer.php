@@ -33,13 +33,7 @@ function volunteer_add()
 
     // validate form input
 
-    $errors_found = 0;
 
-    if (2 > (strlen(trim($_POST['last'])) + strlen(trim($_POST['organization']))))
-    {
-       process_user_error(_("Please enter a longer last name or organization."));
-       $errors_found++;
-    }
 
 /*    if (!has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
     {
@@ -94,65 +88,11 @@ function volunteer_add()
 	die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
     }
 
+    elseif ($result) {
+      echo ("Added" . $first . " to the database!")
+    }
+
     $vid = $db->Insert_ID();
-
-    // insert phone number records
-/*
-    if (!empty($_POST['phone_home']) or !empty($_POST['phone_work']) or !empty($_POST['phone_cell']))
-    {
-	// select an empty record
-
-	$sql = "SELECT * FROM phone_numbers WHERE 0 = 1";
-	$template_result = $db->Execute($sql);
-	if (!$template_result)
-	{
-	    die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
-	}
-
-	$record['volunteer_id'] = $vid;
-    }
-
-    if (!empty($_POST['phone_home']))
-    {
-	$record['number'] =  htmlentities($_POST['phone_home']);
-	$record['memo'] = _("Home");
-	$sql = $db->GetInsertSql($template_result, $record);
-	$result = $db->Execute($sql);
-	if (!$result)
-	{
-	    // todo: roll back
-	    die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
-	}
-    }
-
-    if (!empty($_POST['phone_work']))
-    {
-	$record['number'] =  htmlentities($_POST['phone_work']);
-	$record['memo'] = _("Work");
-	$sql = $db->GetInsertSql($template_result, $record);
-	$result = $db->Execute($sql);
-	if (!$result)
-	{
-	    // todo: roll back
-	    die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
-	}
-    }
-
-    if (!empty($_POST['phone_cell']))
-    {
-	$record['number'] =  htmlentities($_POST['phone_cell']);
-	$record['memo'] = _("Cell");
-	$sql = $db->GetInsertSql($template_result, $record);
-	$result = $db->Execute($sql);
-	if (!$result)
-	{
-	    // todo: roll back
-	    die_message(MSG_SYSTEM_ERROR, _("Error adding data to database."), __FILE__, __LINE__, $sql);
-	}
-    }
-*/ //THIS IS THE STUFF I COMMENTED OUT TO TEST
-    // display success message
-
     $volunteer_row = volunteer_get($vid, $errstr);
 
     if ($volunteer_row)
