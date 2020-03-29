@@ -63,7 +63,7 @@ function volunteer_add()
                 $stmt->execute();
                 $count =  $stmt->store_result();
                 if ($stmt) {
-                  echo "Added " . $first " to the database!";
+                  echo "Added " . $first . " to the database!";
                 }
                 else {
                   echo "Something went wrong!";
