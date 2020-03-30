@@ -305,7 +305,21 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	$offset = 0;
     }
 
+    $first = $db->real_escape_string($_POST['first']);
+    $last = $db->real_escape_string($_POST['last']);
+    $street = $db->real_escape_string($_POST['street']);
+    $city = $db->real_escape_string($_POST['city']);
+    $zip = $db->real_escape_string($_POST['postal_code']);
+    $country = $db->real_escape_string($_POST['country']);
+    $phoneNum = $db->real_escape_string($_POST['phone_number']);
+    $email = $db->real_escape_string($_POST['email_address']);
+
+
+
+
+    $sql = "SELECT f_name, l_name, street, city, postal_code, country, phone_number, email_address FROM VOLUNTEER WHERE f_name like ? OR l_name like ? or street_address like ? or city like ? OR postal_code like ? or country like ? or phone_number like ? or email_address like ?"
     $stmt = $db->prepare($sql);
+    $stmt->bind_param("ssssssds", $first,$last,$street,$city,$zip,$country,$phoneNum,$email);
     $result = $db->execute($stmt);
 
     if (!$result)
