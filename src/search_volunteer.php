@@ -177,7 +177,7 @@ function volunteer_search_sql()
     // columns in volunteer table
     search_add('f_name', 'f_name', $where);
     search_add('l_name', 'l_name', $where);
-    search_add('street', 'street', $where);
+    search_add('street_address', 'street_address', $where);
     search_add('city', 'city', $where);
     search_add('state', 'state', $where);
     search_add('postal_code', 'postal_code', $where);
@@ -322,7 +322,8 @@ function volunteer_search_display($sql, $offset, $results_per_page)
       $stmt->execute();
       $result = $stmt->store_result();
       */
-      $result = $db->execute($sql);
+      $stmt = $db->prepare($sql);
+      $result = $stmt->execute();
 
 }
     if (!$result)
