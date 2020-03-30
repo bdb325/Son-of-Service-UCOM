@@ -175,8 +175,8 @@ function volunteer_search_sql()
     $where  = " WHERE 1 ";
 
     // columns in volunteer table
-    search_add('first', 'first', $where);
-    search_add('last', 'last', $where);
+    search_add('f_name', 'f_name', $where);
+    search_add('l_name', 'l_name', $where);
     search_add('street', 'street', $where);
     search_add('city', 'city', $where);
     search_add('state', 'state', $where);
@@ -305,7 +305,8 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	$offset = 0;
     }
 
-    $result = $db->prepare($sql);
+    $stmt = $db->prepare($sql)
+    $result = $db->execute($stmt);
 
     if (!$result)
     {
@@ -314,7 +315,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     }
     else
     {
-      $result->execute();
+      
 	// search successful
 	// todo: mass-action on found set (email)
 
@@ -347,8 +348,8 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    $fieldnames['volunteer_id']['label'] = _("Select");
 	    $fieldnames['first']['label'] = _("First");
 	    $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
-	    $fieldnames['last']['label'] = _("Last");
-	    $fieldnames['last']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
+	    $fieldnames['l_name']['label'] = _("Last");
+	    $fieldnames['l_name']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 
 	    if ($offset > 0)
 	    {
