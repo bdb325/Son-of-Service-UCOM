@@ -175,7 +175,7 @@ function volunteer_search_sql()
     $skills_active = $extended_active = FALSE;
 
     // dummy
-    $where  = " WHERE ";
+    $where  = " WHERE 1 = 1 ";
 
     // columns in volunteer table
     search_add('f_name', 'f_name', $where);
