@@ -333,7 +333,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	// search successful
 	// todo: mass-action on found set (email)
 
-        if (0 == ($total_results = $result->RecordCount()))
+        if (0 == ($total_results = $result->numRows()))
         {
              process_user_error(_("Found zero volunteers matching your description."));
         }
