@@ -124,21 +124,16 @@ class columnManager
 }
 
 $cm = new ColumnManager();
-$cm->addColumn('volunteer_id', TRUE);
-$cm->setRadio('volunteer_id');
 $cm->addColumn('first', TRUE);
 $cm->setColumnLink('first', SOS_PATH . "volunteer/?vid=#volunteer_id#");
 $cm->addColumn('middle', TRUE);
 $cm->addColumn('last', TRUE);
 $cm->setColumnLink('last', SOS_PATH . "volunteer/?vid=#volunteer_id#");
-$cm->addColumn('organization', TRUE);
-$cm->setColumnLink('organization', SOS_PATH  . "volunteer/?vid=#volunteer_id#");
 $cm->addColumn('street');
 $cm->addColumn('city');
 $cm->addColumn('state');
 $cm->addColumn('postal_code', TRUE);
 $cm->addColumn('country');
-$cm->addColumn('hours_life', TRUE);
 
 function search_add($form_name, $column, &$where)
 // Adds a field to the search SQL and enables the field's display.
@@ -149,7 +144,7 @@ function search_add($form_name, $column, &$where)
 
     if (array_key_exists($form_name, $_REQUEST) and trim(strlen($_REQUEST[$form_name])) > 0)
     {
-	$where .= " AND $column LIKE ".$db->qstr('%'.$_REQUEST[$form_name].'%', get_magic_quotes_gpc())."";
+	$where .= " AND $column LIKE ".$db->qstr('%'.$_REQUEST[$form_name].'%')."";
 
 	if ($cm->columnExists($column))
 	{
@@ -182,7 +177,6 @@ function volunteer_search_sql()
     // columns in volunteer table
     search_add('first', 'first', $where);
     search_add('last', 'last', $where);
-    search_add('organization', 'organization', $where);
     search_add('street', 'street', $where);
     search_add('city', 'city', $where);
     search_add('state', 'state', $where);
@@ -354,8 +348,6 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 	    $fieldnames['last']['label'] = _("Last");
 	    $fieldnames['last']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
-	    $fieldnames['organization']['label'] = _("Organization");
-	    $fieldnames['organization']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 
 	    if ($offset > 0)
 	    {
@@ -520,11 +512,6 @@ section.</P>
  <th class="vert"><?php echo _("Last name"); ?></th>
  <td><input type="Text" name="last"></td>
  </tr>
-<tr>
- <th class="vert"><?php echo _("Organization"); ?></th>
- <td><INPUT type="text" name="organization"></td>
- </tr>
-<tr>
  <th class="vert"><?php echo _("Street"); ?></th>
  <td><input type="text" name="street"></td>
  </tr>
