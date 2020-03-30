@@ -204,8 +204,8 @@ function volunteer_search_sql()
     	    if (0 < strlen(trim($_REQUEST[$key])))
     	    {
 		$sColumn = $matches[1];
-		$qsColumn = $db->real_escape_string($matches[1], get_magic_quotes_gpc());
-		$qsCritiera = $db->real_escape_string('%' . $p . '%', get_magic_quotes_gpc());
+		$qsColumn = $db->real_escape_string($matches[1]);
+		$qsCritiera = $db->real_escape_string('%' . $p . '%');
 
 		// valid column?
 		if (!db_column_exists($qsColumn, 'extended'))
@@ -217,7 +217,7 @@ function volunteer_search_sql()
 		{
 		    case 'integer':
 		    case 'decimal':
-			$where .= " AND extended.$sColumn = " . $db->real_escape_string($_REQUEST[$key], get_magic_quotes_gpc()) . "  ";
+			$where .= " AND extended.$sColumn = " . $db->real_escape_string($_REQUEST[$key] . "  ";
 			break;
 
 		    case 'string':
@@ -305,7 +305,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	$offset = 0;
     }
 
-    $result = $db->execute($sql);
+    $result = $db->prepare($sql);
 
     if (!$result)
     {
@@ -314,6 +314,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     }
     else
     {
+      $result->execute();
 	// search successful
 	// todo: mass-action on found set (email)
 
