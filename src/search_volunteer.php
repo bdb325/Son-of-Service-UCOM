@@ -310,7 +310,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     if (!$result)
     {
 	// search failed
-	die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $result);
+	die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
     }
     else
     {
