@@ -46,7 +46,6 @@ function volunteer_add()
     $state = $db->real_escape_string($_POST['state']);
     $city = $db->real_escape_string($_POST['city']);
     $postal_code = $db->real_escape_string($_POST['postal_code']);
-    $country = $db->real_escape_string($_POST['country']);
     $emergency_fname = $db->real_escape_string($_POST['emergency_fname']);
     $emergency_lname = $db->real_escape_string($_POST['emergency_lname']);
     $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
