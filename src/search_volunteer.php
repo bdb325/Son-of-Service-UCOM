@@ -390,7 +390,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    {
 		$counter++;
 	        $tab->addRow($result->fields);
-		$result->next_result();
+		$result->next_result;
 		if ($counter >= $results_per_page)
 		    break;
 	    }
