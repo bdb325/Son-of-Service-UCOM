@@ -26,11 +26,26 @@ make_html_begin(_("Add a volunteer"), array());
 
 echo "<h3>" . _("Add a volunteer") . "</h3>\n";
 
+function test_input($data, $error) {
+  if(empty($data)){
+    echo($error." is a required field. Please try again<.");
+    die();
+  }
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
+
 function volunteer_add()
 {
     global $db;
+    $first = test_input($_POST['first'],"First name");
     $first = $db->real_escape_string($_POST['first']);
+    $middle = test_input($_POST['middle'],"Middle initial");
     $middle = $db->real_escape_string($_POST['middle']);
+    $last = test_input($_POST['last'],"Last name");
     $last = $db->real_escape_string($_POST['last']);
     $race = $db->real_escape_string($_POST['race']);
     $ethnicity = $db->real_escape_string($_POST['ethnicity']);
@@ -39,16 +54,24 @@ function volunteer_add()
     $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
     $refered_from = $db->real_escape_string($_POST['referred_from']);
     $birth_date = $db->real_escape_string($_POST['birth_date']);
+    $email_address = test_input($_POST['email_address'],"Email address");
+    if (!filter_var($email_address, FILTER_VALIDATE_EMAIL)){
+      echo("Please enter a valid email. Please try again.");
+    }
     $email_address = $db->real_escape_string($_POST['email_address']);
     $phone_number = $db->real_escape_string($_POST['phone_number']);
     $country = $db->real_escape_string($_POST)['country'];
+    $street = test_input($_POST['first'],"Street name");
     $street = $db->real_escape_string($_POST['street']);
     $state = $db->real_escape_string($_POST['state']);
     $city = $db->real_escape_string($_POST['city']);
     $postal_code = $db->real_escape_string($_POST['postal_code']);
+    $emergency_fname = test_input($_POST['emergency_fname'],"Emergency first name");
     $emergency_fname = $db->real_escape_string($_POST['emergency_fname']);
+    $emergency_lname = test_input($_POST['emergency_lname'],"Emergency last name");
     $emergency_lname = $db->real_escape_string($_POST['emergency_lname']);
     $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
+    $emergency_relationship = test_input($_POST['emergency_relationship'],"Emegency relationship");
     $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
     $e_newsletter = $db->real_escape_string($_POST['e_newsletter']);
 
