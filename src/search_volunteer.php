@@ -112,7 +112,7 @@ class columnManager
 		if ($i > 0)
 		    $select .= ",";
 
-		$select .= "VOLUNTEER.$k";
+		$select .= "volunteers.$k";
 
 		$i++;
 	    }
@@ -124,12 +124,15 @@ class columnManager
 }
 
 $cm = new ColumnManager();
+$cm->addColumn('volunteer_id', TRUE);
+$cm->setRadio('volunteer_id');
 $cm->addColumn('f_name', TRUE);
 $cm->setColumnLink('f_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
 $cm->addColumn('m_initial', TRUE);
 $cm->addColumn('l_name', TRUE);
 $cm->setColumnLink('l_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
-$cm->addColumn('street');
+//$cm->setColumnLink('organization', SOS_PATH  . "volunteer/?vid=#volunteer_id#");
+$cm->addColumn('street_address');
 $cm->addColumn('city');
 $cm->addColumn('state');
 $cm->addColumn('postal_code', TRUE);
@@ -144,7 +147,7 @@ function search_add($form_name, $column, &$where)
 
     if (array_key_exists($form_name, $_REQUEST) and trim(strlen($_REQUEST[$form_name])) > 0)
     {
-	$where .= " AND $column LIKE ".$db->real_escape_string('%'.$_REQUEST[$form_name].'%')."";
+	$where .= " AND $column LIKE ".$db->qstr('%'.$_REQUEST[$form_name].'%', get_magic_quotes_gpc())."";
 
 	if ($cm->columnExists($column))
 	{
@@ -204,8 +207,8 @@ function volunteer_search_sql()
     	    if (0 < strlen(trim($_REQUEST[$key])))
     	    {
 		$sColumn = $matches[1];
-		$qsColumn = $db->real_escape_string($matches[1]);
-		$qsCritiera = $db->real_escape_string('%' . $p . '%');
+		$qsColumn = $db->qstr($matches[1], get_magic_quotes_gpc());
+		$qsCritiera = $db->qstr('%' . $p . '%', get_magic_quotes_gpc());
 
 		// valid column?
 		if (!db_column_exists($qsColumn, 'extended'))
@@ -217,7 +220,7 @@ function volunteer_search_sql()
 		{
 		    case 'integer':
 		    case 'decimal':
-        $where .= " AND $column LIKE ".$db->real_escape_string('%'.$_REQUEST[$form_name].'%', get_magic_quotes_gpc())."";
+			$where .= " AND extended.$sColumn = " . $db->qstr($_REQUEST[$key], get_magic_quotes_gpc()) . "  ";
 			break;
 
 		    case 'string':
@@ -257,7 +260,7 @@ function volunteer_search_sql()
     if (array_key_exists('phone_number', $_REQUEST) and strlen($_REQUEST['phone_number'] > 0))
     {
         $from .= ' RIGHT JOIN phone_numbers ON volunteers.volunteer_id = phone_numbers.volunteer_id ';
-        $where .= ' AND phone_numbers.number LIKE '.$db->real_escape_string("%".$_REQUEST['phone_number']."%");
+        $where .= ' AND phone_numbers.number LIKE '.$db->qstr("%".$_REQUEST['phone_number']."%", get_magic_quotes_gpc());
     }
 
     if (array_key_exists('availability_day', $_REQUEST) and is_numeric($_REQUEST['availability_day']))
@@ -305,47 +308,25 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	$offset = 0;
     }
 
-    $first = $db->real_escape_string($_POST['first']);
-    $last = $db->real_escape_string($_POST['last']);
-    $street = $db->real_escape_string($_POST['street']);
-    $city = $db->real_escape_string($_POST['city']);
-    $zip = $db->real_escape_string($_POST['postal_code']);
-    $country = $db->real_escape_string($_POST['country']);
-    $phoneNum = $db->real_escape_string($_POST['phone_number']);
-    $email = $db->real_escape_string($_POST['email_address']);
+    $result = $db->Execute($sql);
 
-
-/*
-    $sql = "SELECT f_name, l_name, street_address, city, postal_code, country, phone_number, email_address FROM VOLUNTEER WHERE f_name like ? OR l_name like ? or street_address like ? or city like ? OR postal_code like ? or country like ? or phone_number like ? or email_address like ?";
-    if($stmt = $db->prepare($sql)){
-      $stmt->bind_param("ssssssds", $first,$last,$street,$city,$zip,$country,$phoneNum,$email);
-      $stmt->execute();
-      $result = $stmt->store_result();
-      */
-      $stmt = $db->prepare($sql);
-      $result = $stmt->execute();
-
-}
     if (!$result)
     {
 	// search failed
-	die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $stmt);
+	die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
     }
     else
     {
-
 	// search successful
 	// todo: mass-action on found set (email)
 
-        if (0 == ($total_results = $result->num_rows))
+        if (0 == ($total_results = $result->RecordCount()))
         {
              process_user_error(_("Found zero volunteers matching your description."));
-
         }
         else
 	{
 	    // is offset too large?
-
 	    if ($offset > $total_results)
 	    {
 		$offset = $total_results - $results_per_page;
@@ -357,9 +338,9 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 
 	    $fieldnames = array();
 
-	    for ($i = 0, $max = $result->field_count; $i < $max; $i++)
+	    for ($i = 0, $max = $result->FieldCount(); $i < $max; $i++)
 	    {
-		$fld = $result->fetch_field($i);
+		$fld = $result->FetchField($i);
 		$fieldnames[$fld->name] = array();
 	    }
 
@@ -367,8 +348,10 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    $fieldnames['volunteer_id']['label'] = _("Select");
 	    $fieldnames['first']['label'] = _("First");
 	    $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
-	    $fieldnames['l_name']['label'] = _("Last");
-	    $fieldnames['l_name']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
+	    $fieldnames['last']['label'] = _("Last");
+	    $fieldnames['last']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
+	//    $fieldnames['organization']['label'] = _("Organization");
+	//    $fieldnames['organization']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 
 	    if ($offset > 0)
 	    {
@@ -393,7 +376,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    {
 		$counter++;
 	        $tab->addRow($result->fields);
-		$result->next_result;
+		$result->MoveNext();
 		if ($counter >= $results_per_page)
 		    break;
 	    }
@@ -401,7 +384,6 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    $tab->end();
 
 	    // todo: what other mass actions?
-
 	    echo ("<INPUT type=\"submit\" name=\"button_email_volunteers\" value=\""._("E-mail")."\">\n");
 	    if (has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
 	    {
@@ -468,7 +450,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    echo ("</FORM>\n");
            }
         }
-
+}
 
 function volunteer_search()
 {
@@ -515,7 +497,7 @@ section.  To find a person for a position, use the skills and interests
 section.</P>
 
 
-<FORM method="get" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/search_volunteer.php">
+<FORM method="get" action="search_volunteer.php">
 
 
 <TABLE border="0" class="clear" cellspacing="5">
@@ -556,8 +538,62 @@ section.</P>
  <th class="vert"><?php echo _("E-mail"); ?></th>
  <td><input type="Text" name="email_address"></td>
  </tr>
+<?php
+// extended fields
+$sql = "SELECT * FROM extended_meta";
+$result = $db->Execute($sql);
+if (!$result)
+{
+    die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
+}
+else
+{
+    while (!$result->EOF)
+    {
+	echo ("<tr>\n");
+	echo ("<th class=\"vert\">" . $result->fields['label'] . "</th>\n");
+	echo ("<td><input type=\"text\" name=\"extended_" . $result->fields['code'] . "\"></td>\n");
+	echo ("</tr>\n");
+	$result->MoveNext();
+    }
+}
 
-<!--- LINES TAKEN OUT TO TEST. CHECK TEXT FILE FOR THEM -->
+?>
+</table>
+
+<TABLE border="0" style="margin:6pt">
+<TR>
+<TH colspan="2"><?php echo _("Availability");?></TH>
+</TR>
+<TR>
+<TH><?php echo _("Day of week");?></TH>
+<TD>
+<SELECT name="availability_day">
+<?php
+    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
+    for ($i = 1; $i <= 7; $i++)
+    {
+        echo ("<OPTION value=\"$i\">".$daysofweek[$i]."</OPTION>\n");
+    }
+?>
+</SELECT>
+</TD>
+</TR>
+<TR>
+<TH><?php echo _("Time of day");?></TH>
+<TD>
+<SELECT name="availability_time">
+<?php
+    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
+    echo ("<OPTION value=\"1\">"._("Morning")."</OPTION>\n");
+    echo ("<OPTION value=\"2\">"._("Afternoon")."</OPTION>\n");
+    echo ("<OPTION value=\"3\">"._("Evening")."</OPTION>\n");
+    echo ("<OPTION value=\"3\">"._("Night")."</OPTION>\n");
+?>
+</SELECT>
+</TD>
+</TR>
+</TABLE>
 
 <TABLE border="0" style="margin:6pt">
 <tr>
@@ -596,8 +632,39 @@ section.</P>
 <TABLE border="0" style="margin:6pt">
 <tr> <th colspan="2">Skills, interests</th></tr>
 
-<!-- TAKEN OUT AGAIN. STORED IN TEXT FILE. -->
+<?php
 
+    $result = $db->Execute("SELECT s AS name, string_id FROM strings WHERE type = 'skill' ORDER BY name");
+
+    if (!$result)
+    {
+    	echo ("<TR><TD>\n");
+	process_system_error("Error querying database for skills.");
+	echo ("</TD></TR>\n");
+    }
+    else
+    if (0==$result->RecordCount())
+    {
+	echo ("<TR><TD>\n");
+	process_user_error("Cannot find any qualifications or interests to list.");
+	echo ("</TD></TR>\n");
+    }
+    else while (!$result->EOF)
+    {
+    	$row = &$result->fields;
+	echo ("<TR>\n");
+	echo ("<TH class=\"vert\">".$row['name']."</TH>\n");
+	echo ("<TD><SELECT name=\"skill_".$row['string_id']."\">\n");
+        echo ("<OPTION value=\"n\">"._("Doesn't matter")."</OPTION>\n");
+        echo ("<OPTION value=\"2\">"._("Amateur")."</OPTION>\n");
+        echo ("<OPTION value=\"3\">"._("Some")."</OPTION>\n");
+        echo ("<OPTION value=\"4\">"._("Professional")."</OPTION>\n");
+        echo ("<OPTION value=\"5\">"._("Expert")."</OPTION>\n");
+        echo ("</SELECT>\n");
+        echo ("</TR>\n");
+	$result->MoveNext();
+    }
+?>
 
 
 </table>
@@ -615,9 +682,9 @@ section.</P>
 } /* volunteer_search_form() */
 
 
-$db = conn_db();
+$db = connect_db();
 
-if (!$db)
+if ($db->_connectionID == '')
 {
     die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
 }
