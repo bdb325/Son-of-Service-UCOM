@@ -535,62 +535,8 @@ section.</P>
  <th class="vert"><?php echo _("E-mail"); ?></th>
  <td><input type="Text" name="email_address"></td>
  </tr>
-<?php
-// extended fields
-$sql = "SELECT * FROM extended_meta";
-$result = $db->Execute($sql);
-if (!$result)
-{
-    die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
-}
-else
-{
-    while (!$result->EOF)
-    {
-	echo ("<tr>\n");
-	echo ("<th class=\"vert\">" . $result->fields['label'] . "</th>\n");
-	echo ("<td><input type=\"text\" name=\"extended_" . $result->fields['code'] . "\"></td>\n");
-	echo ("</tr>\n");
-	$result->MoveNext();
-    }
-}
 
-?>
-</table>
-
-<TABLE border="0" style="margin:6pt">
-<TR>
-<TH colspan="2"><?php echo _("Availability");?></TH>
-</TR>
-<TR>
-<TH><?php echo _("Day of week");?></TH>
-<TD>
-<SELECT name="availability_day">
-<?php
-    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
-    for ($i = 1; $i <= 7; $i++)
-    {
-        echo ("<OPTION value=\"$i\">".$daysofweek[$i]."</OPTION>\n");
-    }
-?>
-</SELECT>
-</TD>
-</TR>
-<TR>
-<TH><?php echo _("Time of day");?></TH>
-<TD>
-<SELECT name="availability_time">
-<?php
-    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
-    echo ("<OPTION value=\"1\">"._("Morning")."</OPTION>\n");
-    echo ("<OPTION value=\"2\">"._("Afternoon")."</OPTION>\n");
-    echo ("<OPTION value=\"3\">"._("Evening")."</OPTION>\n");
-    echo ("<OPTION value=\"3\">"._("Night")."</OPTION>\n");
-?>
-</SELECT>
-</TD>
-</TR>
-</TABLE>
+<!--- LINES TAKEN OUT TO TEST. CHECK TEXT FILE FOR THEM --> 
 
 <TABLE border="0" style="margin:6pt">
 <tr>
