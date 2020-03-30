@@ -98,15 +98,12 @@ if (isset($_POST['button_login']))
 	$username = $db->real_escape_string($_POST['u']);
 	$password = $db->real_escape_string(md5($_POST['p']));
 
-	$sql = "SELECT * FROM USERS WHERE username = $username and password = $password";
+	$sql = "SELECT * FROM USERS WHERE username = ? and password = ?";
 
-	$result = $db->Execute($sql);
-
-	if ($result and 1 == $result->RecordCount())
-	{
-		$user = $result->fields;
-		$uid = $user['user_id'];
-	}
+	if($stmt = $db->prepare($sql)) {
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+  }
 	else
 	{
 		sleep(3);
@@ -122,7 +119,6 @@ if (isset($_POST['button_login']))
 	$_SESSION['user_id'] = $user['user_id'];
 	$_SESSION['sos_user'] = $user;
 
-	$r = $db->Execute("UPDATE users SET lastlogin = now() where user_id = $uid LIMIT 1");
 
 	redirect('welcome.php');
 	}
