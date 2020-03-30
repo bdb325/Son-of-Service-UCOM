@@ -217,7 +217,7 @@ function volunteer_search_sql()
 		{
 		    case 'integer':
 		    case 'decimal':
-			$where .= " AND extended.$sColumn = " . $db->real_escape_string($_REQUEST[$key] . "  ";
+			$where .= " AND extended.$sColumn = " . $db->real_escape_string($_REQUEST[$key]"  ";
 			break;
 
 		    case 'string':
