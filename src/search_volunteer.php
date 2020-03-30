@@ -125,7 +125,7 @@ class columnManager
 
 $cm = new ColumnManager();
 //$cm->addColumn('volunteer_id', TRUE);
-//$cm->setRadio('volunteer_id');
+$cm->setRadio('volunteer_id');
 $cm->addColumn('f_name', TRUE);
 $cm->setColumnLink('f_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
 $cm->addColumn('m_initial', TRUE);
