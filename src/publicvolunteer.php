@@ -41,7 +41,7 @@ function volunteer_add()
     $birth_date = $db->real_escape_string($_POST['birth_date']);
     $email_address = $db->real_escape_string($_POST['email_address']);
     $phone_number = $db->real_escape_string($_POST['phone_number']);
-    $country = $db->real_escape_string($_POST)['country']
+    $country = $db->real_escape_string($_POST)['country'];
     $street = $db->real_escape_string($_POST['street']);
     $state = $db->real_escape_string($_POST['state']);
     $city = $db->real_escape_string($_POST['city']);
