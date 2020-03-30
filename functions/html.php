@@ -138,7 +138,7 @@ function make_html_begin($title, $options)
     echo ("<HEAD>\n");
 	echo ("<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\" />\n");
     echo ("<title>United Church Outreach Ministry :: Home</title>\n");
-	echo ("<base href=\"http://ucomgr.org/\" />\n");
+//	echo ("<base href=\"http://ucomgr.org/\" />\n");
 	echo ("<meta name=\"keywords\" content=\"ucom, ucomgr, united church outreach ministry, bruce roller, food pantry, grandville, wyoming\" />\n");
 	echo ("<meta name=\"description\" content=\"United Church Outreach Ministry values individuals and builds community in southwestern Kent County by providing material and educational assistance to meet basic needs, improve quality of life, and promote self-sufficiency.\" />\n");
 	echo ("<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold' rel='stylesheet' type='text/css' />\n");
@@ -169,16 +169,16 @@ function make_html_begin($title, $options)
 			 q='search';
 		}
 
-		google.load('search', '1');  
+		google.load('search', '1');
 		var searchControl;
-		function OnLoad() {		  
+		function OnLoad() {
 			// Create a search control
 			var searchControl = new google.search.SearchControl();
 			google.search.Search.getBranding(document.getElementById(\"branding\"));
-			
+
 			var options = new google.search.SearcherOptions();
-			options.setExpandMode(google.search.SearchControl.EXPAND_MODE_OPEN);							
-			
+			options.setExpandMode(google.search.SearchControl.EXPAND_MODE_OPEN);
+
 			var siteSearch = new google.search.WebSearch();
 			siteSearch.setUserDefinedLabel(\"United Church Outreach Ministry\");
 			siteSearch.setUserDefinedClassSuffix(\"siteSearch\");
@@ -187,7 +187,7 @@ function make_html_begin($title, $options)
 			// call the Websearch with options and restricted to alert labs
 			searchControl.addSearcher(siteSearch,options);
 
-			// set linear mode optoin		
+			// set linear mode optoin
 			var drawOptions = new google.search.DrawOptions();
 			drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_LINEAR);
 			drawOptions.setInput(document.getElementById('q'));
@@ -196,23 +196,23 @@ function make_html_begin($title, $options)
 			searchControl.draw(document.getElementById(\"search_results\"),drawOptions);
 			//alert(q);
 			// execute the search from the $_POST
-			searchControl.execute(q);	
+			searchControl.execute(q);
 		}
 		google.setOnLoadCallback(OnLoad);
-		
+
 		$(document).ready(function(){
-			
+
 			// keep the search query in the box
 			$('#searchText').val(q);
-			
+
 			// remove text from box when clicked in
-			$('#searchText').focus(function(){	
+			$('#searchText').focus(function(){
 				$(this).val('');
 			});
 
-			$('#searchText').change(function(){		
+			$('#searchText').change(function(){
 				$('#searchForm').submit();
-			});	
+			});
 		});
 		</script>\n");
 	echo ("<script type=\"text/javascript\" src=\"http://w.sharethis.com/button/sharethis.js#publisher=473a9a6e-bd6c-46ed-8244-39ad1036c01e&amp;type=website&amp;embeds=false&amp;post_services=email%2Cfacebook%2Ctwitter%2Cgbuzz%2Cmyspace%2Cdigg%2Csms%2Cwindows_live%2Cdelicious%2Cstumbleupon%2Creddit%2Cgoogle_bmarks%2Clinkedin%2Cbebo%2Cybuzz%2Cblogger%2Cyahoo_bmarks%2Cmixx%2Ctechnorati%2Cfriendfeed%2Cpropeller%2Cwordpress%2Cnewsvine&amp;button=false\"></script>\n");
@@ -272,21 +272,21 @@ function make_html_begin($title, $options)
 		<div id=\"topbar\">
 			<div id=\"searchbox\">
 				<form action=\"search_results.php\" method=\"post\" id=\"searchForm\"   >
-					<input type=\"text\" name=\"searchText\" id=\"searchText\" value=\"search the site\"   />	
-					<input type=\"submit\" name=\"Submit\" id=\"search-submit\" value=\"\"   />	
+					<input type=\"text\" name=\"searchText\" id=\"searchText\" value=\"search the site\"   />
+					<input type=\"submit\" name=\"Submit\" id=\"search-submit\" value=\"\"   />
 				</form>
 			</div>
 		</div>
 		<div id=\"header\">
 			 <img src=\"layout_imgs/ucom_header_text.png\" alt=\"UCOM\" width=\"356\" height=\"119\" style=\"position:absolute;top:8px;left:330px;\" />
-				
+
 			<div class=\"social_icons\" >
 				<a href=\"http://www.facebook.com/pages/United-Church-Outreach-Ministry-UCOM/104853154275\" title=\"Find us on Facebook\"><img src=\"layout_imgs/icon_facebook32.png\" alt=\"\" width=\"32\" height=\"32\" style=\"margin:0 4px;\" /></a>
 				<a href=\"http://www.twitter.com/UCOM_GR\" title=\"Follow UCOM_GR on Twitter\"><img src=\"layout_imgs/icon_twitter32.png\" alt=\"\" width=\"32\" height=\"32\"  style=\"margin:0 4px;\" /></a>
 				<a href=\"http://www.twitter.com/BruceRoller\" title=\"Follow BruceRoller on Twitter\"><img src=\"layout_imgs/icon-twitter32-circle.png\" alt=\"\" width=\"32\" height=\"32\"  style=\"margin:0 4px;\" /></a>
 				<a href=\"contact\" title=\"Contact Us\"><img src=\"layout_imgs/icon_mail.png\" alt=\"\" width=\"32\" height=\"32\"  style=\"margin:0 4px;\" /></a>
-				
-				
+
+
 				<a id=\"ck_sharethis_home\" class=\"stbar chicklet\" href=\"javascript:void(0);\" title=\"Share This\" ><img src=\"layout_imgs/icon_share32.png\" alt=\"\" width=\"32\" height=\"32\"  style=\"margin:0 4px;\" /></a>
 				<script type=\"text/javascript\">
 						var shared_object = SHARETHIS.addEntry({
@@ -294,18 +294,18 @@ function make_html_begin($title, $options)
 							url: document.location.href+'home'
 						});
 					shared_object.attachButton(document.getElementById(\"ck_sharethis_home\"));
-					</script>				
-				<br />				
+					</script>
+				<br />
 				<p class=\"donate\"><a href=\"https://donatenow.networkforgood.org/UCOMgr\" title=\"Donate\" ><img src=\"layout_imgs/icon-donate-green.png\" alt=\"\" width=\"200\" height=\"35\" /></a>
-				</p>		
+				</p>
 			    <div class=\"newsletter-signup\">
                		<p><a href=\"/emaillistjoin\" class=\"btn btn-white newsletter\">Keep in Touch</a></p>
-            	</div>									
-			</div>	
+            	</div>
+			</div>
 		</div>\n");
 	echo ("<div id=\"menu\">
 			<ul id=\"nav\" class=\"sf-menu\">
-				<li><a href=\"home\" title=\"Home\"  id=\"home\" >Home</a></li><li><a href=\"about\" title=\"About\"  id=\"about\" >About</a><ul><li><a href=\"partners\" title=\"Community Partners\"  id=\"partners\" >Community Partners</a></li><li><a href=\"hours\" title=\"Hours and Eligibility\"  id=\"hours\" >Hours and Eligibility</a></li><li><a href=\"mission\" title=\"Mission and Values\"  id=\"mission\" >Mission and Values</a></li><li><a href=\"Ourteam\" title=\"Our Team\"  id=\"Ourteam\" >Our Team</a><ul><li><a href=\"staff\" title=\"Staff\"  id=\"staff\" >Staff</a></li><li><a href=\"board\" title=\"Board\"  id=\"board\" >Board</a></li></ul></li><li><a href=\"history\" title=\"History\"  id=\"history\" >History</a></li><li><a href=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" title=\"Annual Report\"  id=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" >Annual Report</a></li><li><a href=\"diversity\" title=\"Commitment to Diversity\"  id=\"diversity\" >Commitment to Diversity</a></li><li><a href=\"healthyfood\" title=\"UCOM Healthy Food Policy\"  id=\"healthyfood\" >UCOM Healthy Food Policy</a></li></ul></li><li><a href=\"news-events\" title=\"News/Events\"  id=\"news-events\" >News/Events</a><ul><li><a href=\"newsletters\" title=\"Newsletters\"  id=\"newsletters\" >Newsletters</a><ul><li><a href=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" title=\"Winter '20 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" >Winter '20 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" title=\"Fall '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" >Fall '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" title=\"Summer '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" >Summer '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" title=\"Spring '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" >Spring '19 Newsletter</a></li></ul></li><li><a href=\"directors_blog\" title=\"Bruce's Blog\"  id=\"directors_blog\" >Bruce's Blog</a></li><li><a href=\"events\" title=\"Events\"  id=\"events\" >Events</a></li><li><a href=\"concert2020\" title=\"17th Annual Friends of UCOM Benefit Concert\"  id=\"concert2020\" >17th Annual Friends of UCOM Benefit Concert</a></li></ul></li><li><a href=\"programs\" title=\"Programs\"  id=\"programs\" >Programs</a><ul><li><a href=\"food\" title=\"Food Support\"  id=\"food\" >Food Support</a><ul><li><a href=\"foodpantry\" title=\"Healthy Choice Food Pantry\"  id=\"foodpantry\" >Healthy Choice Food Pantry</a></li><li><a href=\"farmstand\" title=\"UCOM Farm Stand\"  id=\"farmstand\" >UCOM Farm Stand</a></li><li><a href=\"ggn\" title=\"Growing Green Neighbors\"  id=\"ggn\" >Growing Green Neighbors</a><ul><li><a href=\"sfg\" title=\"Square Foot Gardening\"  id=\"sfg\" >Square Foot Gardening</a></li><li><a href=\"projectfresh\" title=\"Project Fresh\"  id=\"projectfresh\" >Project Fresh</a></li></ul></li></ul></li><li><a href=\"clothing\" title=\"Clothing Pantry\"  id=\"clothing\" >Clothing Pantry</a></li><li><a href=\"financial_literacy\" title=\"Financial Literacy\"  id=\"financial_literacy\" >Financial Literacy</a></li><li><a href=\"health_screening\" title=\"Health Screening\"  id=\"health_screening\" >Health Screening</a></li><li><a href=\"work_skills\" title=\"Work Skills Training Site\"  id=\"work_skills\" >Work Skills Training Site</a></li></ul></li><li><a href=\"get_involved\" title=\"Get Involved\"  id=\"get_involved\" >Get Involved</a><ul><li><a href=\"donate\" title=\"Donate\"  id=\"donate\" >Donate</a></li><li><a href=\"emaillistjoin\" title=\"E-Mailing List\"  id=\"emaillistjoin\" >E-Mailing List</a></li><li><a href=\"missiongroups\" title=\"Mission Groups\"  id=\"missiongroups\" >Mission Groups</a></li><li><a href=\"volunteer\" title=\"Volunteer\"  id=\"volunteer\" >Volunteer</a></li><li><a href=\"employment\" title=\"Employment Opportunities\"  id=\"employment\" >Employment Opportunities</a></li><li><a href=\"needs\" title=\"Needs\"  id=\"needs\" >Needs</a></li></ul></li><li><a href=\"links\" title=\"Links\"  id=\"links\" >Links</a></li><li><a href=\"contact\" title=\"Contact Us\"  id=\"contact\" >Contact Us</a></li>			</ul>	
+				<li><a href=\"home\" title=\"Home\"  id=\"home\" >Home</a></li><li><a href=\"about\" title=\"About\"  id=\"about\" >About</a><ul><li><a href=\"partners\" title=\"Community Partners\"  id=\"partners\" >Community Partners</a></li><li><a href=\"hours\" title=\"Hours and Eligibility\"  id=\"hours\" >Hours and Eligibility</a></li><li><a href=\"mission\" title=\"Mission and Values\"  id=\"mission\" >Mission and Values</a></li><li><a href=\"Ourteam\" title=\"Our Team\"  id=\"Ourteam\" >Our Team</a><ul><li><a href=\"staff\" title=\"Staff\"  id=\"staff\" >Staff</a></li><li><a href=\"board\" title=\"Board\"  id=\"board\" >Board</a></li></ul></li><li><a href=\"history\" title=\"History\"  id=\"history\" >History</a></li><li><a href=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" title=\"Annual Report\"  id=\"http://ucomgr.org/uploads/files/AnnualReport2019.pdf\" >Annual Report</a></li><li><a href=\"diversity\" title=\"Commitment to Diversity\"  id=\"diversity\" >Commitment to Diversity</a></li><li><a href=\"healthyfood\" title=\"UCOM Healthy Food Policy\"  id=\"healthyfood\" >UCOM Healthy Food Policy</a></li></ul></li><li><a href=\"news-events\" title=\"News/Events\"  id=\"news-events\" >News/Events</a><ul><li><a href=\"newsletters\" title=\"Newsletters\"  id=\"newsletters\" >Newsletters</a><ul><li><a href=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" title=\"Winter '20 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Winter2020.pdf\" >Winter '20 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" title=\"Fall '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Fall2019.pdf\" >Fall '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" title=\"Summer '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Summer2019.pdf\" >Summer '19 Newsletter</a></li><li><a href=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" title=\"Spring '19 Newsletter\"  id=\"http://ucomgr.org/uploads/files/Spring2019.pdf\" >Spring '19 Newsletter</a></li></ul></li><li><a href=\"directors_blog\" title=\"Bruce's Blog\"  id=\"directors_blog\" >Bruce's Blog</a></li><li><a href=\"events\" title=\"Events\"  id=\"events\" >Events</a></li><li><a href=\"concert2020\" title=\"17th Annual Friends of UCOM Benefit Concert\"  id=\"concert2020\" >17th Annual Friends of UCOM Benefit Concert</a></li></ul></li><li><a href=\"programs\" title=\"Programs\"  id=\"programs\" >Programs</a><ul><li><a href=\"food\" title=\"Food Support\"  id=\"food\" >Food Support</a><ul><li><a href=\"foodpantry\" title=\"Healthy Choice Food Pantry\"  id=\"foodpantry\" >Healthy Choice Food Pantry</a></li><li><a href=\"farmstand\" title=\"UCOM Farm Stand\"  id=\"farmstand\" >UCOM Farm Stand</a></li><li><a href=\"ggn\" title=\"Growing Green Neighbors\"  id=\"ggn\" >Growing Green Neighbors</a><ul><li><a href=\"sfg\" title=\"Square Foot Gardening\"  id=\"sfg\" >Square Foot Gardening</a></li><li><a href=\"projectfresh\" title=\"Project Fresh\"  id=\"projectfresh\" >Project Fresh</a></li></ul></li></ul></li><li><a href=\"clothing\" title=\"Clothing Pantry\"  id=\"clothing\" >Clothing Pantry</a></li><li><a href=\"financial_literacy\" title=\"Financial Literacy\"  id=\"financial_literacy\" >Financial Literacy</a></li><li><a href=\"health_screening\" title=\"Health Screening\"  id=\"health_screening\" >Health Screening</a></li><li><a href=\"work_skills\" title=\"Work Skills Training Site\"  id=\"work_skills\" >Work Skills Training Site</a></li></ul></li><li><a href=\"get_involved\" title=\"Get Involved\"  id=\"get_involved\" >Get Involved</a><ul><li><a href=\"donate\" title=\"Donate\"  id=\"donate\" >Donate</a></li><li><a href=\"emaillistjoin\" title=\"E-Mailing List\"  id=\"emaillistjoin\" >E-Mailing List</a></li><li><a href=\"missiongroups\" title=\"Mission Groups\"  id=\"missiongroups\" >Mission Groups</a></li><li><a href=\"volunteer\" title=\"Volunteer\"  id=\"volunteer\" >Volunteer</a></li><li><a href=\"employment\" title=\"Employment Opportunities\"  id=\"employment\" >Employment Opportunities</a></li><li><a href=\"needs\" title=\"Needs\"  id=\"needs\" >Needs</a></li></ul></li><li><a href=\"links\" title=\"Links\"  id=\"links\" >Links</a></li><li><a href=\"contact\" title=\"Contact Us\"  id=\"contact\" >Contact Us</a></li>			</ul>
 		</div>\n");
 
 }
@@ -315,7 +315,7 @@ function make_html_end()
 {
 			echo ("	<div id=\"footer\">
 				<div class=\"clear\"></div>
-			
+
 			<table id=\"address\">
 			<tbody>
 				<tr>
@@ -338,7 +338,7 @@ function make_html_end()
 			<div class=\"clear\"></div>
  	</div><!-- close footer -->
 </div><!-- close wrapper -->\n");
-  
+
 
     }
 function public_html_end()
