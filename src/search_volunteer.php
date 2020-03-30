@@ -540,6 +540,7 @@ section.</P>
  </tr>
 <?php
 // extended fields
+/*
 $sql = "SELECT * FROM extended_meta";
 $result = $db->Execute($sql);
 if (!$result)
@@ -557,6 +558,8 @@ else
 	$result->MoveNext();
     }
 }
+
+*/
 
 ?>
 </table>
