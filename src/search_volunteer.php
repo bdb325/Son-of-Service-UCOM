@@ -467,7 +467,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    echo ("</FORM>\n");
            }
         }
-}
+
 
 function volunteer_search()
 {
