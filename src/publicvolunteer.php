@@ -41,7 +41,7 @@ function volunteer_add()
     $birth_date = $db->real_escape_string($_POST['birth_date']);
     $email_address = $db->real_escape_string($_POST['email_address']);
     $phone_number = $db->real_escape_string($_POST['phone_number']);
-    $country = '0';
+    $country = $db->real_escape_string($_POST)['country']
     $street = $db->real_escape_string($_POST['street']);
     $state = $db->real_escape_string($_POST['state']);
     $city = $db->real_escape_string($_POST['city']);
@@ -65,15 +65,15 @@ function volunteer_add()
                 if ($stmt) {
                   echo "Added " . $first . " to the database!";
                   echo "Redirecting in 3 seconds";
-                  sleep(3);
                   header('Location: ../index.php');
+                  sleep(3);
                   die();
                 }
                 else {
                   echo "Something went wrong! Please try again.";
                   echo "Redirecting in 3 seconds";
-                  sleep(3);
                   header('Location: ../index.php');
+                  sleep(3);
                   die();
                 }
                 $stmt->free_result();
