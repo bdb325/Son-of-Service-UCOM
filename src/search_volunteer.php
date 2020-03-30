@@ -321,6 +321,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     if($stmt = $db->prepare($sql)){
       $stmt->bind_param("ssssssds", $first,$last,$street,$city,$zip,$country,$phoneNum,$email);
       $result = $stmt->execute();
+      $result = $stmt->store_result();
 }
     if (!$result)
     {
