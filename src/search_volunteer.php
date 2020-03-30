@@ -536,7 +536,7 @@ section.</P>
  <td><input type="Text" name="email_address"></td>
  </tr>
 
-<!--- LINES TAKEN OUT TO TEST. CHECK TEXT FILE FOR THEM --> 
+<!--- LINES TAKEN OUT TO TEST. CHECK TEXT FILE FOR THEM -->
 
 <TABLE border="0" style="margin:6pt">
 <tr>
@@ -575,39 +575,8 @@ section.</P>
 <TABLE border="0" style="margin:6pt">
 <tr> <th colspan="2">Skills, interests</th></tr>
 
-<?php
+<!-- TAKEN OUT AGAIN. STORED IN TEXT FILE. -->
 
-    $result = $db->Execute("SELECT s AS name, string_id FROM strings WHERE type = 'skill' ORDER BY name");
-
-    if (!$result)
-    {
-    	echo ("<TR><TD>\n");
-	process_system_error("Error querying database for skills.");
-	echo ("</TD></TR>\n");
-    }
-    else
-    if (0==$result->RecordCount())
-    {
-	echo ("<TR><TD>\n");
-	process_user_error("Cannot find any qualifications or interests to list.");
-	echo ("</TD></TR>\n");
-    }
-    else while (!$result->EOF)
-    {
-    	$row = &$result->fields;
-	echo ("<TR>\n");
-	echo ("<TH class=\"vert\">".$row['name']."</TH>\n");
-	echo ("<TD><SELECT name=\"skill_".$row['string_id']."\">\n");
-        echo ("<OPTION value=\"n\">"._("Doesn't matter")."</OPTION>\n");
-        echo ("<OPTION value=\"2\">"._("Amateur")."</OPTION>\n");
-        echo ("<OPTION value=\"3\">"._("Some")."</OPTION>\n");
-        echo ("<OPTION value=\"4\">"._("Professional")."</OPTION>\n");
-        echo ("<OPTION value=\"5\">"._("Expert")."</OPTION>\n");
-        echo ("</SELECT>\n");
-        echo ("</TR>\n");
-	$result->MoveNext();
-    }
-?>
 
 
 </table>
