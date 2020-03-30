@@ -354,9 +354,9 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 
 	    $fieldnames = array();
 
-	    for ($i = 0, $max = $result->FieldCount(); $i < $max; $i++)
+	    for ($i = 0, $max = $result->field_count(); $i < $max; $i++)
 	    {
-		$fld = $result->FetchField($i);
+		$fld = $result->fetch_field($i);
 		$fieldnames[$fld->name] = array();
 	    }
 
