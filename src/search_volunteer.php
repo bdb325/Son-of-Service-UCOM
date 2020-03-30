@@ -112,7 +112,7 @@ class columnManager
 		if ($i > 0)
 		    $select .= ",";
 
-		$select .= "volunteers.$k";
+		$select .= "VOLUNTEER.$k";
 
 		$i++;
 	    }
@@ -344,8 +344,8 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 		$fieldnames[$fld->name] = array();
 	    }
 
-	    $fieldnames['volunteer_id']['checkbox'] = TRUE;
-	    $fieldnames['volunteer_id']['label'] = _("Select");
+	  //  $fieldnames['volunteer_id']['checkbox'] = TRUE;
+	   // $fieldnames['volunteer_id']['label'] = _("Select");
 	    $fieldnames['first']['label'] = _("First");
 	    $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 	    $fieldnames['last']['label'] = _("Last");
@@ -509,11 +509,11 @@ section.</P>
 </tr>
 <tr>
  <th class="vert"><?php echo _("First name"); ?></th>
- <td><input type="Text" name="first"></td>
+ <td><input type="Text" name="f_name"></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("Last name"); ?></th>
- <td><input type="Text" name="last"></td>
+ <td><input type="Text" name="l_name"></td>
  </tr>
  <th class="vert"><?php echo _("Street"); ?></th>
  <td><input type="text" name="street"></td>
