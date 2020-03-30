@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2011 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * Functions related to HTML, HTTP, and URLs.
  *
  * $Id: html.php,v 1.28 2011/12/21 04:32:25 andrewziem Exp $
@@ -339,6 +341,20 @@ function make_html_end()
   
 
     }
+function public_html_end()
+    {
+
+
+    ?>
+    </BODY>
+    <footer>
+      <h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
+      <h3> Admins login <a href="login.php">Here</a> </h3>
+    </footer>
+    </HTML>
+    <?php
+
+        }
 
 
 function display_position_option($arg_1, $arg_2)

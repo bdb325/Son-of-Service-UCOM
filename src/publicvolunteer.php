@@ -5,6 +5,8 @@
  * Copyright (C) 2003-2009 by Andrew Ziem.  All rights reserved.
  * Licensed under the GNU General Public License.  See COPYING for details.
  *
+ * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
+ *
  * $Id: add_volunteer.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
  *
  */
@@ -47,29 +49,43 @@ function volunteer_add()
 
     if ($errors_found)
     {
-	  echo ("<P>Try <A href=\"add_volunteer.php\">again</A>.</P>\n");
+	  echo ("<P>Try <A href=\"publicvolunteer.php\">again</A>.</P>\n");
 	  // todo: redisplay form here with values in place
 	  die();
     }
 
     $organization = $db->qstr(htmlentities($_POST['organization']), get_magic_quotes_gpc());
 
-    $prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc());
+    //$prefix = $db->qstr(htmlentities($_POST['prefix']), get_magic_quotes_gpc());
     $first = $db->qstr(htmlentities($_POST['first']), get_magic_quotes_gpc());
     $middle = $db->qstr(htmlentities($_POST['middle']), get_magic_quotes_gpc());
     $last = $db->qstr(htmlentities($_POST['last']), get_magic_quotes_gpc());
-
+    $race = $db->qstr(htmlentities($_POST['race']));
+    $ethnicity = $db->qstr(htmlentities($_POST['ethnicity']));
+    $gender = $db->qstr(htmlentities($_POST['gender']));
+    $veteran_status = $db->qstr(htmlentities($_POST['veteran_status']));
+    $volunteer_type = $db->qstr(htmlentities($_POST['volunteer_type']));
+    $referred_from = $db->qstr(htmlentities($_POST['referred_from']));
+    $birth_date = $db->qstr(htmlentities($_POST['birth_date']));
+    $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
+    $phone_number = $db->qstr(htmlentities($_POST['phone_number']));
+    $country = $db->qstr(htmlentities($_POST['country']));
     $street = $db->qstr(htmlentities($_POST['street']), get_magic_quotes_gpc());
-    $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $state = $db->qstr(htmlentities($_POST['state']), get_magic_quotes_gpc());
+    $city = $db->qstr(htmlentities($_POST['city']), get_magic_quotes_gpc());
     $postal_code = $db->qstr(htmlentities($_POST['postal_code']), get_magic_quotes_gpc());
     $country = $db->qstr(htmlentities($_POST['country']), get_magic_quotes_gpc());
+    $emergency_fname = $db->qstr(htmlentities($_POST['emergency_fname']));
+    $emergency_lname = $db->qstr(htmlentities($_POST['emergency_lname']));
+    $emergency_phone = $db->qstr(htmlentities($_POST['emergency_phone']));
+    $emergency_relationship = $db->qstr(htmlentities($_POST['emergency_relationship']));
+    $e_newsletter = $db->qstr(htmlentities($_POST['e_newsletter']));
 
-    $email_address = $db->qstr(htmlentities($_POST['email_address']), get_magic_quotes_gpc());
+
 
     $sql = 'INSERT INTO volunteers '.
-	    '(prefix, first,middle,last,organization,street,city,state,postal_code,country,email_address, dt_added, uid_added, dt_modified, uid_modified) '.
-	    "VALUES ($prefix, $first, $middle, $last, $organization, $street, $city, $state, $postal_code, $country, $email_address, now(), ".get_user_id().", now(), uid_added)";
+	    '(first,middle,last,organization,street,city,state,postal_code,country,email_address, dt_added, uid_added, dt_modified, uid_modified) '.
+	    "VALUES ($first, $middle, $last, $organization, $street, $city, $state, $postal_code, $country, $email_address, now(), ".get_user_id().", now(), uid_added)";
 
     $result = $db->Execute($sql);
 
@@ -154,75 +170,161 @@ function volunteer_add()
 
 function volunteer_add_form()
 {
-
+// Below post statement includes an echo for security. Untested. Could break stuff
 ?>
-    <form method="post" action="add_volunteer.php">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 <table border="0" width="50%" cellspacing="0" cellpadding="0">
-<tr>
- <th class="vert"><?php echo _("Prefix"); ?></th>
- <td><input type="Text" name="prefix"></td>
- </tr>
 <tr>
  <th class="vert"><?php echo _("First name"); ?></th>
  <td><input type="Text" name="first"></td>
  </tr>
 <tr>
- <th class="vert"><?php echo _("Middle name"); ?></th>
+ <th class="vert"><?php echo _("Middle Initial"); ?></th>
  <td><input type="Text" name="middle"></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("Last name"); ?></th>
  <td><input type="Text" name="last"></td>
  </tr>
-<tr>
- <th class="vert"><?php echo _("Organization"); ?></th>
- <td><input type="text" name="organization"></td>
+ <tr>
+  <tr>
+    <th class="vert"><?php echo _("Birth date"); ?></th>
+    <td><input type="date" name="birth_date"> </td>
+  </tr>
+  <th class ="vert"><?php echo _("Ethnicity"); ?></th>
+  <td> <select id="ethnicity" name="ethnicity">
+     <option value="Hispanic">Hispanic</option>
+     <option value="Non-hispanic">Non-hispanic</option>
+     <option value="N/A">N/A</option>
+   </td>
  </tr>
-<tr>
- <th class="vert"><?php echo _("Street"); ?></th>
- <td><input type="Text" name="street"></td>
+ <tr>
+   <th class ="vert"><?php echo _("Race"); ?></th>
+  <td> <select id="race" name="race">
+  <option value="African">African</option>
+  <option value="African American/Black">African American</option>
+  <option value="Asian">Asian</option>
+  <option value="Caucasian/White">Caucasian/White</option>
+  <option value="Native American">Native American</option>
+  <option value="Native Pacific Islander">Native Pacific Islander</option>
+  <option value="Native Alaskan">Audi</option>
+  <option value="Multi-racial">Multi-racial</option>
+  <option value="Other">Other</option>
+  <option value="N/A">N/A</option>
+</td>
+</select>
  </tr>
+ <tr>
+   <th class="vert"><?php echo _("Gender Identity"); ?></th>
+   <td> <select id="gender" name="gender">
+     <option value="Male">Male</option>
+     <option value="Female">Female</option>
+     <option value="Non-binary">Non-binary</option>
+     <option value="N/A">N/A</option>
+   </select>
+ </td>
+</tr>
+<tr>
+  <th class ="vert"><?php echo _("Please select your preferred area of work"); ?></th>
+ <td> <select id="volunteer_type" name="volunteer_type">
+ <option value="Art">Art/design/decorating</option>
+ <option value="Maintenance">Building maintenance</option>
+ <option value="Clothing">Clothing retail</option>
+ <option value="Computer">Computer work/data entry</option>
+ <option value="Custodial">Custodial/cleaning</option>
+ <option value="Driving">Driving (must provide license & insurance)</option>
+ <option value="Food packing">Food packing & repacking</option>
+ <option value="Gardening">Gardening/landscaping</option>
+ <option value="Grocery Stocking">Grocery stocking</option>
+ <option value="Grocery checkout">Grocery checkout</option>
+ <option value="Loading">Loading dock (unloading trucks)</option>
+ <option value="Office">Office work(copying,filing,etc)</option>
+ <option value="Reception">Reception/greeter/phone management</option>
+ <option value="Translating">Translating other languages</option>
+ <option value="Vehicle">Vehicle maintenance/auto detailing</option>
+ <option value="Children">Working with children</option>
+</td>
+</select>
+</tr>
+<tr>
+  <th class="vert"><?php echo _("Are you a veteran?"); ?></th>
+  <td> <select id="veteran_status" name="veteran_status">
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+    <option value="N/A">N/A</option>
+  </select>
+</td>
+</tr>
+ <tr>
+  <th class="vert"><?php echo _("Country"); ?></th>
+  <td>
+    <select name="country" class="countries order-alpha include-CA-MX-US presel-US" id="countryId">
+        <option value="">Select Country</option>
+    </select>
+  </td>
+  </tr>
+
+  <tr>
+   <th class="vert"><?php echo _("State/Province"); ?></th>
+   <td>
+     <select name="state" class="states order-alpha" id="stateId">
+         <option value="">Select State</option>
+     </select>
+     </td>
+   </tr>
 <tr>
  <th class="vert"><?php echo _("City"); ?></th>
- <td><input type="Text" name="city"></td>
+ <td>
+   <select name="city" class="cities order-alpha" id="cityId">
+       <option value="">Select City</option>
+   </select>
+ </td>
  </tr>
 <tr>
- <th class="vert"><?php echo _("State/Province"); ?></th>
- <td><input type="Text" name="state"></td>
- </tr>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
 <tr>
+  <th class="vert"><?php echo _("Street"); ?></th>
+  <td><input type="Text" name="street"></td>
+</tr>
  <th class="vert"><?php echo _("Zip/Postal code"); ?></th>
  <td><input type="Text" name="postal_code"></td>
  </tr>
+
 <tr>
- <th class="vert"><?php echo _("Country"); ?></th>
- <td><input type="Text" name="country"></td>
- </tr>
-<tr>
- <th class="vert"><?php echo _("Home phone"); ?></th>
- <td><input type="Text" name="phone_home"></td>
- </tr>
-<tr>
- <th class="vert"><?php echo _("Work phone"); ?></th>
- <td><input type="Text" name="phone_work"></td>
- </tr>
-<tr>
- <th class="vert"><?php echo _("Cell phone"); ?></th>
- <td><input type="Text" name="phone_cell"></td>
+ <th class="vert"><?php echo _("Phone number"); ?></th>
+ <td><input type="Text" name="phone_number"></td>
  </tr>
 <tr>
  <th class="vert"><?php echo _("E-mail"); ?></th>
  <td><input type="Text" name="email_address"></td>
  </tr>
-
+ <tr>
+  <th class="vert"><?php echo _("Emergency Contact First Name"); ?></th>
+  <td><input type="Text" name="emergency_fname"></td>
+  </tr>
+ <tr>
+  <th class="vert"><?php echo _("Emergency Contact Last Name"); ?></th>
+  <td><input type="Text" name="emergency_lname"></td>
+  </tr>
+ <tr>
+  <th class="vert"><?php echo _("Emergency Phone Number"); ?></th>
+  <td><input type="Text" name="emergency_phone"></td>
+  </tr>
+  <tr>
+   <th class="vert"><?php echo _("Relation of Emergency Contact"); ?></th>
+   <td><input type="Text" name="emergency_relationship"></td>
+   </tr>
 
 </table>
 <input type="submit" name="button_add_volunteer" value="<?php echo _("Add");?>">
 
 </form>
+
 <h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
       <h3> Admins login <a href="login.php">Here</a> </h3>
+
 <?php
 
 } /* volunteer_add_form() */
@@ -245,6 +347,6 @@ else
 
 
 
-make_html_end();
+public_html_end();
 
 ?>
