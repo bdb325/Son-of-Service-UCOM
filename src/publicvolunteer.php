@@ -243,8 +243,8 @@ function volunteer_add_form()
 
 </form>
 
-<h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
-      <h3> Admins login <a href="login.php">Here</a> </h3>
+<h1> Returning Volunteers Click  <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/clock.php">Here</a> </h1>
+      <h3> Admins login <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/login.php">Here</a> </h3>
 
 <?php
 

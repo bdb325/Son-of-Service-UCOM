@@ -138,7 +138,7 @@ function make_html_begin($title, $options)
     echo ("<HEAD>\n");
 	echo ("<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\" />\n");
     echo ("<title>United Church Outreach Ministry :: Home</title>\n");
-//	echo ("<base href=\"http://ucomgr.org/\" />\n");
+  echo ("<base href=\"http://ucomgr.org/\" />\n");
 	echo ("<meta name=\"keywords\" content=\"ucom, ucomgr, united church outreach ministry, bruce roller, food pantry, grandville, wyoming\" />\n");
 	echo ("<meta name=\"description\" content=\"United Church Outreach Ministry values individuals and builds community in southwestern Kent County by providing material and educational assistance to meet basic needs, improve quality of life, and promote self-sufficiency.\" />\n");
 	echo ("<link href='http://fonts.googleapis.com/css?family=Arvo:regular,bold' rel='stylesheet' type='text/css' />\n");
