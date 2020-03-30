@@ -320,7 +320,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     $sql = "SELECT f_name, l_name, street_address, city, postal_code, country, phone_number, email_address FROM VOLUNTEER WHERE f_name like ? OR l_name like ? or street_address like ? or city like ? OR postal_code like ? or country like ? or phone_number like ? or email_address like ?";
     if($stmt = $db->prepare($sql)){
       $stmt->bind_param("ssssssds", $first,$last,$street,$city,$zip,$country,$phoneNum,$email);
-      $result = $db->execute($stmt);
+      $result = $stmt->execute();
 }
     if (!$result)
     {
