@@ -59,7 +59,7 @@ function die_message($type, $message, $file = NULL, $line = NULL, $sql = NULL)
     global $db;
 
     assert (is_int($type));
-    display_message($type, $message, $file, $line, $sql, $db-> Error;
+    display_message($type, $message, $file, $line, $sql, $db-> Error);
     die();
     // todo: log error message here if applicable (refer to configurable log level)
 }
