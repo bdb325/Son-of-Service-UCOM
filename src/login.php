@@ -47,7 +47,7 @@ function request_login()
 	echo ("<p>" . _("Please log in using the user name and password provided by the volunteer coordinator.") . "</p>\n");
 
 	// fix me: return to refering page
-	echo ("<FORM method=\"post\"  action=\"login.php\">\n");
+	echo ("<FORM method=\"post\"  action=\"http://ec2-54-237-6-145.compute-1.amazonaws.com/src/login.php\">\n");
 	echo ("<TABLE border=\"0\">\n");
 	echo ("<TR>\n");
 	echo ("<TD>" . _("User name") . "</TD>\n");
