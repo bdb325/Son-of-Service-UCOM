@@ -116,7 +116,7 @@ function volunteer_add()
 function volunteer_add_form()
 {
 ?>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form method="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/publicvolunteer.php">
 
 <table border="0" width="50%" cellspacing="0" cellpadding="0">
 <tr>
