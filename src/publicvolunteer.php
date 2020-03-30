@@ -156,7 +156,7 @@ function volunteer_add_form()
 {
 
 ?>
-    <form method="post" action="add_volunteer.php">
+    <form method="post" action="src/publicvolunteer.php">
 
 <table border="0" width="50%" cellspacing="0" cellpadding="0">
 <tr>
@@ -221,8 +221,8 @@ function volunteer_add_form()
 <input type="submit" name="button_add_volunteer" value="<?php echo _("Add");?>">
 
 </form>
-<h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
-      <h3> Admins login <a href="login.php">Here</a> </h3>
+<h1> Returning Volunteers Click  <a href="src/clock.php">Here</a> </h1>
+      <h3> Admins login <a href="src/login.php">Here</a> </h3>
 <?php
 
 } /* volunteer_add_form() */
