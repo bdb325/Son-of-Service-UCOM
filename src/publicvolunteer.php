@@ -255,10 +255,9 @@ if (array_key_exists('button_add_volunteer', $_POST))
     {
       die("Connection failed: " . $db->connect_error);
     }
+      volunteer_add();
   }
-
-    volunteer_add();
-
+  
 else {
         volunteer_add_form();
     }
