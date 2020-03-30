@@ -322,7 +322,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
       $stmt->execute();
       $result = $stmt->store_result();
       */
-      $result = $db->query($sql);
+      $result = $db->execute($sql);
 
 }
     if (!$result)
