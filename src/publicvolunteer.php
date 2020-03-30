@@ -250,13 +250,16 @@ function volunteer_add_form()
 if (array_key_exists('button_add_volunteer', $_POST))
 {
     $db = conn_db();
+
     if (!$db)
     {
       die("Connection failed: " . $db->connect_error);
     }
   }
+
     volunteer_add();
-    else {
+
+else {
         volunteer_add_form();
     }
 
