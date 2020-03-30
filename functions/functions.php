@@ -24,7 +24,7 @@ include_once(SOS_PATH . 'functions/html.php');
  *
  * Saves a message to be displayed later (next page load).  Used with
  * form processing.
- * 
+ *
  * @param int type type of message
  * @param string message message
  * @param string file file in which the error occured
@@ -41,7 +41,7 @@ function save_message($type, $message, $file = NULL, $line = NULL, $sql = NULL)
     $error = "";
     if (NULL != $db)
         $error = $db->ErrorMsg();
-    $message = array('type' => $type, 'message' => $message, 'file' => $file, 
+    $message = array('type' => $type, 'message' => $message, 'file' => $file,
         'line' => $line, 'sql' => $sql, 'sql_error' => $error);
     $_SESSION['messages'][] = $message;
 
@@ -59,7 +59,7 @@ function die_message($type, $message, $file = NULL, $line = NULL, $sql = NULL)
     global $db;
 
     assert (is_int($type));
-    display_message($type, $message, $file, $line, $sql, $db->ErrorMsg());
+    display_message($type, $message, $file, $line, $sql, $db-> Error;
     die();
     // todo: log error message here if applicable (refer to configurable log level)
 }
@@ -70,7 +70,7 @@ function die_message($type, $message, $file = NULL, $line = NULL, $sql = NULL)
  * name, e.g. John Smith (Smith Inc.)
  *
  * @param string row an array containing first, middle, last, organization
- * @return string name of t 
+ * @return string name of t
  */
 function make_volunteer_name($row)
 {
@@ -79,12 +79,12 @@ function make_volunteer_name($row)
     $name = trim($row['first'].' '.$row['middle'].' '.$row['last']);
     if (!empty($row['organization']))
     $name .= ' ('.$row['organization'].')';
-    return $name;   
+    return $name;
 }
 
 /**
  * get_user_id()
- * 
+ *
  * @return int user ID of current user
  */
 
@@ -169,7 +169,7 @@ function sqldatetime_to_local($sql_datetime)
  */
 function is_valid_language($language)
 {
-    return (is_string($language) and strlen($language) > 1 
+    return (is_string($language) and strlen($language) > 1
         and preg_match('/^[a-zA-Z_-]{2,5}$/', $language));
 }
 
