@@ -23,9 +23,9 @@ require_once(SOS_PATH . 'functions/html.php');
 require_once(SOS_PATH . 'functions/access.php');
 require_once(SOS_PATH . 'functions/db.php');
 
-$db = connect_db();
+$db = conn_db();
 
-if ($db->_connectionID == '')
+if (!$db)
 {
     die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
 }

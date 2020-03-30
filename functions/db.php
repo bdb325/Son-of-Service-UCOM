@@ -33,16 +33,16 @@ function volunteer_get($vid, &$errstr)
  {
     //assuming $db is a fully connected ADOdb connection
     global $db;
-    
+
 
     if (!is_numeric($vid))
     {
 	$errstr = "volunteer_get(): Expected integer.";
 	return FALSE;
     }
-    
+
     $vid = intval($vid);
-    
+
     $result = $db->Execute("SELECT * FROM volunteers WHERE volunteer_id=$vid LIMIT 1");
 
     if (!$result)
@@ -58,26 +58,41 @@ function volunteer_get($vid, &$errstr)
     }
 
     $volunteer = $result->fields;
-    
+
     return $volunteer;
- 
+
  } /* volunteer_get() */
+/* Blaine's custom SQLI connection function. Original recipe */
+function conn_db ()
+{
+  global $cfg; //config
+  global $db;
+
+
+  if(isset($db)) //check for existing connection
+  {
+    return $db;
+  }
+
+  $db = new mysqli($cfg['dbhost'], $cfg['dbuser'], $cfg['dbpass'], $cfg['dbname']);
+  return $db;
+  }
 
 
 function connect_db ()
 {
 	global $cfg; //need to import config settings
-	global $db; 
-	
+	global $db;
+
 	//for adodb methods
 	require_once($cfg['ado_path'].'/adodb.inc.php');
 
 	if (isset($db)) //check for existing connection
 		return $db;
-		
-	// database configuration	
-	
-	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;		
+
+	// database configuration
+
+	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
 	//check for database type
 	if ('mysql' == $cfg['dbtype'])
@@ -87,7 +102,7 @@ function connect_db ()
 		// toggle persistant connections
 		if (TRUE == $cfg['dbpersist'])
 		{
-			$db->PConnect($cfg['dbhost'], $cfg['dbuser'],
+			$db->Connect($cfg['dbhost'], $cfg['dbuser'],
 				$cfg['dbpass'], $cfg['dbname']);
 		}
 		else
@@ -100,7 +115,7 @@ function connect_db ()
 		 * it is not necessary to return false on failure because
 		 * db itself will be false if the connect failed
 		 */
-		return $db;	
+		return $db;
 	}
 
 	/*
@@ -119,8 +134,8 @@ function make_orderby($request, $column_names, $default_column, $default_directi
 // default_direction: string, either ASC or DESC
 {
     assert(is_array($request));
-    assert(is_array($column_names));    
-    if (array_key_exists('orderby', $request) 
+    assert(is_array($column_names));
+    if (array_key_exists('orderby', $request)
 	and in_array($request['orderby'], $column_names)
 	and array_key_exists('orderdir', $request)
 	and in_array($request['orderdir'], array('asc', 'desc')))
@@ -129,7 +144,7 @@ function make_orderby($request, $column_names, $default_column, $default_directi
     }
     else
     {
-	return ("ORDER BY $default_column $default_direction");	
+	return ("ORDER BY $default_column $default_direction");
     }
 }
 
@@ -143,15 +158,15 @@ function make_orderby($request, $column_names, $default_column, $default_directi
 function db_column_exists($name, $table)
 {
     global $db;
-    
+
 
     $sql = "SHOW COLUMNS FROM extended LIKE " . $name;
     $result = $db->Execute($sql);
     if (!$result)
     {
-        die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);	
+        die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
     }
-    
+
     return (1 == $result->RecordCount());
 }
 
@@ -160,7 +175,7 @@ function db_column_exists($name, $table)
  *
  * Given that code is the code name of column in the extended system
  * (user-defined fields), look up its data type.
- * 
+ *
  * Returns false on error.
  *
  * @param string code column in the extended system, quoted by qstr
@@ -170,21 +185,21 @@ function db_column_exists($name, $table)
 function db_extended_column_type($code)
 {
     global $db;
-    
+
 
     $sql = "SELECT fieldtype FROM extended_meta WHERE code = " . $code;
     $result = $db->Execute($sql);
     if (!$result)
     {
-        die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);	
+        die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
     }
-    
+
     if (1 == $result->RecordCount())
     {
 	return $result->fields['fieldtype'];
     }
-    
-    return FALSE;    
+
+    return FALSE;
 }
 
 ?>
