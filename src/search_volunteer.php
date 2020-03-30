@@ -497,7 +497,7 @@ section.  To find a person for a position, use the skills and interests
 section.</P>
 
 
-<FORM method="get" action="search_volunteer.php">
+<FORM method="get" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/search_volunteer.php">
 
 
 <TABLE border="0" class="clear" cellspacing="5">
