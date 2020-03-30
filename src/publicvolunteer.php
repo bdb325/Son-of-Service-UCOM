@@ -62,7 +62,6 @@ function volunteer_add()
                 $stmt->execute();
                 $count =  $stmt->store_result();
                 if ($stmt) {
-                  echo "Added " . $first . " to the database!";
                   echo "Redirecting in 3 seconds";
                   header('Location: ../index.php');
                   sleep(3);
@@ -257,6 +256,7 @@ if (array_key_exists('button_add_volunteer', $_POST))
                             }
     } else {
         volunteer_add_form();
+        echo "Added " . $first . " to the database!";
     }
 
 
