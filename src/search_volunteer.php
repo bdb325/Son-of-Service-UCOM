@@ -681,7 +681,7 @@ else
 
 $db = conn_db();
 
-if ($db->_connectionID == '')
+if (!$db)
 {
     die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
 }
