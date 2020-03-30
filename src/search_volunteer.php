@@ -305,7 +305,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	$offset = 0;
     }
 
-    $stmt = $db->prepare($sql)
+    $stmt = $db->prepare($sql);
     $result = $db->execute($stmt);
 
     if (!$result)
@@ -315,7 +315,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
     }
     else
     {
-      
+
 	// search successful
 	// todo: mass-action on found set (email)
 
