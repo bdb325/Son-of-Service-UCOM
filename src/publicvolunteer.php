@@ -221,7 +221,7 @@ function volunteer_add_form()
 <input type="submit" name="button_add_volunteer" value="<?php echo _("Add");?>">
 
 </form>
-<h1> Returning Volunteers Click  <a href="src/clock.php">Here</a> </h1>
+<h3> Returning Volunteers Click  <a href="src/clock.php">Here</a> </h3>
       <h3> Admins login <a href="src/login.php">Here</a> </h3>
 <?php
 
