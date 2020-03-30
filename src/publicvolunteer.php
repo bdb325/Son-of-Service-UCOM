@@ -260,7 +260,7 @@ if (array_key_exists('button_add_volunteer', $_POST))
     }
       volunteer_add();
   }
-  
+
 else {
         volunteer_add_form();
     }
@@ -271,6 +271,6 @@ else {
 
 
 
-public_html_end();
+make_html_end();
 
 ?>
