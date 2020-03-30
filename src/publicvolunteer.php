@@ -322,6 +322,9 @@ function volunteer_add_form()
 
 </form>
 
+<h1> Returning Volunteers Click  <a href="clock.php">Here</a> </h1>
+      <h3> Admins login <a href="login.php">Here</a> </h3>
+
 <?php
 
 } /* volunteer_add_form() */
