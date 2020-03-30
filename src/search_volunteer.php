@@ -337,6 +337,7 @@ function volunteer_search_display($sql, $offset, $results_per_page)
         if (0 == ($total_results = $stmt->numRows))
         {
              process_user_error(_("Found zero volunteers matching your description."));
+             echo $stmt;
         }
         else
 	{
