@@ -112,7 +112,7 @@ class columnManager
 		if ($i > 0)
 		    $select .= ",";
 
-		$select .= "volunteers.$k";
+		$select .= "VOLUNTEER.$k";
 
 		$i++;
 	    }
@@ -124,11 +124,11 @@ class columnManager
 }
 
 $cm = new ColumnManager();
-$cm->addColumn('first', TRUE);
-$cm->setColumnLink('first', SOS_PATH . "volunteer/?vid=#volunteer_id#");
-$cm->addColumn('middle', TRUE);
-$cm->addColumn('last', TRUE);
-$cm->setColumnLink('last', SOS_PATH . "volunteer/?vid=#volunteer_id#");
+$cm->addColumn('f_name', TRUE);
+$cm->setColumnLink('f_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
+$cm->addColumn('m_initial', TRUE);
+$cm->addColumn('l_name', TRUE);
+$cm->setColumnLink('l_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
 $cm->addColumn('street');
 $cm->addColumn('city');
 $cm->addColumn('state');
@@ -245,7 +245,7 @@ function volunteer_search_sql()
     }
     else
     {
-	$from   = ' FROM volunteers ';
+	$from   = ' FROM VOLUNTEER ';
     	$groupby = ' ';
     }
 
