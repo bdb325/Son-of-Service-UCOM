@@ -144,7 +144,7 @@ function search_add($form_name, $column, &$where)
 
     if (array_key_exists($form_name, $_REQUEST) and trim(strlen($_REQUEST[$form_name])) > 0)
     {
-	$where .= " AND $column LIKE ".$db->qstr('%'.$_REQUEST[$form_name].'%')."";
+	$where .= " AND $column LIKE ".$db->real_escape_string('%'.$_REQUEST[$form_name].'%')."";
 
 	if ($cm->columnExists($column))
 	{
@@ -204,8 +204,8 @@ function volunteer_search_sql()
     	    if (0 < strlen(trim($_REQUEST[$key])))
     	    {
 		$sColumn = $matches[1];
-		$qsColumn = $db->qstr($matches[1], get_magic_quotes_gpc());
-		$qsCritiera = $db->qstr('%' . $p . '%', get_magic_quotes_gpc());
+		$qsColumn = $db->real_escape_string($matches[1], get_magic_quotes_gpc());
+		$qsCritiera = $db->real_escape_string('%' . $p . '%', get_magic_quotes_gpc());
 
 		// valid column?
 		if (!db_column_exists($qsColumn, 'extended'))
@@ -217,7 +217,7 @@ function volunteer_search_sql()
 		{
 		    case 'integer':
 		    case 'decimal':
-			$where .= " AND extended.$sColumn = " . $db->qstr($_REQUEST[$key], get_magic_quotes_gpc()) . "  ";
+			$where .= " AND extended.$sColumn = " . $db->real_escape_string($_REQUEST[$key], get_magic_quotes_gpc()) . "  ";
 			break;
 
 		    case 'string':
@@ -257,7 +257,7 @@ function volunteer_search_sql()
     if (array_key_exists('phone_number', $_REQUEST) and strlen($_REQUEST['phone_number'] > 0))
     {
         $from .= ' RIGHT JOIN phone_numbers ON volunteers.volunteer_id = phone_numbers.volunteer_id ';
-        $where .= ' AND phone_numbers.number LIKE '.$db->qstr("%".$_REQUEST['phone_number']."%", get_magic_quotes_gpc());
+        $where .= ' AND phone_numbers.number LIKE '.$db->real_escape_string("%".$_REQUEST['phone_number']."%");
     }
 
     if (array_key_exists('availability_day', $_REQUEST) and is_numeric($_REQUEST['availability_day']))
