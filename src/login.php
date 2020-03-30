@@ -86,7 +86,7 @@ if (isset($_POST['button_login']))
 
 	set_up_language();
 
-	$db = connect_db();
+	$db = conn_db();
 	//if ($db->_connectionID == '')
 	//{
 	//	die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
@@ -95,8 +95,8 @@ if (isset($_POST['button_login']))
 	// Security: Do not allow variable poisoning
 	unset($uid);
 
-	$username = $db->qstr($_POST['u']);
-	$password = $db->qstr(md5($_POST['p']));
+	$username = $db->real_escape_string($_POST['u']);
+	$password = $db->real_escape_string(md5($_POST['p']));
 
 	$sql = "SELECT * FROM USERS WHERE username = $username and password = $password";
 
