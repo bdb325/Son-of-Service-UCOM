@@ -41,7 +41,7 @@ if (isset($_SESSION['sos_user']['personalname']) and $_SESSION['sos_user']['pers
     else
     $username = $_SESSION['sos_user']['username'];
 
-$result = $db->query("SELECT auto_punch_out_flag FROM HOURS WHERE auto_punch_out_flag = 1";
+$result = $db->query("SELECT auto_punch_out_flag FROM HOURS WHERE auto_punch_out_flag = 1");
 
 $reminders = $result->num_rows();
 
