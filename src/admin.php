@@ -27,5 +27,36 @@ if(!$db) {
 die("Connection failed: " . $db->connect_error);
 }
 
+if (isset($_POST['delete'])) {
+  $sql = "DELETE VOLUNTEER from VOLUNTEER WHERE VOLUNTEER.f_name = ? AND VOLUNTEER.m_initial = ? AND VOLUNTEER.l_name = ?";
+  if($stmt = $db->prepare($sql)) {
+    $stmt->bind_param("sss", $first, $middle, $last);
+    $stmt->execute();
+    $row = $db->affected_rows;
+    if ($row > 0) {
+      echo "Deleted Volunteer Successfully!";
+    }
+  }
+  else {
+    echo "Error : " . $stmt . "<br>" . $sql->error;
+  }
+
+}
+?>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  <div id="delete">
+    <h1> Delete Volunter </h1>
+    <label for="first">First Name:</label>
+    <input type="text" name="first">
+    <label for="middle">Middle Initial:</label>
+    <input type="text" name="middle">
+    <label for="last">Last Name:</label>
+    <input type="text" name="last">
+    <input type="submit" name="delete" value="Delete Volunteer" />
+  </div>
+</form>
+
+<?php
+
 make_html_end();
 ?>
