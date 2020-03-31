@@ -41,11 +41,11 @@ if (isset($_SESSION['sos_user']['personalname']) and $_SESSION['sos_user']['pers
     else
     $username = $_SESSION['sos_user']['username'];
 
-$result = $db->Execute("SELECT note_id FROM notes WHERE acknowledged != 1 and reminder_date <= now() and uid_assigned = ".get_user_id());
+$result = $db->query("SELECT auto_punch_out_flag FROM HOURS WHERE auto_punch_out_flag = 1";
 
-$reminders = $result->RecordCount();
+$reminders = $result->num_rows();
 
-echo ("<p>" . _("Number of reminders waiting:") . (0 == $reminders ? "0" : "<a href=\"reminders.php\">$reminders</a>") ."</p>\n");
+echo ("<p>" . _("Number of volunteers who didn't clock out:") . (0 == $reminders ? "0" : "<a href=\"reminders.php\">$reminders</a>") ."</p>\n");
 
 
 
