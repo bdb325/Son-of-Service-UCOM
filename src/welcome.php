@@ -45,7 +45,7 @@ $result = $db->query("SELECT auto_punch_out_flag FROM HOURS WHERE auto_punch_out
 
 $reminders = $result->num_rows;
 
-echo ("<p>" . _("Number of volunteers who didn't clock out:") . (0 == $reminders ? "0" : "<a href=\"reminders.php\">$reminders</a>") ."</p>\n");
+echo ("<p>" . _("Number of volunteers who didn't clock out: ") . (0 == $reminders ? "0" : "<a href=\"reminders.php\">$reminders</a>") ."</p>\n");
 
 
 

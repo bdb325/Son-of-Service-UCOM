@@ -19,7 +19,7 @@ define('SOS_PATH', '../');
 require_once (SOS_PATH . 'include/global.php');
 require_once (SOS_PATH . 'functions/html.php');
 require_once (SOS_PATH . 'functions/table.php');
-make_html_begin(_("Reports"), array());
+make_html_begin(_("Admin functions"), array());
 make_nav_begin();
 $db = conn_db();
 

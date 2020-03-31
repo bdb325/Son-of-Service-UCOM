@@ -92,6 +92,7 @@ function make_nav_begin()
     if (has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
         echo ("<A class=\"tab\" href=\"". SOS_PATH . "src/add_volunteer.php\">"._("Add new volunteer")."</A>\n");
     echo ("<A class=\"tab\" href=\"". SOS_PATH . "src/reports.php\">"._("Reports")."</A>\n");
+    echo ("<A class=\"tab\" href=\"". SOS_PATH . "src/admin.php\">"._("Admin functions")."</A>\n");
 
     if (has_permission(PC_ADMIN, PT_READ, NULL, NULL))
         echo ("<A class=\"tab\" href=\"". SOS_PATH ."admin/\">"._("Admin")."</A>\n");
