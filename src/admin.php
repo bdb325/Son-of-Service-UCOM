@@ -52,7 +52,7 @@ function updateVolunteerForm() {
 <form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="update">
     <label for="firstna">First Name:</label>
-    <input type="text" name="firstna" value="<?= $var1 ?>" >
+    <input type="text" name="firstna" value="<?= $varArray['f_name'] ?>" >
     <label for="minit">Middle Initial:</label>
     <input type="text" name="minit" value="<?= $var2 ?>" >
     <label for="lastna">Last Name:</label>
