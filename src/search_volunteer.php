@@ -184,7 +184,7 @@ function volunteer_search_sql()
     search_add('city', 'city', $where);
     search_add('state', 'state', $where);
     search_add('postal_code', 'postal_code', $where);
-    search_add('country', 'country', $where);
+    search_add('email_address', 'email_address', $where);
 
     // add skills to SQL
     foreach ($_REQUEST as $key => $p)
