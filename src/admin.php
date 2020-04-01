@@ -121,7 +121,7 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  $dataset = $data->fetch_all(MYSQLI_BOTH);
+  $dataset = $data->fetch_all(MYSQLI_NUM);
   for ($x = 0; $x <18; $x++) {
     $varArray[$x] = $dataset[$x];
   }
