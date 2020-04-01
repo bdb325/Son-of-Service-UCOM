@@ -114,8 +114,8 @@ if (isset($_POST['searchUpdate'])) {
   $first = $db->real_escape_string($_POST['firstn']);
   $last = $db->real_escape_string($_POST['lastn']);
   $email = $db->real_escape_string($_POST['email']);
-  $sql = "SELECT * FROM VOLUNTEER WHERE VOLUNTEER.f_name = ? AND VOLUNTEER.l_name = ? AND VOLUNTEER.email_address = ?"
-  $stmt = $db->prepare($sql)
+  $sql = "SELECT * FROM VOLUNTEER WHERE VOLUNTEER.f_name = ? AND VOLUNTEER.l_name = ? AND VOLUNTEER.email_address = ?";
+  $stmt = $db->prepare($sql);
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->fetch_array(MYSQLI_BOTH);
