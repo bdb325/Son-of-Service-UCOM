@@ -132,7 +132,7 @@ $cm->addColumn('m_initial', TRUE);
 $cm->addColumn('l_name', TRUE);
 $cm->setColumnLink('l_name', SOS_PATH . "volunteer/?vid=#volunteer_id#");
 //$cm->setColumnLink('organization', SOS_PATH  . "volunteer/?vid=#volunteer_id#");
-$cm->addColumn('street_address');
+$cm->addColumn('email_address', TRUE);
 $cm->addColumn('city');
 $cm->addColumn('state');
 $cm->addColumn('postal_code', TRUE);
