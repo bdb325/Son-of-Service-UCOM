@@ -38,6 +38,7 @@ $var12;
 $var13;
 $var14;
 $var15;
+$varArray = array();
 
 
 if(!$db) {
@@ -110,7 +111,7 @@ if (isset($_POST['delete'])) {
   }
 }
 if (isset($_POST['searchUpdate'])) {
-  global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15;
+  global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$varArray;
   $first = $db->real_escape_string($_POST['firstn']);
   $last = $db->real_escape_string($_POST['lastn']);
   $email = $db->real_escape_string($_POST['email']);
@@ -119,8 +120,10 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  while ($dataset = $data->fetch_all(MYSQLI_BOTH)) {
-    printf($dataset->f_name);
+  $dataset = $data->fetch_all(MYSQLI_BOTH);
+  for ($x = 0; $x <16; $x++) {
+    $varArray[$x] = $dataset[$x];
+  }
 
   }
 
