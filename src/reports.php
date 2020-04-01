@@ -42,6 +42,45 @@ if (!$db)
     die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);    
 }
 
+/*Emily Code Start here*/
+?>
+<form action=""><!--enter url-->
+
+	<label for="gender">Gender:</label>
+  <select id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="Other">Other</option>
+   </select> <br>
+	<label for="time">Time Period:</label>
+  <select id="Time">
+    <option value="Q1">Q1</option>
+    <option value="Q2">Q2</option>
+    <option value="Q3">Q3</option>
+    <option value="Q4">Q4</option>
+    <option value="First">First half of the year</option>
+    <option value="Second">Second half of the year</option>
+    <option value="Annual">Annual</option>
+    <option value="None">N/A</option>
+  </select> <br>
+    <label for="demo">Demographics:</label>
+  <select id="demo">
+    <option value="MM">Male - Hispanic</option>
+    <option value="MR">Male - Racial Demographics</option>
+    <option value="FM">Female - Hispanic</option>
+    <option value="FR">Female - Racial Demographics</option>
+    <option value="Total">Total Volunteers in the Time Period</option>
+   </select> <br>
+   	<label for="noTime">Not Time Related:</label>
+  <select id="noTime">
+    <option value="eachVol">Total Time Worked</option>
+    <option value="Newsletter">Newsletter</option>
+    <option value="comServ">Community Service</option>
+   </select><br>
+</form>
+<?
+/*Emily Code End Here*/
+
 $steps = array(_('Day'), _('Week'), _('Month'), _('Year'));
 
 if (array_key_exists('report_hours', $_REQUEST))
