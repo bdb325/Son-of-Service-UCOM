@@ -121,10 +121,10 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   $dataset = $data->fetch_all(MYSQLI_BOTH);
-  for ($x = 0; $x <16; $x++) {
+  for ($x = 0; $x <18; $x++) {
     $varArray[$x] = $dataset[$x];
   }
-  print_r($varArray);
+  updateVolunteerForm();
 
   }
 
