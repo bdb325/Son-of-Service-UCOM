@@ -125,9 +125,10 @@ if (isset($_POST['searchUpdate'])) {
   for ($x = 0; $x <18; $x++) {
     $varArray[$x] = $dataset[$x];
   }
+  print_r($varArray);
   updateVolunteerForm();
 
-  printf($varArray[1]);
+
 
   }
 
