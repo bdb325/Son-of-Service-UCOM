@@ -24,7 +24,7 @@ make_nav_begin();
 $db = conn_db();
 
 global $varArray;
-$var1;
+$var1 = $varArray['f_name'];
 $var2;
 $var3;
 $var4;
@@ -53,7 +53,7 @@ function updateVolunteerForm() {
 <form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="update">
     <label for="firstna">First Name:</label>
-    <input type="text" name="firstna" value="<?= $varArray['f_name'] ?>" >
+    <input type="text" name="firstna" value="<?= $var1 ?>" >
     <label for="minit">Middle Initial:</label>
     <input type="text" name="minit" value="<?= $var2 ?>" >
     <label for="lastna">Last Name:</label>
