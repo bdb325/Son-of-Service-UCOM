@@ -119,8 +119,8 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  $data = $stmt->fetch_all(MYSQLI_BOTH);
-  echo($data[0]);
+  $dataset = $data->fetch_all(MYSQLI_BOTH);
+  echo($dataset[0]);
 
 
 
