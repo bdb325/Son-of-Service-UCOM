@@ -124,6 +124,7 @@ if (isset($_POST['searchUpdate'])) {
   for ($x = 0; $x <16; $x++) {
     $varArray[$x] = $dataset[$x];
   }
+  print_r($varArray);
 
   }
 
