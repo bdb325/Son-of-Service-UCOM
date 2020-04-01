@@ -120,7 +120,7 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   while ($dataset = $data->fetch_all(MYSQLI_BOTH)) {
-    printf($dataset->0);
+    printf($dataset->f_name);
 
   }
 
