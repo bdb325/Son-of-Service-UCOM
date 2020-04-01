@@ -127,6 +127,8 @@ if (isset($_POST['searchUpdate'])) {
   }
   updateVolunteerForm();
 
+  printf($varArray[1]);
+
   }
 
 
