@@ -23,6 +23,7 @@ make_html_begin(_("Admin functions"), array());
 make_nav_begin();
 $db = conn_db();
 
+global $varArray;
 $var1;
 $var2;
 $var3;
