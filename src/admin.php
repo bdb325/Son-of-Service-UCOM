@@ -45,6 +45,14 @@ $varArray = array();
 if(!$db) {
 die("Connection failed: " . $db->connect_error);
 }
+
+/* Accesses Array Elements */
+function results() {
+  return $varArray;
+}
+
+
+
 /* Displays Volunteer Info for updating after seaching */
 function updateVolunteerForm() {
 
@@ -121,9 +129,10 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  $dataset = $data->fetch_all(MYSQLI_BOTH);
+  $dataset = $data->fetch_all(MYSQLI_ASSOC);
   print_r($dataset);
-  $var1 = $dataset["f_name"];
+  $ar1 = array("First"=>"Blaine");
+  $var1 = $ar1["First"];
   $var2 = var_export($dataset["f_name"],true);
   echo($var1);
   echo($var2);
