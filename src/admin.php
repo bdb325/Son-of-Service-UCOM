@@ -130,8 +130,9 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   while ($dataset = $data->fetch_row()) {
-  echo($dataset[1]);
+  $var1 = $dataset[0];
   echo("Hello!");
+  echo ($var1);
 }
   updateVolunteerForm();
 
