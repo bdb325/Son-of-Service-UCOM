@@ -53,7 +53,7 @@ function updateVolunteerForm() {
 <form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="update">
     <label for="firstna">First Name:</label>
-    <input type="text" name="firstna" value="<?= $var1 ?>" >
+    <input type="text" name="firstna" value="<?= $varArray['f_name'] ?>" >
     <label for="minit">Middle Initial:</label>
     <input type="text" name="minit" value="<?= $var2 ?>" >
     <label for="lastna">Last Name:</label>
@@ -121,7 +121,7 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  $dataset = $data->fetch_all(MYSQLI_NUM);
+  $dataset = $data->fetch_all(MYSQLI_BOTH);
   for ($x = 0; $x <18; $x++) {
     $varArray[$x] = $dataset[$x];
   }
