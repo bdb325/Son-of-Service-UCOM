@@ -145,8 +145,7 @@ if (isset($_POST['searchUpdate'])) {
     $var13 = $dataset['street_address'];
     $var14 = $dataset['state'];
     $var15 = $dataset['city'];
-    $var16 = $dataset['postal_code']
-}
+    $var16 = $dataset['postal_code']; }
   print_r($dataset);
   updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16);
 
