@@ -39,7 +39,7 @@ $var12;
 $var13;
 $var14;
 $var15;
-$varArray = array();
+$var16;
 
 
 if(!$db) {
@@ -79,19 +79,19 @@ function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$va
     <label for="birth_date">Birth Date:</label>
     <input type="text" name="birth_date" value="<?= $var9 ?>" >
     <label for="email_address">Email Address:</label>
-    <input type="text" name="email_address" value="<?= $var9 ?>" >
+    <input type="text" name="email_address" value="<?= $var10 ?>" >
     <label for="phone_number">Phone Number:</label>
-    <input type="text" name="phone_number" value="<?= $var10 ?>" >
+    <input type="text" name="phone_number" value="<?= $var11 ?>" >
     <label for="country">Country:</label>
-    <input type="text" name="country" value="<?= $var11 ?>" >
+    <input type="text" name="country" value="<?= $var12 ?>" >
     <label for="street_address">Address:</label>
-    <input type="text" name="street_address" value="<?= $var12 ?>" >
+    <input type="text" name="street_address" value="<?= $var13 ?>" >
     <label for="state_providence">State:</label>
-    <input type="text" name="state_providence" value="<?= $var13 ?>" >
+    <input type="text" name="state_providence" value="<?= $var14 ?>" >
     <label for="city">City:</label>
-    <input type="text" name="city" value="<?= $var14 ?>" >
+    <input type="text" name="city" value="<?= $var15 ?>" >
     <label for="postal_code">Zip Code:</label>
-    <input type="text" name="postal_code" value="<?= $var15 ?>" >
+    <input type="text" name="postal_code" value="<?= $var16 ?>" >
     <input type="submit" name="update" value="Update Volunteer Info" />
   </div>
 </form>
@@ -120,7 +120,7 @@ if (isset($_POST['delete'])) {
   }
 }
 if (isset($_POST['searchUpdate'])) {
-  global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$varArray;
+  global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16;
   $first = $db->real_escape_string($_POST['firstn']);
   $last = $db->real_escape_string($_POST['lastn']);
   $email = $db->real_escape_string($_POST['email']);
@@ -131,23 +131,24 @@ if (isset($_POST['searchUpdate'])) {
   $data = $stmt->get_result();
   while ($dataset = $data->fetch_assoc()) {
     $var1 = $dataset['f_name'];
-    $var2 = $dataset[1];
-    $var3 = $dataset[2];
-    $var4 = $dataset[3];
-    $var5 = $dataset[4];
-    $var6 = $dataset[5];
-    $var7 = $dataset[6];
-    $var8 = $dataset[7];
-    $var9 = $dataset[8];
-    $var10 = $dataset[9];
-    $var11 = $dataset[10];
-    $var12 = $dataset[11];
-    $var13 = $dataset[12];
-    $var14 = $dataset[13];
-    $var15 = $dataset[14];
+    $var2 = $dataset['m_initial'];
+    $var3 = $dataset['l_name'];
+    $var4 = $dataset['race'];
+    $var5 = $dataset['ethnicity'];
+    $var6 = $dataset['gender'];
+    $var7 = $dataset['veteran_status'];
+    $var8 = $dataset['volunteer_type'];
+    $var9 = $dataset['birth_date'];
+    $var10 = $dataset['email_address'];
+    $var11 = $dataset['phone_number'];
+    $var12 = $dataset['country'];
+    $var13 = $dataset['street_address'];
+    $var14 = $dataset['state'];
+    $var15 = $dataset['city'];
+    $var16 = $dataset['postal_code']
 }
   print_r($dataset);
-  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15);
+  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16);
 
 
 
