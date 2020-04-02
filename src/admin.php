@@ -129,8 +129,8 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  while ($dataset = $data->fetch_row()) {
-    $var1 = $dataset[0];
+  while ($dataset = $data->fetch_assoc()) {
+    $var1 = $dataset['f_name'];
     $var2 = $dataset[1];
     $var3 = $dataset[2];
     $var4 = $dataset[3];
