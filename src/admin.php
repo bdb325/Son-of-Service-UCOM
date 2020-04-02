@@ -122,7 +122,7 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   $dataset = $data->fetch_all(MYSQLI_BOTH);
-  print_r($dataset);
+  print_r($dataset,true);
   $var1 = $dataset["f_name"];
   $var2 = var_export($dataset["f_name"],true);
   echo($var1);
