@@ -143,7 +143,7 @@ if (isset($_POST['searchUpdate'])) {
     $var11 = $dataset['phone_number'];
     $var12 = $dataset['country'];
     $var13 = $dataset['street_address'];
-    $var14 = $dataset['state'];
+    $var14 = $dataset['state_providence'];
     $var15 = $dataset['city'];
     $var16 = $dataset['postal_code']; }
   print_r($dataset);
