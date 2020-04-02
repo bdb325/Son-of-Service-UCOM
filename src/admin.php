@@ -124,7 +124,8 @@ if (isset($_POST['searchUpdate'])) {
   $dataset = $data->fetch_all(MYSQLI_BOTH);
   print_r($dataset);
   $var1 = $dataset['f_name'];
-  $var2 = var_dump($dataset['l_name']);
+  $var1 = var_export($dataset['f_name']);
+  $var2 = var_export($dataset['f_name'],true);
   echo($var1);
   echo($var2);
   echo("Hello!");
