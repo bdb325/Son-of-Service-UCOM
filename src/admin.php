@@ -53,8 +53,8 @@ function results() {
 
 
 
-/* Displays Volunteer Info for updating after seaching */
-function updateVolunteerForm() {
+/* Displays Volunteer Info for updating after seaching. I'm so sorry I passed in 15 variables :/ */
+function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15) {
 
 ?>
 
@@ -130,10 +130,23 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   while ($dataset = $data->fetch_row()) {
-  $var1 = $dataset[0];
-  echo("Hello!");
-  echo ($var1);
+    $var1 = $dataset[0];
+    $var2 = $dataset[1];
+    $var3 = $dataset[2];
+    $var4 = $dataset[3];
+    $var5 = $dataset[4];
+    $var6 = $dataset[5];
+    $var7 = $dataset[6];
+    $var8 = $dataset[7];
+    $var9 = $dataset[8];
+    $var10 = $dataset[9];
+    $var11 = $dataset[10];
+    $var12 = $dataset[11];
+    $var13 = $dataset[12];
+    $var14 = $dataset[13];
+    $var15 = $dataset[14];
 }
+  echo ($var1);
   updateVolunteerForm();
 
 
