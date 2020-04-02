@@ -129,9 +129,10 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->bind_param("sss", $first, $last, $email);
   $stmt->execute();
   $data = $stmt->get_result();
-  $dataset = $data->fetch_all(MYSQLI_BOTH);
-  echo($dataset['f_name']);
+  while ($dataset = $data->fetch_row()) {
+  echo($dataset[1]);
   echo("Hello!");
+}
   updateVolunteerForm();
 
 
