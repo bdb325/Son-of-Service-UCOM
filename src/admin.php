@@ -40,6 +40,10 @@ $var13;
 $var14;
 $var15;
 $var16;
+$var17;
+$var18;
+$var19;
+$var20;
 
 
 if(!$db) {
@@ -92,7 +96,15 @@ function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$va
     <input type="text" name="city" value="<?= $var15 ?>" >
     <label for="postal_code">Zip Code:</label>
     <input type="text" name="postal_code" value="<?= $var16 ?>" >
-    <input type="submit" name="update" value="Update Volunteer Info" />
+    <label for="postal_code">Emergency Contact First:</label>
+    <input type="text" name="emergency_fName" value="<?= $var17 ?>" >
+    <label for="postal_code">Emergency Last:</label>
+    <input type="text" name="emergency_lName" value="<?= $var18 ?>" >
+    <label for="postal_code">Emergency Phone:</label>
+    <input type="text" name="emergency_phone" value="<?= $var19 ?>" >
+    <label for="postal_code">Zip Code:</label>
+    <input type="text" name="emergency_relationship" value="<?= $var20 ?>" >
+    <input type="submit" name="update" value="Relationship of emergency contact:" />
   </div>
 </form>
 
@@ -145,14 +157,21 @@ if (isset($_POST['searchUpdate'])) {
     $var13 = $dataset['street_address'];
     $var14 = $dataset['state_providence'];
     $var15 = $dataset['city'];
-    $var16 = $dataset['postal_code']; }
-  print_r($dataset);
-  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16);
+    $var16 = $dataset['postal_code'];
+    $var17 = $dataset['emergency_fName'];
+    $var18 = $dataset['emergency_lName'];
+    $var19 = $dataset['emergency_phone'];
+    $var20 = $dataset['emergency_relationship'];
 
 
-
+   }
+  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
   }
 
+/* if (isset($_POST['update'])) {
+
+}
+*/
 
 
 
