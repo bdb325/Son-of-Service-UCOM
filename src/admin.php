@@ -96,15 +96,15 @@ function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$va
     <input type="text" name="city" value="<?= $var15 ?>" >
     <label for="postal_code">Zip Code:</label>
     <input type="text" name="postal_code" value="<?= $var16 ?>" >
-    <label for="postal_code">Emergency Contact First:</label>
+    <label for="emergency_fName">Emergency Contact First:</label>
     <input type="text" name="emergency_fName" value="<?= $var17 ?>" >
-    <label for="postal_code">Emergency Last:</label>
+    <label for="emergency_lName">Emergency Last:</label>
     <input type="text" name="emergency_lName" value="<?= $var18 ?>" >
-    <label for="postal_code">Emergency Phone:</label>
+    <label for="emergency_phone">Emergency Phone:</label>
     <input type="text" name="emergency_phone" value="<?= $var19 ?>" >
-    <label for="postal_code">Zip Code:</label>
+    <label for="emergency_relationship">Relationship of emergency contact:</label>
     <input type="text" name="emergency_relationship" value="<?= $var20 ?>" >
-    <input type="submit" name="update" value="Relationship of emergency contact:" />
+    <input type="submit" name="update" value="Update volunteer info" />
   </div>
 </form>
 
