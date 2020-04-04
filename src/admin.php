@@ -169,35 +169,35 @@ if (isset($_POST['searchUpdate'])) {
   }
 
  if (isset($_POST['update'])) {
-   $first = $db->real_escape_string($_POST['firstna']);
-   $indexFirst = $db->real_escape_string($_POST['firstna']);
-   $middle = $db->real_escape_string($_POST['minit']);
-   $last = $db->real_escape_string($_POST['lastna']);
-   $indexLast = $db->real_escape_string($_POST['lastna']);
-   $race = $db->real_escape_string($_POST['race']);
-   $ethnicity = $db->real_escape_string($_POST['ethnicity']);
-   $gender = $db->real_escape_string($_POST['gender']);
-   $veteran_status = $db->real_escape_string($_POST['veteran_status']);
-   $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
-   $birth_date = $db->real_escape_string($_POST['birth_date']);
-   $email_address = $db->real_escape_string($_POST['email_address']);
-   $indexEmail = $db->real_escape_string($_POST['email_address']);
-   $phone_number = $db->real_escape_string($_POST['phone_number']);
-   $country = $db->real_escape_string($_POST['country']);
-   $street_address = $db->real_escape_string($_POST['street_address']);
-   $state = $db->real_escape_string($_POST['state_providence']);
-   $city = $db->real_escape_string($_POST['city']);
-   $postal = $db->real_escape_string($_POST['postal_code']);
-   $emergency_fname = $db->real_escape_string($_POST['emergency_fName']);
-   $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
-   $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
-   $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
    $sql = "UPDATE VOLUNTEER SET f_name = ?, m_initial = ?, l_name = ?, race = ?,
    ethnicity = ?, gender = ?, veteran_status = ?, birth_date = ?, email_address = ?,
    phone_number = ?, country = ?, street_address = ?, state_providence = ?, city = ?, postal_code = ?,
   emergency_fName = ?, emergency_lName = ?, emergency_phone = ?, emergency_relationship = ? WHERE f_name = ?
    AND l_name = ? AND email_address = ?";
    if($stmt = $db->prepare($sql)) {
+     $first = $db->real_escape_string($_POST['firstna']);
+     $indexFirst = $db->real_escape_string($_POST['firstna']);
+     $middle = $db->real_escape_string($_POST['minit']);
+     $last = $db->real_escape_string($_POST['lastna']);
+     $indexLast = $db->real_escape_string($_POST['lastna']);
+     $race = $db->real_escape_string($_POST['race']);
+     $ethnicity = $db->real_escape_string($_POST['ethnicity']);
+     $gender = $db->real_escape_string($_POST['gender']);
+     $veteran_status = $db->real_escape_string($_POST['veteran_status']);
+     $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
+     $birth_date = $db->real_escape_string($_POST['birth_date']);
+     $email_address = $db->real_escape_string($_POST['email_address']);
+     $indexEmail = $db->real_escape_string($_POST['email_address']);
+     $phone_number = $db->real_escape_string($_POST['phone_number']);
+     $country = $db->real_escape_string($_POST['country']);
+     $street_address = $db->real_escape_string($_POST['street_address']);
+     $state = $db->real_escape_string($_POST['state_providence']);
+     $city = $db->real_escape_string($_POST['city']);
+     $postal = $db->real_escape_string($_POST['postal_code']);
+     $emergency_fname = $db->real_escape_string($_POST['emergency_fName']);
+     $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
+     $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
+     $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
      //19 values are prepared
      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
