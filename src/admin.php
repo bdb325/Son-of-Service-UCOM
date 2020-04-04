@@ -203,7 +203,7 @@ if (isset($_POST['searchUpdate'])) {
      header('Refresh: 5; URL=http://http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
   else {
-    echo "Error : " . $stmt . " . Please try again"
+    echo "Error : " . $stmt . " . Please try again"; 
   }
 
 }
