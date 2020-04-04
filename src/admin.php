@@ -176,7 +176,7 @@ if (isset($_POST['searchUpdate'])) {
    $ethnicity = $db->real_escape_string($_POST['ethnicity']);
    $gender = $db->real_escape_string($_POST['gender']);
    $veteran_status = $db->real_escape_string($_POST['veteran_status']);
-   $volunteer_type = $db->real_escape_string($_POST['volunteer_type'])
+   $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
    $birth_date = $db->real_escape_string($_POST['birth_date']);
    $email_address = $db->real_escape_string($_POST['email_address']);
    $phone_number = $db->real_escape_string($_POST['phone_number']);
