@@ -170,8 +170,10 @@ if (isset($_POST['searchUpdate'])) {
 
  if (isset($_POST['update'])) {
    $first = $db->real_escape_string($_POST['firstna']);
+   $indexFirst = $db->real_escape_string($_POST['firstna']);
    $middle = $db->real_escape_string($_POST['minit']);
    $last = $db->real_escape_string($_POST['lastna']);
+   $indexLast = $db->real_escape_string($_POST['lastna']);
    $race = $db->real_escape_string($_POST['race']);
    $ethnicity = $db->real_escape_string($_POST['ethnicity']);
    $gender = $db->real_escape_string($_POST['gender']);
@@ -179,6 +181,7 @@ if (isset($_POST['searchUpdate'])) {
    $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
    $birth_date = $db->real_escape_string($_POST['birth_date']);
    $email_address = $db->real_escape_string($_POST['email_address']);
+   $indexEmail = $db->real_escape_string($_POST['email_address']);
    $phone_number = $db->real_escape_string($_POST['phone_number']);
    $country = $db->real_escape_string($_POST['country']);
    $street_address = $db->real_escape_string($_POST['street_address']);
@@ -192,8 +195,8 @@ if (isset($_POST['searchUpdate'])) {
    $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, V.m_initial = ?, V.l_name = ?, V.race = ?,
    V.ethnicity = ?, V.gender = ?, V.veteran_status = ?, V.birth_date = ?, V.email_address = ?,
    V.phone_number = ?, V.country = ?, V.street_address = ?, V.state = ?, V.city = ?, V.postal_code = ?,
-  V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = $var1
-   AND V.l_name = $var3 AND V.email_address = $var10";
+  V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = $indexFirst
+   AND V.l_name = $indexLast AND V.email_address = $indexEmail";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
      $stmt->bind_param("ssssssssssdsssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
