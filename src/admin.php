@@ -195,13 +195,13 @@ if (isset($_POST['searchUpdate'])) {
    $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, V.m_initial = ?, V.l_name = ?, V.race = ?,
    V.ethnicity = ?, V.gender = ?, V.veteran_status = ?, V.birth_date = ?, V.email_address = ?,
    V.phone_number = ?, V.country = ?, V.street_address = ?, V.state = ?, V.city = ?, V.postal_code = ?,
-  V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = $indexFirst
-   AND V.l_name = $indexLast AND V.email_address = ?";
+  V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = ?
+   AND V.l_name = ? AND V.email_address = ?";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
      $stmt->bind_param("ssssssssssdssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
- $emergency_phone, $emergency_relationship, $indexEmail);
+ $emergency_phone, $emergency_relationship, $indexFirst, $indexLast $indexEmail);
      $stmt->execute();
      echo "Updated information successfully. Re-directing in 5 seconds";
      header('Refresh: 5; URL=http://http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
