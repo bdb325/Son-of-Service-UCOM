@@ -203,6 +203,7 @@ if (isset($_POST['searchUpdate'])) {
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
      $stmt->execute();
+     echo $indexFirst;
      echo "Updated information successfully. Re-directing in 5 seconds";
      header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
