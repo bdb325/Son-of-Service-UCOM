@@ -24,6 +24,7 @@ make_nav_begin();
 $db = conn_db();
 
 global $varArray;
+global $db;
 $var1 = $varArray['f_name'];
 $var2;
 $var3;
@@ -50,6 +51,7 @@ if(!$db) {
 die("Connection failed: " . $db->connect_error);
 }
 
+is_logged_in();
 /* Accesses Array Elements */
 function results() {
   return $varArray;
@@ -57,7 +59,7 @@ function results() {
 
 
 
-/* Displays Volunteer Info for updating after seaching. I'm so sorry I passed in 15 variables :/ */
+/* Displays Volunteer Info for updating after seaching. Variables are passed in to display search results. */
 function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20) {
 
 ?>
@@ -166,10 +168,42 @@ if (isset($_POST['searchUpdate'])) {
   updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
   }
 
-/* if (isset($_POST['update'])) {
+ if (isset($_POST['update'])) {
+   $first = $db->real_escape_string($_POST['firstna']);
+   $middle = $db->real_escape_string($_POST['minit']);
+   $last = $db->real_escape_string($_POST['lastna']);
+   $race = $db->real_escape_string($_POST['race']);
+   $ethnicity = $db->real_escape_string($_POST['ethnicity']);
+   $gender = $db->real_escape_string($_POST['gender']);
+   $veteran_status = $db->real_escape_string($_POST['vender_status']);
+   $birth_date = $db->real_escape_string($_POST['birth_date']);
+   $email_address = $db->real_escape_string($_POST['email_address']);
+   $phone_number = $db->real_escape_string($_POST['phone_number']);
+   $country = $db->real_escape_string($_POST['country']);
+   $street_address = $db->real_escape_string($_POST['street_address']);
+   $state = $db->real_escape_string($_POST['state_providence']);
+   $city = $db->real_escape_string($_POST['city']);
+   $postal = $db->real_escape_string($_POST['postal_code']);
+   $emergency_fname = $db->real_escape_string($_POST['emergency_fName']);
+   $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
+   $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
+   $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
+   $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, SET V.m_init = ?, set V.l_name = ?, set V.race = ?,
+   set V.ethnicity = ?, set V.gender = ?, set V.veteran_status = ?, set V.birth_date = ?, set V.email_address = ?,
+   set V.phone_number = ?, set V.country = ?, set V.street_address = ?, set V.state = ?, set V.city = ?, set V.postal_code = ?,
+   set V.emergency_fName = ?, set V.emergency_lName = ?, set V.emergency_phone = ?, set V.emergency_relationship = ? WHERE V.f_name = $var1
+   AND V.l_name = $var3 AND V.email_address = $var10"
+   if($stmt = $db->prepare($sql)) {
+     //19 values are prepared
+     $stmt->bind_param("sssssssssdsssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $birth_date,
+   $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
+ $emergency_phone, $emergency_relationship);
+     $stmt->execute();
+     echo "Punched out successfully!";
+   }
 
 }
-*/
+
 
 
 
