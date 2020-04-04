@@ -175,7 +175,8 @@ if (isset($_POST['searchUpdate'])) {
    $race = $db->real_escape_string($_POST['race']);
    $ethnicity = $db->real_escape_string($_POST['ethnicity']);
    $gender = $db->real_escape_string($_POST['gender']);
-   $veteran_status = $db->real_escape_string($_POST['vender_status']);
+   $veteran_status = $db->real_escape_string($_POST['veteran_status']);
+   $volunteer_type = $db->real_escape_string($_POST['volunteer_type'])
    $birth_date = $db->real_escape_string($_POST['birth_date']);
    $email_address = $db->real_escape_string($_POST['email_address']);
    $phone_number = $db->real_escape_string($_POST['phone_number']);
@@ -195,7 +196,7 @@ if (isset($_POST['searchUpdate'])) {
    AND V.l_name = $var3 AND V.email_address = $var10";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
-     $stmt->bind_param("sssssssssdsssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $birth_date,
+     $stmt->bind_param("ssssssssssdsssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
  $emergency_phone, $emergency_relationship);
      $stmt->execute();
@@ -203,7 +204,7 @@ if (isset($_POST['searchUpdate'])) {
      header('Refresh: 5; URL=http://http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
   else {
-    echo "Error : " . $stmt . " . Please try again"; 
+    echo "Error : " . $stmt . $db->error;
   }
 
 }
