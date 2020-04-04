@@ -198,14 +198,10 @@ if (isset($_POST['searchUpdate'])) {
      $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
      $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
      $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
-     echo $first;
-     echo $last;
-     echo $indexFirst;
-     echo $indexLast;
    }
  }
 
-/*
+
      //19 values are prepared
      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
@@ -230,7 +226,7 @@ if (isset($_POST['searchUpdate'])) {
   }
 
 }
- */
+
 
 
 
