@@ -199,7 +199,7 @@ if (isset($_POST['searchUpdate'])) {
    AND V.l_name = ? AND V.email_address = ?";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
-     $stmt->bind_param("ssssssssssdssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
+     $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast $indexEmail);
      $stmt->execute();
