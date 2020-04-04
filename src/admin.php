@@ -192,15 +192,19 @@ if (isset($_POST['searchUpdate'])) {
    set V.ethnicity = ?, set V.gender = ?, set V.veteran_status = ?, set V.birth_date = ?, set V.email_address = ?,
    set V.phone_number = ?, set V.country = ?, set V.street_address = ?, set V.state = ?, set V.city = ?, set V.postal_code = ?,
    set V.emergency_fName = ?, set V.emergency_lName = ?, set V.emergency_phone = ?, set V.emergency_relationship = ? WHERE V.f_name = $var1
-   AND V.l_name = $var3 AND V.email_address = $var10"
+   AND V.l_name = $var3 AND V.email_address = $var10";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
      $stmt->bind_param("sssssssssdsssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
  $emergency_phone, $emergency_relationship);
      $stmt->execute();
-     echo "Punched out successfully!";
+     echo "Updated information successfully. Re-directing in 5 seconds";
+     header('Refresh: 5; URL=http://http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
+  else {
+    echo "Error : " . $stmt . " . Please try again"
+  }
 
 }
 
