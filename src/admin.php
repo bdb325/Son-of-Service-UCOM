@@ -203,6 +203,7 @@ if (isset($_POST['searchUpdate'])) {
      echo ($indexFirst);
      echo ($indexLast);
    }
+ }
 
 /*
      //19 values are prepared
@@ -267,4 +268,3 @@ if (isset($_POST['searchUpdate'])) {
 
 make_html_end();
 ?>
-} 
