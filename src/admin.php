@@ -198,6 +198,12 @@ if (isset($_POST['searchUpdate'])) {
      $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
      $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
      $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
+     echo ($first);
+     echo ($last);
+     echo ($indexFirst);
+     echo ($indexLast);
+
+/*
      //19 values are prepared
      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
@@ -209,9 +215,11 @@ if (isset($_POST['searchUpdate'])) {
        header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
     }
     else {
+          // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
           echo $indexFirst;
           echo $indexLast;
-          echo $indexEmail;}
+          echo $indexEmail;
+        }
    }
   else {
     echo $sql;
@@ -220,7 +228,7 @@ if (isset($_POST['searchUpdate'])) {
   }
 
 }
-
+ */
 
 
 
