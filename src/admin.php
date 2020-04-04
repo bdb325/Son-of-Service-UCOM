@@ -169,6 +169,7 @@ if (isset($_POST['searchUpdate'])) {
   }
 
  if (isset($_POST['update'])) {
+   global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16;
    $first = $db->real_escape_string($_POST['firstna']);
    $indexFirst = $db->real_escape_string($_POST['firstna']);
    $middle = $db->real_escape_string($_POST['minit']);
@@ -203,7 +204,7 @@ if (isset($_POST['searchUpdate'])) {
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
      $stmt->execute();
-     echo $indexFirst;
+     echo $var1;
      echo "Updated information successfully. Re-directing in 5 seconds";
      header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
