@@ -267,3 +267,4 @@ if (isset($_POST['searchUpdate'])) {
 
 make_html_end();
 ?>
+} 
