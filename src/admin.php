@@ -198,10 +198,10 @@ if (isset($_POST['searchUpdate'])) {
      $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
      $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
      $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
-     echo ($first);
-     echo ($last);
-     echo ($indexFirst);
-     echo ($indexLast);
+     echo $first;
+     echo $last;
+     echo $indexFirst;
+     echo $indexLast;
    }
  }
 
