@@ -204,7 +204,7 @@ if (isset($_POST['searchUpdate'])) {
  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
      $stmt->execute();
      echo "Updated information successfully. Re-directing in 5 seconds";
-     header('Refresh: 5; URL=http://http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
+     header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
    }
   else {
     echo $sql;
