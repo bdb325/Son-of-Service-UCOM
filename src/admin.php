@@ -208,7 +208,8 @@ if (isset($_POST['searchUpdate'])) {
        echo "Updated information successfully. Re-directing in 5 seconds";
        header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
     }
-    else { echo $first;}
+    else { echo $first;
+          echo $indexFirst;}
    }
   else {
     echo $sql;
