@@ -189,10 +189,10 @@ if (isset($_POST['searchUpdate'])) {
    $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
    $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
    $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
-   $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, SET V.m_initial = ?, set V.l_name = ?, set V.race = ?,
-   set V.ethnicity = ?, set V.gender = ?, set V.veteran_status = ?, set V.birth_date = ?, set V.email_address = ?,
-   set V.phone_number = ?, set V.country = ?, set V.street_address = ?, set V.state = ?, set V.city = ?, set V.postal_code = ?,
-   set V.emergency_fName = ?, set V.emergency_lName = ?, set V.emergency_phone = ?, set V.emergency_relationship = ? WHERE V.f_name = $var1
+   $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, V.m_initial = ?, V.l_name = ?, V.race = ?,
+   V.ethnicity = ?, V.gender = ?, V.veteran_status = ?, V.birth_date = ?, V.email_address = ?,
+   V.phone_number = ?, V.country = ?, V.street_address = ?, V.state = ?, V.city = ?, V.postal_code = ?,
+  V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = $var1
    AND V.l_name = $var3 AND V.email_address = $var10";
    if($stmt = $db->prepare($sql)) {
      //19 values are prepared
