@@ -166,70 +166,61 @@ if (isset($_POST['searchUpdate'])) {
     $var20 = $dataset['emergency_relationship'];
    }
   updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
-  }
-
- if (isset($_POST['update'])) {
-   $sql = "UPDATE VOLUNTEER SET f_name = ?, m_initial = ?, l_name = ?, race = ?,
-   ethnicity = ?, gender = ?, veteran_status = ?, birth_date = ?, email_address = ?,
-   phone_number = ?, country = ?, street_address = ?, state_providence = ?, city = ?, postal_code = ?,
-  emergency_fName = ?, emergency_lName = ?, emergency_phone = ?, emergency_relationship = ? WHERE f_name = ?
-   AND l_name = ? AND email_address = ?";
-   if($stmt = $db->prepare($sql)) {
-     $first = $db->real_escape_string($_POST['firstna']);
-     $indexFirst = $db->real_escape_string($_POST['firstna']);
-     $middle = $db->real_escape_string($_POST['minit']);
-     $last = $db->real_escape_string($_POST['lastna']);
-     $indexLast = $db->real_escape_string($_POST['lastna']);
-     $race = $db->real_escape_string($_POST['race']);
-     $ethnicity = $db->real_escape_string($_POST['ethnicity']);
-     $gender = $db->real_escape_string($_POST['gender']);
-     $veteran_status = $db->real_escape_string($_POST['veteran_status']);
-     $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
-     $birth_date = $db->real_escape_string($_POST['birth_date']);
-     $email_address = $db->real_escape_string($_POST['email_address']);
-     $indexEmail = $db->real_escape_string($_POST['email_address']);
-     $phone_number = $db->real_escape_string($_POST['phone_number']);
-     $country = $db->real_escape_string($_POST['country']);
-     $street_address = $db->real_escape_string($_POST['street_address']);
-     $state = $db->real_escape_string($_POST['state_providence']);
-     $city = $db->real_escape_string($_POST['city']);
-     $postal = $db->real_escape_string($_POST['postal_code']);
-     $emergency_fname = $db->real_escape_string($_POST['emergency_fName']);
-     $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
-     $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
-     $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
-
-
-
-
-     //19 values are prepared
-     $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
-   $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
- $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
-     $stmt->execute();
-     $count = $stmt->affected_rows;
-     if ($count > 0) {
-       echo "Updated information successfully. Re-directing in 5 seconds";
-       header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
+  if (isset($_POST['update'])) {
+    $sql = "UPDATE VOLUNTEER SET f_name = ?, m_initial = ?, l_name = ?, race = ?,
+    ethnicity = ?, gender = ?, veteran_status = ?, birth_date = ?, email_address = ?,
+    phone_number = ?, country = ?, street_address = ?, state_providence = ?, city = ?, postal_code = ?,
+   emergency_fName = ?, emergency_lName = ?, emergency_phone = ?, emergency_relationship = ? WHERE f_name = ?
+    AND l_name = ? AND email_address = ?";
+    if($stmt = $db->prepare($sql)) {
+      $first = $db->real_escape_string($_POST['firstna']);
+      $indexFirst = $db->real_escape_string($_POST['firstna']);
+      $middle = $db->real_escape_string($_POST['minit']);
+      $last = $db->real_escape_string($_POST['lastna']);
+      $indexLast = $db->real_escape_string($_POST['lastna']);
+      $race = $db->real_escape_string($_POST['race']);
+      $ethnicity = $db->real_escape_string($_POST['ethnicity']);
+      $gender = $db->real_escape_string($_POST['gender']);
+      $veteran_status = $db->real_escape_string($_POST['veteran_status']);
+      $volunteer_type = $db->real_escape_string($_POST['volunteer_type']);
+      $birth_date = $db->real_escape_string($_POST['birth_date']);
+      $email_address = $db->real_escape_string($_POST['email_address']);
+      $indexEmail = $db->real_escape_string($_POST['email_address']);
+      $phone_number = $db->real_escape_string($_POST['phone_number']);
+      $country = $db->real_escape_string($_POST['country']);
+      $street_address = $db->real_escape_string($_POST['street_address']);
+      $state = $db->real_escape_string($_POST['state_providence']);
+      $city = $db->real_escape_string($_POST['city']);
+      $postal = $db->real_escape_string($_POST['postal_code']);
+      $emergency_fname = $db->real_escape_string($_POST['emergency_fName']);
+      $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
+      $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
+      $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
+      //19 values are prepared
+      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
+    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
+  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
+      $stmt->execute();
+      $count = $stmt->affected_rows;
+      if ($count > 0) {
+        echo "Updated information successfully. Re-directing in 5 seconds";
+        header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
+     }
+     else {
+           // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
+           echo $indexFirst;
+           echo $indexLast;
+           echo $indexEmail;
+         }
     }
-    else {
-          // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
-          echo $indexFirst;
-          echo $indexLast;
-          echo $indexEmail;
-        }
+   else {
+     echo $sql;
+     echo $stmt;
+     echo "Error : " . $stmt . $db->error;
    }
-  else {
-    echo $sql;
-    echo $stmt;
-    echo "Error : " . $stmt . $db->error;
+
+ }
   }
-
-}
-
-
-
-
 
 
 
