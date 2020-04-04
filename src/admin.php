@@ -199,6 +199,7 @@ if (isset($_POST['searchUpdate'])) {
   V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = ?
    AND V.l_name = ? AND V.email_address = ?";
    if($stmt = $db->prepare($sql)) {
+     global $var1;
      //19 values are prepared
      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
