@@ -194,7 +194,7 @@ if (isset($_POST['searchUpdate'])) {
    $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
    $sql = "UPDATE VOLUNTEER V SET V.f_name = ?, V.m_initial = ?, V.l_name = ?, V.race = ?,
    V.ethnicity = ?, V.gender = ?, V.veteran_status = ?, V.birth_date = ?, V.email_address = ?,
-   V.phone_number = ?, V.country = ?, V.street_address = ?, V.state = ?, V.city = ?, V.postal_code = ?,
+   V.phone_number = ?, V.country = ?, V.street_address = ?, V.state_providence = ?, V.city = ?, V.postal_code = ?,
   V.emergency_fName = ?, V.emergency_lName = ?, V.emergency_phone = ?, V.emergency_relationship = ? WHERE V.f_name = ?
    AND V.l_name = ? AND V.email_address = ?";
    if($stmt = $db->prepare($sql)) {
