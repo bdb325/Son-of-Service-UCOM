@@ -94,8 +94,9 @@ if (isset($_POST['button_login']))
   $stmt->bind_param("ss", $username, $password);
   $stmt->execute();
 	$count = $stmt->num_rows;
-	if ($count > 0) {
+	if ($count != 0) {
 		echo "Welcome!";
+		redirect('welcome.php');
 	}
 
 	else
@@ -114,7 +115,7 @@ if (isset($_POST['button_login']))
 	$_SESSION['sos_user'] = $user;
 
 
-	redirect('welcome.php');
+
 	}
 else
 {
