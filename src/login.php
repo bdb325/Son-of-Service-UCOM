@@ -94,7 +94,7 @@ if (isset($_POST['button_login']))
   $stmt->bind_param("ss", $username, $password);
   $stmt->execute();
 	$count = $stmt->num_rows;
-	if ($count->num_rows) > 0) {
+	if ($count > 0) {
 		echo "Welcome!";
 	}
 
