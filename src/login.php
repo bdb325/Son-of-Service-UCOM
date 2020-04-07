@@ -93,6 +93,7 @@ if (isset($_POST['button_login']))
 	$stmt = $db->prepare($sql);
   $stmt->bind_param("ss", $username, $password);
   $stmt->execute();
+	$stmt->store_result();
 	$count = $stmt->num_rows;
 	if ($count != 0) {
 		echo "Welcome!";
@@ -104,6 +105,7 @@ if (isset($_POST['button_login']))
 		sleep(3);
 		process_user_error(_("Invalid user name or password."), _("Is your caps lock key on?"));
 		request_login();
+		$stmt->close();
 		exit();
 	}
 
