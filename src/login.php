@@ -42,7 +42,7 @@ function request_login()
 {
 	global $languages;
 
-	echo ("<h3>Son of Service: ". _("Volunteer management database") ."</h3>\n");
+	echo ("<h3>Son of Service: ". _("Volunteer management database admin login") ."</h3>\n");
 
 	echo ("<p>" . _("Please log in using the user name and password provided by the volunteer coordinator.") . "</p>\n");
 
@@ -58,16 +58,6 @@ function request_login()
 	echo ("<TD><INPUT name=\"p\" type=\"password\" size=\"40\"></TD>\n");
 	echo ("</TR>\n");
 	echo ("</TABLE>\n");
-
-	echo _("Language:");
-	echo (" <select name=\"language\">\n");
-	echo ("<option>" . _("Default") . "\n");
-	foreach ($languages as $code => $language)
-	{
-		if (array_key_exists('ALIAS', $language))
-			continue;
-		echo ("<option value=\"$code\">" . $language['NAME'] . "\n");
-	}
 	echo ("</select>\n");
 	echo ("<br>\n");
 
