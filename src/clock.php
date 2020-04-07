@@ -27,6 +27,8 @@ $servername = "database-1.cbkwsq59mx5a.us-east-1.rds.amazonaws.com";
 $username = "admin";
 $password = "lDWUp2cbP3ub6FMIHZYf";
 $db = "sos";
+global $db;
+$db = conn_db();
 
 //commented out to test
 // Create connection
@@ -34,13 +36,26 @@ $con = new mysqli($servername, $username, $password, $db);
 
 
 // Check connection
-if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
 // note need to add two php codes. clock in and clock out
-$first = $con->real_escape_string($_POST['first']);
-$middle =$con->real_escape_string($_POST['middle']);
-$last = $con->real_escape_string($_POST['last']);
+$first = $db->real_escape_string($_POST['first']);
+$middle =$db->real_escape_string($_POST['middle']);
+$last = $db->real_escape_string($_POST['last']);
+
+function calculateTime() {
+  $first = $db->real_escape_string($_POST['first']);
+  $middle =$db->real_escape_string($_POST['middle']);
+  $last = $db->real_escape_string($_POST['last']);
+  $sql = "UPDATE HOURS
+SET time_worked = TIME_TO_SEC( TIMEDIFF(time_out, time_in))/3600
+WHERE time_out IS NOT NULL AND time_worked IS NULL;"
+$db->query($sql);
+
+}
+
+}
 
 
 if (isset($_POST['punchIn'])) {
@@ -49,7 +64,7 @@ if (isset($_POST['punchIn'])) {
               SELECT v.f_name, v.m_initial, v.l_name, now()
               FROM VOLUNTEER v
               WHERE v.f_name = ? AND v.m_initial = ? AND v.l_name = ? ";
-              if ($stmt = $con->prepare($sql)) {
+              if ($stmt = $db->prepare($sql)) {
                 $stmt->bind_param("sss", $first, $middle, $last);
                 $stmt->execute();
                 $count =  $stmt->store_result();
@@ -68,7 +83,7 @@ if (isset($_POST['punchIn'])) {
                 } */
             }
             else {
-              echo "Error : " . $stmt . "<br>" . $con->error;
+              echo "Error : " . $stmt . "<br>" . $db->error;
             }
 }
 
@@ -80,9 +95,10 @@ elseif (isset($_POST['punchOut'])) {
   $sql = "UPDATE HOURS
   SET time_out=now()
   WHERE  f_name = ?  AND m_initial = ? AND l_name = ?";
-  if($stmt = $con->prepare($sql)) {
+  if($stmt = $db->prepare($sql)) {
     $stmt->bind_param("sss", $first, $middle, $last);
     $stmt->execute();
+    calculateTime();
     echo "Punched out successfully!";
   }
   else {
