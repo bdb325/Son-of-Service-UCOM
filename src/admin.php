@@ -145,12 +145,7 @@ if (isset($_POST['searchUpdate'])) {
    }
   updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
   if (isset($_POST['update'])) {
-    $sql = "UPDATE VOLUNTEER SET f_name = ?, m_initial = ?, l_name = ?, race = ?,
-    ethnicity = ?, gender = ?, veteran_status = ?, birth_date = ?, email_address = ?,
-    phone_number = ?, country = ?, street_address = ?, state_providence = ?, city = ?, postal_code = ?,
-   emergency_fName = ?, emergency_lName = ?, emergency_phone = ?, emergency_relationship = ? WHERE f_name = ?
-    AND l_name = ? AND email_address = ?";
-    $stmt = $db->prepare($sql);
+  /*  $stmt = $db->prepare($sql); */
       $first = $db->real_escape_string($_POST['firstna']);
       $indexFirst = $db->real_escape_string($_POST['firstna']);
       $middle = $db->real_escape_string($_POST['minit']);
@@ -174,12 +169,16 @@ if (isset($_POST['searchUpdate'])) {
       $emergency_lname = $db->real_escape_string($_POST['emergency_lName']);
       $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
       $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
+      $sql = "UPDATE VOLUNTEER SET f_name = '$first', m_initial = '$middle', l_name = '$last', race = '$race',
+      ethnicity = '$ethnicity', gender = '$gender' , veteran_status = '$veteran_status', birth_date = '$birth_date', email_address = '$email_address',
+      phone_number = '$phone_number', country = '$country', street_address = '$street_address', state_providence = '$state', city = '$city', postal_code = '$postal',
+     emergency_fName = '$emergency_fname', emergency_lName = '$emergency_lname', emergency_phone = '$emergency_phone', emergency_relationship = '$emergency_relationship' WHERE f_name = '$indexFirst'
+      AND l_name = '$indexLast' AND email_address = '$indexEmail'";
       //19 values are prepared
-      $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
+    /*  $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
     $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
-  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
-      $stmt->execute();
-      $stmt->store_result();
+  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail); */
+      $stmt = $db->query();
       $count = $stmt->affected_rows;
       if ($count > 0) {
         echo "Updated information successfully. Re-directing in 5 seconds";
