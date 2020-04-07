@@ -23,29 +23,7 @@ make_html_begin(_("Admin functions"), array());
 make_nav_begin();
 $db = conn_db();
 
-global $varArray;
 global $db;
-$var1 = $varArray['f_name'];
-$var2;
-$var3;
-$var4;
-$var5;
-$var6;
-$var7;
-$var8;
-$var9;
-$var10;
-$var11;
-$var12;
-$var13;
-$var14;
-$var15;
-$var16;
-$var17;
-$var18;
-$var19;
-$var20;
-
 
 if(!$db) {
 die("Connection failed: " . $db->connect_error);
