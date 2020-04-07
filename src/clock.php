@@ -37,6 +37,7 @@ $middle =$db->real_escape_string($_POST['middle']);
 $last = $db->real_escape_string($_POST['last']);
 
 function calculateTime() {
+  global $db;
   $first = $db->real_escape_string($_POST['first']);
   $middle =$db->real_escape_string($_POST['middle']);
   $last = $db->real_escape_string($_POST['last']);
