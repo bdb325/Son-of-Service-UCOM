@@ -90,10 +90,14 @@ if (isset($_POST['button_login']))
 
 	$sql = "SELECT * FROM USERS WHERE username = ? and password = ?";
 
-	if($stmt = $db->prepare($sql)) {
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-  }
+	$stmt = $db->prepare($sql))
+  $stmt->bind_param("ss", $username, $password);
+  $stmt->execute();
+	$count = $stmt->num_rows;
+	if ($count->num_rows) > 0) {
+		echo "Welcome!";
+	}
+
 	else
 	{
 		sleep(3);
