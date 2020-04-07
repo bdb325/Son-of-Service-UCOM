@@ -23,16 +23,8 @@ require_once (SOS_PATH . 'functions/html.php');
 
 make_html_begin(_("Log Volunteer Hours"), array());
 
-$servername = "database-1.cbkwsq59mx5a.us-east-1.rds.amazonaws.com";
-$username = "admin";
-$password = "lDWUp2cbP3ub6FMIHZYf";
-$db = "sos";
-global $db;
 $db = conn_db();
-
-//commented out to test
-// Create connection
-$con = new mysqli($servername, $username, $password, $db);
+global $db;
 
 
 // Check connection
