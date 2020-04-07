@@ -50,7 +50,7 @@ function calculateTime() {
   $last = $db->real_escape_string($_POST['last']);
   $sql = "UPDATE HOURS
 SET time_worked = TIME_TO_SEC( TIMEDIFF(time_out, time_in))/3600
-WHERE time_out IS NOT NULL AND time_worked IS NULL;"
+WHERE time_out IS NOT NULL AND time_worked IS NULL";
 $db->query($sql);
 
 }
