@@ -179,6 +179,7 @@ if (isset($_POST['searchUpdate'])) {
     $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
   $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail);
       $stmt->execute();
+      $stmt->store_result();
       $count = $stmt->affected_rows;
       if ($count > 0) {
         echo "Updated information successfully. Re-directing in 5 seconds";
@@ -188,11 +189,13 @@ if (isset($_POST['searchUpdate'])) {
            // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
            echo $first;
          }
-   else {
+
+    /* else {
      echo $sql;
      echo $stmt;
      echo "Error : " . $stmt . $db->error;
    }
+   */
 
  }
   }
