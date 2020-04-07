@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Son of Service
  * Copyright (C) 2003-2009 by Andrew Ziem.  All rights reserved.
@@ -6,23 +7,11 @@
  *
  * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
  *
- *
- * $Id: welcome.php,v 1.23 2009/02/12 04:11:20 andrewziem Exp $
+ * $Id: add_volunteer.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
  *
  */
 
-session_start();
 ob_start();
-
-define('SOS_PATH', '../');
-
-require_once (SOS_PATH . 'include/global.php');
-require_once (SOS_PATH . 'functions/html.php');
-require_once (SOS_PATH . 'functions/table.php');
-make_html_begin(_("Reports"), array());
-make_nav_begin();
-$db = conn_db();
-b_start();
 session_start();
 
 define('SOS_PATH', '../');
@@ -33,8 +22,14 @@ require_once (SOS_PATH . 'functions/html.php');
 
 
 make_html_begin(_("Select Report"), array());
-//Establish connection
+
 $db = conn_db();
+
+//commented out to test
+// Create connection
+$db = new mysqli($servername, $username, $password, $db);
+
+
 // Check connection
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
@@ -45,35 +40,35 @@ $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
 
 if (isset($POST['time_sub'])) {
-	if $form_time = "Q1" {
-		if $form_demo = "MM" {
+	if ($form_time == "Q1") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_nameAND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -85,35 +80,35 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00"';
 		}
 	}
-	elseif $form_time = "Q2" {
-		if $form_demo = "MM" {
+	elseif ($form_time == "Q2") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -125,35 +120,35 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00"';
 		}
 	}
-	elseif $form_time = "Q3" {
-		if $form_demo = "MM" {
+	elseif ($form_time == "Q3") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -165,35 +160,35 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00"';
 		}
 	}
-	elseif $form_time = "Q4" {
-		if $form_demo = "MM" {
+	elseif ($form_time == "Q4") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -205,35 +200,35 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00"';
 		}
 	}
-	elseif $form_time = "First" {
-		if $form_demo = "MM" {
+	elseif ($form_time == "First") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -245,35 +240,35 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00"';
 		}
 	}
-	elseif $form_time = "Second" {
-		if $form_demo = "MM" {
+	elseif ($form_time == "Second") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -286,35 +281,35 @@ if (isset($POST['time_sub'])) {
 		}
 	}
 
-		elseif $form_time = "Annual" {
-		if $form_demo = "MM" {
+		elseif ($form_time == "Annual") {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
@@ -327,34 +322,34 @@ if (isset($POST['time_sub'])) {
 		}
 	}
 	else {
-		if $form_demo = "MM" {
+		if ($form_demo == "MM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "MR" {
+		elseif ($form_demo == "MR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "FM" {
+		elseif ($form_demo == "FM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
 		}
-		elseif $form_demo = "FR" {
+		elseif ($form_demo == "FR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female"
 					GROUP BY a.race';
 		}
-		elseif $form_demo = "XM" {
+		elseif ($form_demo == "XM") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
 		}
-		elseif $form_demo = "XR" {
+		elseif ($form_demo == "XR") {
 			$sql = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender != "Male" AND a.gender != "Female"
@@ -369,7 +364,7 @@ if (isset($POST['time_sub'])) {
 }
 
 ?>
-<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--enter url-->
+<form method ="post" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--enter url-->
 	<label for="time">Time Period:</label>
   <select id="Time">
     <option value="Q1">Q1</option>
