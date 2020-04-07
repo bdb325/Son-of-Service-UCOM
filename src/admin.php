@@ -150,7 +150,7 @@ if (isset($_POST['searchUpdate'])) {
     phone_number = ?, country = ?, street_address = ?, state_providence = ?, city = ?, postal_code = ?,
    emergency_fName = ?, emergency_lName = ?, emergency_phone = ?, emergency_relationship = ? WHERE f_name = ?
     AND l_name = ? AND email_address = ?";
-    $stmt = $db->prepare($sql))
+    $stmt = $db->prepare($sql);
       $first = $db->real_escape_string($_POST['firstna']);
       $indexFirst = $db->real_escape_string($_POST['firstna']);
       $middle = $db->real_escape_string($_POST['minit']);
