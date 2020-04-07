@@ -55,7 +55,6 @@ $db->query($sql);
 
 }
 
-}
 
 
 if (isset($_POST['punchIn'])) {
