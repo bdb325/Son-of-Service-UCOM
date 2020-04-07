@@ -42,7 +42,7 @@ function request_login()
 {
 	global $languages;
 
-	echo ("<h3>Son of Service: ". _("Volunteer management database admin login") ."</h3>\n");
+	echo ("Volunteer management database admin login");
 
 	echo ("<p>" . _("Please log in using the user name and password provided by the volunteer coordinator.") . "</p>\n");
 
