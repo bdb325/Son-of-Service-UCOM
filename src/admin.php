@@ -108,7 +108,7 @@ function updateHoursForm($first, $middle, $last,$time_in,$time_out,$time_worked,
         <input type="text" name="time_worked" value="<?= $time_worked ?>">
         <label for="autopunch">Auto punch out flag:</label>
         <input type="text" name="autopunch" value="<?= $punch ?>">
-        <input type-"submit" name="hours" value="Update hours table"/>
+        <input type="submit" name="hours" value="Update hours table"/>
       </div>
     </form>
   <?php
@@ -193,7 +193,7 @@ if (isset($_POST['searchUpdate'])) {
       $emergency_phone = $db->real_escape_string($_POST['emergency_phone']);
       $emergency_relationship = $db->real_escape_string($_POST['emergency_relationship']);
       $sql = "UPDATE VOLUNTEER SET f_name = '$first', m_initial = '$middle', l_name = '$last', race = '$race',
-      ethnicity = '$ethnicity', gender = '$gender' , veteran_status = '$veteran_status', birth_date = '$birth_date', email_address = '$email_address',
+      ethnicity = '$ethnicity', gender = '$gender' , veteran_status = '$veteran_status', volunteer_type = '$volunteer_type', birth_date = '$birth_date', email_address = '$email_address',
       phone_number = '$phone_number', country = '$country', street_address = '$street_address', state_providence = '$state', city = '$city', postal_code = '$postal',
      emergency_fName = '$emergency_fname', emergency_lName = '$emergency_lname', emergency_phone = '$emergency_phone', emergency_relationship = '$emergency_relationship' WHERE f_name = '$indexFirst'
       AND l_name = '$indexLast' AND email_address = '$indexEmail'";
@@ -284,19 +284,31 @@ if (isset($_POST['hours'])) {
 <form method="post" action ="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="searchUpdate">
     <h1> Update Volunteer Information </h1>
-    <p> Search a Volunteer to update their information. Enter an email to update volunteer table, or middle initial to update the hours table.   </p>
+    <p> Search a Volunteer to update their information. </p>
     <label for="firstn">First Name:</label>
     <input type="text" name="firstn">
     <label for="lastn">Last Name:</label>
     <input type="text" name="lastn">
-    <label for="minit">Middle initial:</label>
-    <input type="text" name="minit">
     <label for="email">Email Address:</label>
     <input type="text" name="email">
     <input type="submit" name="searchUpdate" value="Update volunteer table information"/>
+  </div>
+</form>
+<form method="post" action ="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
+  <div id="searchHours">
+    <h1> Update Hour Information </h1>
+    <p> Search a Volunteer to update their hours worked. </p>
+    <label for="firstn">First Name:</label>
+    <input type="text" name="firstname">
+    <label for="lastn">Last Name:</label>
+    <input type="text" name="lastname">
+    <label for="email">Middle Initial:</label>
+    <input type="text" name="midldeinitial">
     <input type="submit" name="searchHours" value="Update hour table information"/>
   </div>
 </form>
+
+
 
 
 
