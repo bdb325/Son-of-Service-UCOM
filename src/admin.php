@@ -183,11 +183,12 @@ if (isset($_POST['searchUpdate'])) {
       if ($db->query($sql) === TRUE)
       {
         echo "Updated information successfully. Re-directing in 5 seconds";
-        //header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
+        header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
      }
       else {
            // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
-           echo "It failed :(";
+           echo $first;
+           echo $indexFirst; 
          }
 
     /* else {
