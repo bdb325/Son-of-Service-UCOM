@@ -27,7 +27,7 @@ is_logged_in();
 
 make_nav_begin();
 
-echo "<h3>" . _("Add a volunteer") . "</h3>\n";
+echo "<h1>" . _("Add a volunteer") . "</h1>\n";
 
 function test_input($data) {
 	$data = trim($data);
@@ -178,7 +178,7 @@ function volunteer_add_form()
 ?>
     <form method="post" action="add_volunteer.php">
 
-<table border="0" width="50%" cellspacing="0" cellpadding="0">
+<table border="0" width="60%" cellspacing="0" cellpadding="0">
 <tr>
  <th class="vert"><?php echo _("Prefix"); ?></th>
  <td><input type="Text" name="prefix"></td>

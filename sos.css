@@ -201,6 +201,7 @@ ul#breadcrumb li.last a {
 
 
 #content td { 
+	text-align: right;
 	vertical-align: top; 
 	padding:0 5px 20px 5px; 
 	}

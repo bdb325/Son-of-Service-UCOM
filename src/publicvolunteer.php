@@ -24,7 +24,7 @@ require_once (SOS_PATH . 'functions/html.php');
 make_html_begin(_("Add a volunteer"), array());
 
 
-echo "<h3>" . _("Add a volunteer") . "</h3>\n";
+echo "<h1>" . _("Add a volunteer") . "</h1>\n";
 
 function test_input($data, $error) {
   if(empty($data)){
@@ -111,14 +111,15 @@ function volunteer_add()
 
 
 } /* add_volunteer() */
-
+// test
 
 function volunteer_add_form()
 {
 ?>
+
     <form method="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/publicvolunteer.php">
 
-<table border="0" width="50%" cellspacing="0" cellpadding="0">
+<table border="0" width="60%" cellspacing="0" cellpadding="0">
 <tr>
  <th class="vert"><?php echo _("First name"); ?></th>
  <td><input type="Text" name="first"></td>
@@ -266,8 +267,10 @@ function volunteer_add_form()
 
 </form>
 
+
 <h1> Returning Volunteers Click  <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/clock.php">Here</a> </h1>
       <h3> Admins login <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/login.php">Here</a> </h3>
+
 
 <?php
 

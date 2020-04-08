@@ -16,6 +16,33 @@ session_start();
 
 define('SOS_PATH', '../');
 
+
+require_once(SOS_PATH.'include/global.php');
+require_once(SOS_PATH.'functions/html.php');
+require_once(SOS_PATH.'functions/forminput.php');
+require_once(SOS_PATH.'functions/textwriter.php');
+
+is_logged_in();
+
+if (array_key_exists('download', $_REQUEST))
+{
+    ob_start();
+}
+else
+{
+    make_html_begin(_("Reports"), array());
+
+    make_nav_begin();
+}
+
+$db = connect_db();
+
+if (!$db)
+{
+    die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);    
+}
+
+
 require_once (SOS_PATH . 'include/global.php');
 require_once (SOS_PATH . 'include/config.php');
 require_once (SOS_PATH . 'functions/html.php');
