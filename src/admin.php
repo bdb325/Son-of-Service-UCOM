@@ -122,9 +122,9 @@ if (isset($_POST['searchUpdate'])) {
   $stmt->execute();
   $data = $stmt->get_result();
   while ($dataset = $data->fetch_assoc()) {
-    $var1 = $dataset['f_name'];
-    $var2 = $dataset['m_initial'];
-    $var3 = $dataset['l_name'];
+  $_SESSION["first"] =  $var1 = $dataset['f_name'];
+  $_SESSION["middle"] = $var2 = $dataset['m_initial'];
+  $_SESSION["last"] = $var3 = $dataset['l_name'];
     $var4 = $dataset['race'];
     $var5 = $dataset['ethnicity'];
     $var6 = $dataset['gender'];
@@ -148,8 +148,7 @@ if (isset($_POST['searchUpdate'])) {
   if (isset($_POST['update'])) {
   /*  $stmt = $db->prepare($sql); */
   global $db;
-  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
-      $first = $db->real_escape_string($_POST['firstna']);
+      $first = ($_POST['firstna']);
       $indexFirst = $db->real_escape_string($_POST['firstna']);
       $middle = $db->real_escape_string($_POST['minit']);
       $last = $db->real_escape_string($_POST['lastna']);
