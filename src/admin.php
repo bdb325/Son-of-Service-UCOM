@@ -232,12 +232,12 @@ if (isset($_POST['searchUpdate'])) {
    $data = $stmt->get_result();
    while ($dataset = $data->fetch_assoc()) {
      $var1 = $dataset['f_name'];
-     $var2 = $datasaet['m_initial'];
-     $var3 = $datasaet['l_name'];
-     $var4 = $datasaet['time_in'];
-     $var5 = $datasaet['time_out'];
-     $var6 = $datasaet['time_worked'];
-     $var7 = $datasaet['auto_punch_out_flag'];
+     $var2 = $dataset['m_initial'];
+     $var3 = $dataaet['l_name'];
+     $var4 = $dataset['time_in'];
+     $var5 = $dataset['time_out'];
+     $var6 = $dataset['time_worked'];
+     $var7 = $dataset['auto_punch_out_flag'];
    }
    echo $var1;
   updateHoursForm($var1,$var2,$var3,$var4,$var5,$var6,$var7);
