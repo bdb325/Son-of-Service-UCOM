@@ -179,15 +179,14 @@ if (isset($_POST['searchUpdate'])) {
     /*  $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
     $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
   $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail); */
-      $stmt = $db->query($sql);
-      $count = $stmt->affected_rows;
-      if ($stmt) {
+      if ($db->query($sql) === TRUE)
+      {
         echo "Updated information successfully. Re-directing in 5 seconds";
         header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
      }
       else {
            // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
-           echo $first;
+           echo "It failed :("
          }
 
     /* else {
