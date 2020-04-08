@@ -233,13 +233,12 @@ if (isset($_POST['searchUpdate'])) {
    while ($dataset = $data->fetch_assoc()) {
      $var1 = $dataset['f_name'];
      $var2 = $dataset['m_initial'];
-     $var3 = $dataaet['l_name'];
+     $var3 = $dataset['l_name'];
      $var4 = $dataset['time_in'];
      $var5 = $dataset['time_out'];
      $var6 = $dataset['time_worked'];
      $var7 = $dataset['auto_punch_out_flag'];
    }
-   echo $var1;
   updateHoursForm($var1,$var2,$var3,$var4,$var5,$var6,$var7);
 }
 
@@ -299,9 +298,9 @@ if (isset($_POST['hours'])) {
   <div id="searchHours">
     <h1> Update Hour Information </h1>
     <p> Search a Volunteer to update their hours worked. </p>
-    <label for="firstn">First Name:</label>
+    <label for="firstname">First Name:</label>
     <input type="text" name="firstname">
-    <label for="lastn">Last Name:</label>
+    <label for="lastname">Last Name:</label>
     <input type="text" name="lastname">
     <label for="middleinitial">Middle Initial:</label>
     <input type="text" name="middleinitial">
