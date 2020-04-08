@@ -40,9 +40,10 @@ make_nav_begin();
 $result = $db->query("SELECT * FROM HOURS WHERE auto_punch_out_flag = 1");
 
 
-echo ("Volunteers who need to be punched out" . "<br>");
+echo ("Volunteers who haven't punched out:" . "<br>");
 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
   echo $row['f_name'] . " " . $row['l_name'];
+  echo "<br>";
 }
 
 
