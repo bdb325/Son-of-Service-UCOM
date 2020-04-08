@@ -36,15 +36,11 @@ make_html_begin("Welcome", array());
 
 make_nav_begin();
 
-if (isset($_SESSION['sos_user']['personalname']) and $_SESSION['sos_user']['personalname'])
-    $username = $_SESSION['sos_user']['personalname'];
-    else
-    $username = $_SESSION['sos_user']['username'];
 
 $result = $db->query("SELECT * FROM HOURS WHERE auto_punch_out_flag = 1");
 
 
-echo ("<h1>" . "Volunteers who need to be punched out" . "</h1>");
+echo ("Volunteers who need to be punched out");
 while ($row = $result->fetch_array()) {
   echo $row['f_name'] . " " . $row['l_name'];
 }
