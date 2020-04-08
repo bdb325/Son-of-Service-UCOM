@@ -186,7 +186,7 @@ if (isset($_POST['searchUpdate'])) {
      }
       else {
            // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
-           echo "It failed :("
+           echo "It failed :(";
          }
 
     /* else {
