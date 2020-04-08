@@ -222,9 +222,9 @@ if (isset($_POST['searchUpdate'])) {
  }
 
  if (isset($_POST['searchHours'])) {
-   $first = $db->real_escape_string($_POST['firstn']);
-   $last = $db->real_escape_string($_POST['lastn']);
-   $middle = $db->real_escape_string($_POST['minit']);
+   $first = $db->real_escape_string($_POST['firstname']);
+   $last = $db->real_escape_string($_POST['lastname']);
+   $middle = $db->real_escape_string($_POST['middleinitial']);
    $sql = "SELECT * FROM HOURS WHERE f_name = ? AND m_initial = ? AND l_name = ?";
    $stmt = $db->prepare($sql);
    $stmt->bind_param("sss", $first, $middle, $last);
