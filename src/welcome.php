@@ -41,11 +41,14 @@ if (isset($_SESSION['sos_user']['personalname']) and $_SESSION['sos_user']['pers
     else
     $username = $_SESSION['sos_user']['username'];
 
-$result = $db->query("SELECT auto_punch_out_flag FROM HOURS WHERE auto_punch_out_flag = 1");
+$result = $db->query("SELECT * FROM HOURS WHERE auto_punch_out_flag = 1");
 
-$reminders = $result->num_rows;
 
-echo ("<p>" . _("Number of volunteers who didn't clock out: ") . (0 == $reminders ? "0" : "<a href=\"reminders.php\">$reminders</a>") ."</p>\n");
+echo ("<h1>" . "Volunteers who need to be punched out" . "</h1>");
+while ($row = $result->fetch_array()) {
+  echo $row['f_name'] . " " . $row['l_name'];
+}
+
 
 
 
