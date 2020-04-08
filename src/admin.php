@@ -90,6 +90,30 @@ function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$va
 
 }
 
+function updateHoursForm($first, $middle, $last,$time_in,$time_out,$time_worked,$punch) {
+  ?>
+    <form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
+      <div id="hours">
+        <label for="fnameH">First name:</label>
+        <input type="text" name="fnameH" value="<?= $first ?>">
+        <label for="minitH">Middle initial:</label>
+        <input type="text" name="minitH" value="<?= $middle ?>">
+        <label for="lnameH">Last name:</label>
+        <input type="text" name="lnameH" value="<?= $last ?>">
+        <label for="time_in">Time in:</label>
+        <input type="text" name="time_in" value="<?= $time_in ?>">
+        <label for="time_out">Time out:</label>
+        <input type="text" name="time_out" value="<?= $time_out ?>">
+        <label for="time_worked">Time worked:</label>
+        <input type="text" name="time_worked" value="<?= $time_worked ?>">
+        <label for="autopunch">Auto punch out flag:</label>
+        <input type="text" name="autopunch" value="<?= $punch ?>">
+        <input type-"submit" name="hours" value="Update hours table"/>
+      </div>
+    </form>
+  <?php
+}
+
 if (isset($_POST['delete'])) {
 
   $first = $db->real_escape_string($_POST['first']);
@@ -197,6 +221,50 @@ if (isset($_POST['searchUpdate'])) {
 
  }
 
+ if (isset($_POST['searchHours'])) {
+   $first = $db->real_escape_string($_POST['firstn']);
+   $last = $db->real_escape_string($_POST['lastn']);
+   $middle = $db->real_escape_string($_POST['minit']);
+   $sql = "SELECT * FROM HOURS WHERE f_name = ? AND m_initial = ? AND l_name = ?";
+   $stmt = $db->prepare($sql);
+   $stmt->bind_param("sss", $first, $middle, $last);
+   $stmt->execute();
+   $data = $stmt->get_result();
+   while ($dataset = $data->fetch_assoc()) {
+     $var1 = $dataset['f_name'];
+     $var2 = $datasaet['m_initial'];
+     $var3 = $datasaet['l_name'];
+     $var4 = $datasaet['time_in'];
+     $var5 = $datasaet['time_out'];
+     $var6 = $datasaet['time_worked'];
+     $var7 = $datasaet['auto_punch_out_flag'];
+   }
+  updateHoursForm($var1,$var2,$var3,$var4,$var5,$var6,$var7);
+}
+
+if (isset($_POST['hours'])) {
+  $first = $db->real_escape_string($_POST['fnameH']);
+  $middle = $db->real_escape_string($_POST['minitH']);
+  $last = $db->real_escape_string($_POST['lnameH']);
+  $time_in = $db->real_escape_string($_POST['time_in']);
+  $time_out = $db->real_escape_string($_POST['time_out']);
+  $time_worked = $db->real_escape_string($_POST['time_worked']);
+  $punch = $db->real_escape_string($_POST['autopunch']);
+  $sql = "UPDATE HOURS SET time_in = '$time_in', time_out = '$time_out', time_worked = '$time_worked', auto_punch_out_flag = '$punch' WHERE f_name = '$first' AND m_initial = '$middle' AND l_name = '$last'";
+  if ($db->query($sql) === TRUE)
+  {
+    echo "Updated information successfully. Re-directing in 5 seconds";
+    header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
+ }
+  else {
+      echo ("Try again.");
+       updateHoursForm($var1,$var2,$var3,$var4,$var5,$var6,$var7);
+     }
+
+
+}
+
+
 
 
 
@@ -216,14 +284,17 @@ if (isset($_POST['searchUpdate'])) {
 <form method="post" action ="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="searchUpdate">
     <h1> Update Volunteer Information </h1>
-    <p> Search a Volunteer to update their information. </p>
+    <p> Search a Volunteer to update their information. Enter an email to update volunteer table, or middle initial to update the hours table.   </p>
     <label for="firstn">First Name:</label>
     <input type="text" name="firstn">
     <label for="lastn">Last Name:</label>
     <input type="text" name="lastn">
+    <label for="minit">Middle initial:</label>
+    <input type="text" name="minit">
     <label for="email">Email Address:</label>
     <input type="text" name="email">
-    <input type="submit" name="searchUpdate" value="Search for a volunteer"/>
+    <input type="submit" name="searchUpdate" value="Update volunteer table information"/>
+    <input type="submit" name="searchHours" value="Update hour table information"/>
   </div>
 </form>
 
