@@ -24,22 +24,18 @@ require_once(SOS_PATH.'functions/textwriter.php');
 
 is_logged_in();
 
-if (array_key_exists('download', $_REQUEST))
-{
-    ob_start();
-}
-else
-{
-    make_html_begin(_("Reports"), array());
 
-    make_nav_begin();
-}
+
+make_html_begin(_("Reports"), array());
+
+make_nav_begin();
+
 
 $db = connect_db();
 
 if (!$db)
 {
-    die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);    
+    die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
 }
 
 
