@@ -23,14 +23,7 @@ require_once(SOS_PATH.'functions/forminput.php');
 require_once(SOS_PATH.'functions/textwriter.php');
 
 is_logged_in();
-
-
-
-make_html_begin(_("Reports"), array());
-
 make_nav_begin();
-
-
 $db = connect_db();
 
 if (!$db)
