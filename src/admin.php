@@ -303,8 +303,8 @@ if (isset($_POST['hours'])) {
     <input type="text" name="firstname">
     <label for="lastn">Last Name:</label>
     <input type="text" name="lastname">
-    <label for="email">Middle Initial:</label>
-    <input type="text" name="midldeinitial">
+    <label for="middleinitial">Middle Initial:</label>
+    <input type="text" name="middleinitial">
     <input type="submit" name="searchHours" value="Update hour table information"/>
   </div>
 </form>
