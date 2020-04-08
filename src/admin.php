@@ -148,6 +148,7 @@ if (isset($_POST['searchUpdate'])) {
   if (isset($_POST['update'])) {
   /*  $stmt = $db->prepare($sql); */
   global $db;
+  updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
       $first = $db->real_escape_string($_POST['firstna']);
       $indexFirst = $db->real_escape_string($_POST['firstna']);
       $middle = $db->real_escape_string($_POST['minit']);
@@ -188,7 +189,7 @@ if (isset($_POST['searchUpdate'])) {
       else {
            // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
            echo $first;
-           echo $indexFirst; 
+           echo $indexFirst;
          }
 
     /* else {
