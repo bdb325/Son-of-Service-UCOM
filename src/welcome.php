@@ -41,7 +41,7 @@ $result = $db->query("SELECT * FROM HOURS WHERE auto_punch_out_flag = 1");
 
 
 echo ("Volunteers who need to be punched out");
-while ($row = $result->fetch_array()) {
+while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
   echo $row['f_name'] . " " . $row['l_name'];
 }
 
