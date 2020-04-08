@@ -25,7 +25,8 @@ require_once(SOS_PATH.'functions/textwriter.php');
 is_logged_in();
 make_html_begin(_("Select Report"), array());
 make_nav_begin();
-$db = connect_db();
+$db = conn_db();
+global $db;
 
 if (!$db)
 {
@@ -36,16 +37,6 @@ if (!$db)
 require_once (SOS_PATH . 'include/global.php');
 require_once (SOS_PATH . 'include/config.php');
 require_once (SOS_PATH . 'functions/html.php');
-
-
-
-
-$db = conn_db();
-
-//commented out to test
-// Create connection
-
-
 
 // Check connection
 if ($db->connect_error) {
