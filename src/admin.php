@@ -239,6 +239,7 @@ if (isset($_POST['searchUpdate'])) {
      $var6 = $datasaet['time_worked'];
      $var7 = $datasaet['auto_punch_out_flag'];
    }
+   echo $var1;
   updateHoursForm($var1,$var2,$var3,$var4,$var5,$var6,$var7);
 }
 
