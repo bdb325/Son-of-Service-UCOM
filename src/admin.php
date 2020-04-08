@@ -41,10 +41,51 @@ function results() {
 function updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20) {
 
 ?>
-
-
-
-
+<form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
+  <div id="update">
+    <label for="firstna">First Name:</label>
+    <input type="text" name="firstna" placeholder="<?= $var1 ?>" >
+    <label for="minit">Middle Initial:</label>
+    <input type="text" name="minit" placeholder="<?= $var2 ?>" >
+    <label for="lastna">Last Name:</label>
+    <input type="text" name="lastna" placeholder="<?= $var3 ?>" >
+    <label for="race">Race:</label>
+    <input type="text" name="race" placeholder="<?= $var4 ?>" >
+    <label for="ethnicity">Ethnicity:</label>
+    <input type="text" name="ethnicity"placeholder="<?= $var5 ?>" >
+    <label for="gender">Gender:</label>
+    <input type="text" name="gender" placeholder="<?= $var6 ?>" >
+    <label for="veteran_status">Veteran Status:</label>
+    <input type="text" name="veteran_status" placeholder="<?= $var7 ?>" >
+    <label for="volunteer_type">Volunteer area:</label>
+    <input type="text" name="volunteer_type" placeholder="<?= $var8 ?>" >
+    <label for="birth_date">Birth Date:</label>
+    <input type="text" name="birth_date" placeholder="<?= $var9 ?>" >
+    <label for="email_address">Email Address:</label>
+    <input type="text" name="email_address" placeholder="<?= $var10 ?>" >
+    <label for="phone_number">Phone Number:</label>
+    <input type="text" name="phone_number" placeholder="<?= $var11 ?>" >
+    <label for="country">Country:</label>
+    <input type="text" name="country" placeholder="<?= $var12 ?>" >
+    <label for="street_address">Address:</label>
+    <input type="text" name="street_address" placeholder="<?= $var13 ?>" >
+    <label for="state_providence">State:</label>
+    <input type="text" name="state_providence" placeholder="<?= $var14 ?>" >
+    <label for="city">City:</label>
+    <input type="text" name="city" placeholder="<?= $var15 ?>" >
+    <label for="postal_code">Zip Code:</label>
+    <input type="text" name="postal_code" placeholder="<?= $var16 ?>" >
+    <label for="emergency_fName">Emergency Contact First:</label>
+    <input type="text" name="emergency_fName" placeholder="<?= $var17 ?>" >
+    <label for="emergency_lName">Emergency Last:</label>
+    <input type="text" name="emergency_lName" placeholder="<?= $var18 ?>" >
+    <label for="emergency_phone">Emergency Phone:</label>
+    <input type="text" name="emergency_phone" placeholder="<?= $var19 ?>" >
+    <label for="emergency_relationship">Relationship of emergency contact:</label>
+    <input type="text" name="emergency_relationship" placeholder="<?= $var20 ?>" >
+    <input type="submit" name="update" value="Update volunteer info" />
+  </div>
+</form>
 <?php
 
 }
@@ -187,51 +228,6 @@ if (isset($_POST['searchUpdate'])) {
   </div>
 </form>
 
-<form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
-  <div id="update">
-    <label for="firstna">First Name:</label>
-    <input type="text" name="firstna" placeholder="<?= $var1 ?>" >
-    <label for="minit">Middle Initial:</label>
-    <input type="text" name="minit" placeholder="<?= $var2 ?>" >
-    <label for="lastna">Last Name:</label>
-    <input type="text" name="lastna" placeholder="<?= $var3 ?>" >
-    <label for="race">Race:</label>
-    <input type="text" name="race" placeholder="<?= $var4 ?>" >
-    <label for="ethnicity">Ethnicity:</label>
-    <input type="text" name="ethnicity"placeholder="<?= $var5 ?>" >
-    <label for="gender">Gender:</label>
-    <input type="text" name="gender" placeholder="<?= $var6 ?>" >
-    <label for="veteran_status">Veteran Status:</label>
-    <input type="text" name="veteran_status" placeholder="<?= $var7 ?>" >
-    <label for="volunteer_type">Volunteer area:</label>
-    <input type="text" name="volunteer_type" placeholder="<?= $var8 ?>" >
-    <label for="birth_date">Birth Date:</label>
-    <input type="text" name="birth_date" placeholder="<?= $var9 ?>" >
-    <label for="email_address">Email Address:</label>
-    <input type="text" name="email_address" placeholder="<?= $var10 ?>" >
-    <label for="phone_number">Phone Number:</label>
-    <input type="text" name="phone_number" placeholder="<?= $var11 ?>" >
-    <label for="country">Country:</label>
-    <input type="text" name="country" placeholder="<?= $var12 ?>" >
-    <label for="street_address">Address:</label>
-    <input type="text" name="street_address" placeholder="<?= $var13 ?>" >
-    <label for="state_providence">State:</label>
-    <input type="text" name="state_providence" placeholder="<?= $var14 ?>" >
-    <label for="city">City:</label>
-    <input type="text" name="city" placeholder="<?= $var15 ?>" >
-    <label for="postal_code">Zip Code:</label>
-    <input type="text" name="postal_code" placeholder="<?= $var16 ?>" >
-    <label for="emergency_fName">Emergency Contact First:</label>
-    <input type="text" name="emergency_fName" placeholder="<?= $var17 ?>" >
-    <label for="emergency_lName">Emergency Last:</label>
-    <input type="text" name="emergency_lName" placeholder="<?= $var18 ?>" >
-    <label for="emergency_phone">Emergency Phone:</label>
-    <input type="text" name="emergency_phone" placeholder="<?= $var19 ?>" >
-    <label for="emergency_relationship">Relationship of emergency contact:</label>
-    <input type="text" name="emergency_relationship" placeholder="<?= $var20 ?>" >
-    <input type="submit" name="update" value="Update volunteer info" />
-  </div>
-</form>
 
 
 <?php
