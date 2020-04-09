@@ -46,7 +46,6 @@ if ($db->connect_error) {
 $form_noTime = $db->real_escape_string($POST['noTime']);
 $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
-echo $query_count;
 
 if (isset($POST['time_sub'])) {
 	$query_arr[] = array();
@@ -751,7 +750,7 @@ if (isset($POST['not_time_sub'])) {
 <?php
 	$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $serialize_query_arr; ?>></textarea>
+<textarea name='query_result_data'> <?php echo $serialize_query_arr; echo $row['TOTAL'];?>></textarea>
 
 <?php
 make_html_end();
