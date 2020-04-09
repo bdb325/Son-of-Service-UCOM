@@ -700,7 +700,7 @@ if (isset($POST['not_time_sub'])) {
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_first = $row['a.fname'];
-				$query_middle = $row['a.m_initial']
+				$query_middle = $row['a.m_initial'];
 				$query_last = $row['a.l_name'];
 				$query_sum_time = $row['SUM(b.time_worked)'];
 				$query_req_hours = $row['a.required_hours'];
