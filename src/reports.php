@@ -7,7 +7,7 @@
  *
  * Updated and repurposed by Grand Valley Soluitons - Winter 2020 IS Capstone Group.
  *
- * $Id: add_volunteer.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
+ * $Id: add_VOLUNTEER.php,v 1.19 2009/02/13 03:52:15 andrewziem Exp $
  *
  */
 
@@ -40,7 +40,7 @@ require_once (SOS_PATH . 'functions/html.php');
 
 // Check connection
 if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
+    die("Connection failed: " . $con->connect_error);
 }
 
 $form_noTime = $db->real_escape_string($POST['noTime']);
@@ -674,7 +674,7 @@ if (isset($POST['not_time_sub'])) {
 	$query_arr[] = array();
 	if ($form_noTime == 'eachVol') {
 		$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
-					FROM Volunteer a, HOURS b
+					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name';
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
@@ -697,8 +697,8 @@ if (isset($POST['not_time_sub'])) {
 	}
 	else {
 		$query = 'SELECT a.f_name, a.m_initial, a.l_name, SUM(b.time_worked), a.required_hours
-					FROM Volunteer a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL;';
+					FROM VOLUNTEER a, HOURS b
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL';
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_first = $row['a.fname'];
@@ -706,7 +706,6 @@ if (isset($POST['not_time_sub'])) {
 				$query_last = $row['a.l_name'];
 				$query_sum_time = $row['SUM(b.time_worked)'];
 				$query_req_hours = $row['a.required_hours'];
-        echo $query_first;
 				$query_arr[] = array($query_first, $query_middle, $query_last, $query_sum_time, $query_req_hours);
 		}
 	}
@@ -732,14 +731,14 @@ if (isset($POST['not_time_sub'])) {
     <option value="FR">Female - Racial Demographics</option>
 	<option value="XM">Non-Binary - Hispanic</option>
 	<option value="XR">Non-Binary - Racial Demographics</option>
-    <option value="Total">Total Volunteers in the Time Period</option>
+    <option value="Total">Total VOLUNTEERs in the Time Period</option>
    </select>
    <input type="submit" name="time_sub" value="Submit for Demographics">
    <br><br>
    ---------------------------------------------------------------------------------------<br><br>
    	<label for="noTime">Not Time Related:</label>
   <select id="noTime">
-    <option value="eachVol">Total Number of Volunteers</option>
+    <option value="eachVol">Total Number of VOLUNTEERs</option>
     <option value="Newsletter">Newsletter</option>
     <option value="comServ">Community Service</option>
    </select>
