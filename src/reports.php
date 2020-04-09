@@ -46,10 +46,10 @@ if ($db->connect_error) {
 $form_noTime = $db->real_escape_string($POST['noTime']);
 $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
+$query_arr[] = array();
 
 
 if (isset($POST['time_sub'])) {
-	$query_arr[] = array();
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
             $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
@@ -671,7 +671,6 @@ if (isset($POST['time_sub'])) {
 }
 
 if (isset($POST['not_time_sub'])) {
-	$query_arr[] = array();
 	if ($form_noTime == 'eachVol') {
 		$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
@@ -748,9 +747,9 @@ if (isset($POST['not_time_sub'])) {
    ---------------------------------------------------------------------------------------
 <br><br><br>
 <?php
-	$serialize_query_arr = serialize($query_arr);
+	//$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $serialize_query_arr; ?>></textarea>
+<textarea name='query_result_data'> <?php echo $query_arr; ?>></textarea>
 
 <?php
 make_html_end();
