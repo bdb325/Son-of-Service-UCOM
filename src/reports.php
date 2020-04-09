@@ -687,7 +687,7 @@ if (isset($POST['not_time_sub'])) {
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_first = $row['a.fname'];
-				$query_middle = $row['a.m_initial']
+				$query_middle = $row['a.m_initial'];
 				$query_last = $row['a.l_name'];
 				$query_email = $row['email_address'];
 				$query_arr[] = array[$query_first, $query_middle, $query_last, $query_email];
