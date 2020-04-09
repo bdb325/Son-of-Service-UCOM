@@ -672,7 +672,7 @@ if (isset($POST['time_sub'])) {
 
 if (isset($POST['not_time_sub'])) {
 	if ($form_noTime == 'eachVol') {
-		$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+		$query = 'SELECT a.f_name, a.m_initial, a.l_name
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name';
         $result = mysqli_query($db, $query);
