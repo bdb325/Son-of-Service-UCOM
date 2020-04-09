@@ -690,7 +690,7 @@ if (isset($POST['not_time_sub'])) {
 				$query_middle = $row['a.m_initial'];
 				$query_last = $row['a.l_name'];
 				$query_email = $row['email_address'];
-				$query_arr[] = array[$query_first, $query_middle, $query_last, $query_email];
+				$query_arr() = array[$query_first, $query_middle, $query_last, $query_email];
 		}
 	}
 	else {
@@ -704,7 +704,7 @@ if (isset($POST['not_time_sub'])) {
 				$query_last = $row['a.l_name'];
 				$query_sum_time = $row['SUM(b.time_worked)'];
 				$query_req_hours = $row['a.required_hours'];
-				$query_arr[] = array[$query_first, $query_middle, $query_last, $query_sum_time, $query_req_hours];
+				$query_arr() = array[$query_first, $query_middle, $query_last, $query_sum_time, $query_req_hours];
 		}
 	}
 }
