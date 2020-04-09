@@ -57,7 +57,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -78,7 +78,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -99,7 +99,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -120,7 +120,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -132,7 +132,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -153,7 +153,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -174,7 +174,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -195,7 +195,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -207,7 +207,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		}
@@ -229,7 +229,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -250,7 +250,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -271,7 +271,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	elseif ($form_time == "Q4") {
@@ -282,7 +282,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -303,7 +303,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -324,7 +324,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -345,7 +345,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -357,7 +357,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -378,7 +378,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -399,7 +399,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -420,7 +420,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -432,7 +432,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -453,7 +453,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -474,7 +474,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -495,7 +495,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -508,7 +508,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -529,7 +529,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -550,7 +550,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -571,7 +571,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -583,7 +583,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "MR") {
@@ -604,7 +604,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
@@ -625,7 +625,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "XR") {
@@ -646,7 +646,7 @@ if (isset($POST['time_sub'])) {
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 			}
 		}
 	}
@@ -659,7 +659,7 @@ if (isset($POST['not_time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name';
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['Count(a.fname, a.m_initial, a.l_name)'];
-				$query_arr[] = array[$query_count];
+				$query_arr[] = array($query_count);
 		}
 	}
 	elseif ($form_noTime == 'Newsletter') {
