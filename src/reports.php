@@ -676,10 +676,12 @@ if (isset($POST['not_time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name';
         $result = mysqli_query($db, $query);
-		while ($row == mysqli_fetch_assoc($result)) {
+        $rowCount = mysqli_num_rows($result);
+        echo $rowCount;
+	/*	while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
 				$query_arr[] = array($query_count);
-		}
+		} */
 	}
 	elseif ($form_noTime == 'Newsletter') {
 		$query = 'SELECT f_name, m_initial, l_name, email_address
@@ -749,7 +751,7 @@ if (isset($POST['not_time_sub'])) {
 <?php
 	//$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $query_count; print_r($query_arr);  ?>></textarea>
+<textarea name='query_result_data'> <?php echo $query_count; print_r($query_arr); echo $rowCount;  ?>></textarea>
 
 <?php
 make_html_end();
