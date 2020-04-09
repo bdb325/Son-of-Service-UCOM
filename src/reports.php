@@ -709,7 +709,7 @@ if (isset($POST['not_time_sub'])) {
 	}
 }
 ?>
-<form method ="post" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--enter url-->
+<form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/reports.php">
 	<label for="time">Time Period:</label>
   <select id="Time">
     <option value="Q1">Q1</option>
