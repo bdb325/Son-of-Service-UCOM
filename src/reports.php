@@ -264,7 +264,7 @@ if (isset($POST['time_sub'])) {
 				$query_arr[] = array($query_count, $query_race);
 			}
 		}
-		else {
+		elseif {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00"';
@@ -338,7 +338,7 @@ if (isset($POST['time_sub'])) {
 				$query_arr[] = array($query_count, $query_race);
 			}
 		}
-		else {
+		elseif {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00"';
@@ -413,7 +413,7 @@ if (isset($POST['time_sub'])) {
 				$query_arr[] = array($query_count, $query_race);
 			}
 		}
-		else {
+		elseif {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00"';
@@ -488,7 +488,7 @@ if (isset($POST['time_sub'])) {
 				$query_arr[] = array($query_count, $query_race);
 			}
 		}
-		else {
+		elseif {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00"';
@@ -564,7 +564,7 @@ if (isset($POST['time_sub'])) {
 				$query_arr[] = array($query_count, $query_race);
 			}
 		}
-		else {
+		elseif {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00"';
@@ -575,7 +575,7 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 	}
-	else {
+	elseif {
 		if ($form_demo == "MM") {
 			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
