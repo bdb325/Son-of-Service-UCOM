@@ -46,18 +46,19 @@ if ($db->connect_error) {
 $form_noTime = $db->real_escape_string($POST['noTime']);
 $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
-
+echo $query_count;
 
 if (isset($POST['time_sub'])) {
 	$query_arr[] = array();
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name) as TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
-                $query_count = $row['Count(a.f_name, a.m_initial, a.l_name)'];
+                $query_count = $row['TOTAL'];
+                echo $query_count;
                 $query_arr[] = array($query_count);
             }
         } elseif ($form_demo == "MR") {
