@@ -46,9 +46,10 @@ if ($db->connect_error) {
 $form_noTime = $db->real_escape_string($POST['noTime']);
 $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
-$query_arr[] = array();
+
 
 if (isset($POST['time_sub'])) {
+	$query_arr[] = array();
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
             $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
@@ -670,6 +671,7 @@ if (isset($POST['time_sub'])) {
 }
 
 if (isset($POST['not_time_sub'])) {
+	$query_arr[] = array();
 	if ($form_noTime == 'eachVol') {
 		$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM Volunteer a, HOURS b
