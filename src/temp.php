@@ -43,10 +43,12 @@ $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {
   echo ($row['f_name']);
+  echo "  ";
   echo ($row['m_initial']);
+    echo "  ";
   echo ($row['l_name']);
-  echo ($row['email_address']);
-  echo "\r\n";
+    echo "  ";
+  echo ("$row['email_address'] <br>");
 
 
 
