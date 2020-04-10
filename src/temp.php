@@ -45,7 +45,9 @@ while ($row = $result->fetch_assoc()) {
   echo ($row['f_name']);
   echo ($row['m_initial']);
   echo ($row['l_name']);
-  echo ($row['email_address'] <br/>);
+  echo ($row['email_address']);
+  echo "\r\n";
+
 
 
 
