@@ -151,6 +151,7 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row = mysqli_fetch_assoc($result)) {
+        echo $row['TOTAL']; 
 				$query_count = $row['TOTAL'];
 				$query_arr[] = array($query_count);
 			}
