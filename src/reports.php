@@ -722,7 +722,7 @@ if (isset($POST['not_time_sub'])) {
         $serialize_query_arr = serialize($query_array);
     ?>
 
-    <textarea name='query_result_data' style='display:'> <?php echo $serialize_query_arr; ?> </textarea> <?
+    <textarea name='query_result_data' style='display:'> <?php echo $serialize_query_arr; ?> </textarea> <?php
 	}
 	else {
 		$query = '(SELECT a.f_name, a.m_initial, a.l_name, SUM(b.time_worked), a.required_hours
