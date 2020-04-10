@@ -48,6 +48,11 @@ $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
 $query_arr[] = array();
 
+function displayResults($first,$middle,$last,$email) {
+
+
+}
+
 
 if (isset($POST['time_sub'])) {
 	if ($form_time == "Q1") {
@@ -151,7 +156,7 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['TOTAL']; 
+        echo $row['TOTAL'];
 				$query_count = $row['TOTAL'];
 				$query_arr[] = array($query_count);
 			}
@@ -683,17 +688,41 @@ if (isset($POST['not_time_sub'])) {
 		}
 	}
 	elseif ($form_noTime == 'Newsletter') {
-		$query = '(SELECT f_name, m_initial, l_name, email_address
-					FROM VOLUNTEER
-					WHERE e_newsletter = TRUE)';
-        $result = mysqli_query($db, $query);
-		while ($row == mysqli_fetch_assoc($result)) {
-				$query_first = $row['a.f_name'];
-				$query_middle = $row['a.m_initial'];
-				$query_last = $row['a.l_name'];
-				$query_email = $row['email_address'];
-				$query_arr[] = array($query_first, $query_middle, $query_last, $query_email);
-		}
+    ?>
+    <table border='1' style='border-collapse:collapse;'>
+        <tr>
+            <th>Number of Hispanic Male Volunteers</th>
+        </tr>
+        <?php
+        $querry = (SELECT f_name, m_initial, l_name, email_address
+                        FROM VOLUNTEER
+                        WHERE e_newsletter = TRUE);
+        $result = mysqli_querry($con,$querry);
+
+        $query_arr[] = array();
+
+        while ($row = mysqli_fetch_assoc($result)) {
+        $first_name = $row['f_name'];
+        $middle_i = $row['m_initial'];
+        $last_name = $row['l_name'];
+        $email_addr = $row['email_address'];
+        $query_arr[] = array($first_name, $middle_i, $last_name, $email_addr);
+        ?>
+        <tr>
+            <td><?php echo $first_name; ?></td>
+            <td><?php echo $middle_i; ?> </td>
+            <td><?php echo $last_name; ?> </td>
+            <td><?php echo $email_addr; ?> </td>
+        </tr>
+        <?php
+        }
+        ?>
+    </table>
+    <?php
+        $serialize_query_arr = serialize($query_array);
+    ?>
+
+    <textarea name='query_result_data' style='display:'> <?php echo $serialize_query_arr; ?> </textarea> <?
 	}
 	else {
 		$query = '(SELECT a.f_name, a.m_initial, a.l_name, SUM(b.time_worked), a.required_hours
