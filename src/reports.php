@@ -747,9 +747,9 @@ if (isset($POST['not_time_sub'])) {
    ---------------------------------------------------------------------------------------
 <br><br><br>
 <?php
-	//$serialize_query_arr = serialize($query_arr);
+	$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $query_arr; ?>></textarea>
+<textarea name='query_result_data'> <?php echo $serialize_quer_arr; print_r($quer_arr); ?>></textarea>
 
 <?php
 make_html_end();
