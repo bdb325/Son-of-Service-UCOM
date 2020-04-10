@@ -40,18 +40,10 @@ if ($db->connect_error) {
 $sql = "SELECT * FROM VOLUNTEER WHERE e_newsletter = TRUE";
 
 $result = $db->query($sql);
-
+echo "<table border='1'>";
+echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 while ($row = $result->fetch_assoc()) {
-  echo ($row['f_name']);
-  echo "  ";
-  echo ($row['m_initial']);
-    echo "  ";
-  echo ($row['l_name']);
-    echo "  ";
-  echo ("{$row['email_address']} <br>");
-
-
-
+  echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr>\n"
 
 }
 make_html_end();
