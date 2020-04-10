@@ -42,6 +42,6 @@ $sql = "SELECT * FROM VOLUNTEER WHERE e_newsletter = TRUE";
 $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-  echo(\n $row['f_name'], $row['m_initial'], $row['l_name'], $row['email_address']);
+  echo($row['f_name'], $row['m_initial'], $row['l_name'], $row['email_address'] . "\xA");
 }
 make_html_end();
