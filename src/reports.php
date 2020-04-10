@@ -52,19 +52,19 @@ $query_arr[] = array();
 if (isset($POST['time_sub'])) {
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
                 $query_arr[] = array($query_count);
             }
         } elseif ($form_demo == "MR") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -72,19 +72,19 @@ if (isset($POST['time_sub'])) {
                 $query_arr[] = array($query_count, $query_race);
             }
         } elseif ($form_demo == "FM") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
                 $query_arr[] = array($query_count);
             }
         } elseif ($form_demo == "FR") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_nameAND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -92,19 +92,19 @@ if (isset($POST['time_sub'])) {
                 $query_arr[] = array($query_count, $query_race);
             }
         } elseif ($form_demo == "XM") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
                 $query_arr[] = array($query_count);
             }
         } elseif ($form_demo == "XR") {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -112,9 +112,9 @@ if (isset($POST['time_sub'])) {
                 $query_arr[] = array($query_count, $query_race);
             }
         } else {
-            $query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00")';
             $result = mysqli_query($db, $query);
             while ($row == mysqli_fetch_assoc($result)) {
                 $query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -124,9 +124,9 @@ if (isset($POST['time_sub'])) {
     }
 	elseif ($form_time == "Q2") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -134,10 +134,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -146,20 +146,20 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
-				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
+				$query_count = $row['TOTAL'];
 				$query_arr[] = array($query_count);
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -168,9 +168,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -178,10 +178,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -190,9 +190,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -202,9 +202,9 @@ if (isset($POST['time_sub'])) {
 	}
 	elseif ($form_time == "Q3") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -212,10 +212,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -224,9 +224,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -234,10 +234,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -246,9 +246,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -256,10 +256,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -268,9 +268,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -280,9 +280,9 @@ if (isset($POST['time_sub'])) {
 	}
 	elseif ($form_time == "Q4") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -290,10 +290,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 			$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -302,9 +302,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -312,10 +312,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -324,9 +324,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -334,10 +334,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -346,9 +346,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -358,9 +358,9 @@ if (isset($POST['time_sub'])) {
 	}
 	elseif ($form_time == "First") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -368,10 +368,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -380,9 +380,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -390,10 +390,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -402,9 +402,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -412,10 +412,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -424,9 +424,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -436,9 +436,9 @@ if (isset($POST['time_sub'])) {
 	}
 	elseif ($form_time == "Second") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -446,10 +446,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -458,9 +458,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -468,10 +468,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -480,9 +480,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -490,10 +490,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -502,9 +502,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -514,9 +514,9 @@ if (isset($POST['time_sub'])) {
 	}
 		elseif ($form_time == "Annual") {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -524,10 +524,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -536,9 +536,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -546,10 +546,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -558,9 +558,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -568,10 +568,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -580,9 +580,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -592,9 +592,9 @@ if (isset($POST['time_sub'])) {
 	}
 	else {
 		if ($form_demo == "MM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -602,10 +602,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "MR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -614,9 +614,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -624,10 +624,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "FR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -636,9 +636,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XM") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female"';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -646,10 +646,10 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		elseif ($form_demo == "XR") {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name), a.race
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender != "Male" AND a.gender != "Female"
-					GROUP BY a.race';
+					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -658,9 +658,9 @@ if (isset($POST['time_sub'])) {
 			}
 		}
 		else {
-			$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+			$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name)';
 			$result = mysqli_query($db, $query);
 			while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -672,9 +672,9 @@ if (isset($POST['time_sub'])) {
 
 if (isset($POST['not_time_sub'])) {
 	if ($form_noTime == 'eachVol') {
-		$query = 'SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+		$query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name)';
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_count = $row['COUNT(a.f_name, a.m_initial, a.l_name)'];
@@ -682,9 +682,9 @@ if (isset($POST['not_time_sub'])) {
 		}
 	}
 	elseif ($form_noTime == 'Newsletter') {
-		$query = 'SELECT f_name, m_initial, l_name, email_address
+		$query = '(SELECT f_name, m_initial, l_name, email_address
 					FROM VOLUNTEER
-					WHERE e_newsletter = TRUE';
+					WHERE e_newsletter = TRUE)';
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_first = $row['a.f_name'];
@@ -695,9 +695,9 @@ if (isset($POST['not_time_sub'])) {
 		}
 	}
 	else {
-		$query = 'SELECT a.f_name, a.m_initial, a.l_name, SUM(b.time_worked), a.required_hours
+		$query = '(SELECT a.f_name, a.m_initial, a.l_name, SUM(b.time_worked), a.required_hours
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL)';
         $result = mysqli_query($db, $query);
 		while ($row == mysqli_fetch_assoc($result)) {
 				$query_first = $row['a.f_name'];
@@ -749,7 +749,7 @@ if (isset($POST['not_time_sub'])) {
 <?php
 	$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $serialize_quer_arr; print_r($quer_arr); ?>></textarea>
+<textarea name='query_result_data'> <?php echo $serialize_query_arr; print_r($query_arr); ?>></textarea>
 
 <?php
 make_html_end();
