@@ -40,35 +40,10 @@ if ($db->connect_error) {
 $sql = "SELECT * FROM VOLUNTEER WHERE e_newsletter = TRUE";
 
 $result = $db->query($sql);
-?>
-<table border='1' style='border-collapse:collapse;'>
-	<tr>
-		<th>Email Addresses</th>
-	</tr>
-	<tr>
-		<td>First Name</td.
-		<td>Middle Initial</td>
-		<td>Last Name</td>
-		<td>Email Address</td>
-	</th>
-<?
+echo "<table border='1'>";
+echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 while ($row = $result->fetch_assoc()) {
-  $first = ($row['f_name']);
-  $middle =  ($row['m_initial']);
-  $last = ($row['l_name']);
-  $email_addr =  ($row['email_address']);
-?>
-	<tr>
-		<td><?php echo $first_name; ?></td>
-		<td><?php echo $middle_i; ?> </td>
-		<td><?php echo $last_name; ?> </td>
-		<td><?php echo $email_addr; ?> </td>
-	</tr>
-	<?php
-}
-?>
-</table>
-<?php
+  echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr> </table>\n";
+
 }
 make_html_end();
-?>
