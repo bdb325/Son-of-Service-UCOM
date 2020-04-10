@@ -37,11 +37,17 @@ if ($db->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$sql = "SELECT f_name, m_initial, l_name, email_address FROM VOLUNTEER WHERE e_newsletter = TRUE";
+$sql = "SELECT * FROM VOLUNTEER WHERE e_newsletter = TRUE";
 
 $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-  print_r($row);
+  echo ($row['f_name']);
+  echo ($row['m_initial']);
+  echo ($row['l_name']);
+  echo ($row['email_address'] <br/>);
+
+
+
 }
 make_html_end();
