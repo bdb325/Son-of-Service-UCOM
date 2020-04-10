@@ -43,7 +43,7 @@ $result = $db->query($sql);
 echo "<table border='1'>";
 echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 while ($row = $result->fetch_assoc()) {
-  echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr> </table>\n";
-
+  echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr>\n";
 }
+echo "</table>";
 make_html_end();
