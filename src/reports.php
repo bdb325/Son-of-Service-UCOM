@@ -694,9 +694,9 @@ if (isset($POST['not_time_sub'])) {
             <th>Number of Hispanic Male Volunteers</th>
         </tr>
         <?php
-        $querry = (SELECT f_name, m_initial, l_name, email_address
+        $querry = '(SELECT f_name, m_initial, l_name, email_address
                         FROM VOLUNTEER
-                        WHERE e_newsletter = TRUE);
+                        WHERE e_newsletter = TRUE)';
         $result = mysqli_querry($con,$querry);
 
         $query_arr[] = array();
