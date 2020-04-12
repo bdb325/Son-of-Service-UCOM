@@ -47,6 +47,8 @@ $form_noTime = $db->real_escape_string($POST['noTime']);
 $form_time = $db->real_escape_string($POST['Time']);
 $form_demo = $db->real_escape_string($POST['demo']);
 $query_arr[] = array();
+$query_count;
+global $query_count;
 
 function displayResults($first,$middle,$last,$email) {
 
@@ -57,7 +59,7 @@ function displayResults($first,$middle,$last,$email) {
 if (isset($POST['time_sub'])) {
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
-            $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
+            $query = '(SELECT COUNT(a.f_name)
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
             $result = mysqli_query($db, $query);
@@ -156,7 +158,6 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = mysqli_query($db, $query);
 			while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['TOTAL'];
 				$query_count = $row['TOTAL'];
 				$query_arr[] = array($query_count);
 			}
@@ -779,7 +780,7 @@ if (isset($POST['not_time_sub'])) {
 <?php
 	$serialize_query_arr = serialize($query_arr);
 ?>
-<textarea name='query_result_data'> <?php echo $serialize_query_arr; print_r($query_arr); print_r($query_count); echo $row['TOTAL'];  ?>></textarea>
+<textarea name='query_result_data'> <?php echo $query_count; ?>></textarea>
 
 <?php
 make_html_end();
