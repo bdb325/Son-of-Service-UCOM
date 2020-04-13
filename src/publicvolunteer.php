@@ -153,7 +153,7 @@ function volunteer_add_form()
   <option value="Caucasian/White">Caucasian/White</option>
   <option value="Native American">Native American</option>
   <option value="Native Pacific Islander">Native Pacific Islander</option>
-  <option value="Native Alaskan">Audi</option>
+  <option value="Native Alaskan">Native Alaskan</option>
   <option value="Multi-racial">Multi-racial</option>
   <option value="Other">Other</option>
   <option value="N/A">N/A</option>

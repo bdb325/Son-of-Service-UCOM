@@ -271,7 +271,7 @@ if (isset($_POST['hours'])) {
 ?>
 <form method="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php">
   <div id="delete">
-    <h1> Delete Volunter </h1>
+    <h1> Delete Volunteer </h1>
     <label for="first">First Name:</label>
     <input type="text" name="first">
     <label for="middle">Middle Initial:</label>
