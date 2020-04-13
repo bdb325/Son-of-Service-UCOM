@@ -49,7 +49,6 @@ $form_demo = $db->real_escape_string($POST['demo']);
 $query_arr = array();
 global $query_count;
 global $query_arr;
-$_SESSION['results'] = $query_arr;
 
 
 if (isset($POST['time_sub'])) {
@@ -62,6 +61,7 @@ if (isset($POST['time_sub'])) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $query_count = $row['TOTAL'];
                 $query_arr[count] = $query_count; 
+				$_SESSION['results'] = $query_arr;
             }
         } elseif ($form_demo == "MR") {
             $query = '(SELECT COUNT(a.f_name) AS TOTAL, a.race
