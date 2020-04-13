@@ -58,7 +58,7 @@ if (isset($POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
             $result = mysqli_query($db, $query);
-            for ($set = array (); $row = mysqli_fetch_assoc($result); $set[] = $row; $_SESSION['results'] = $set); 
+            for ($set = array (); $row = mysqli_fetch_assoc($result); $set[array_shift($row)] = $row; $_SESSION['results'] = $set); 
 				 
 			
              
