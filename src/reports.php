@@ -72,7 +72,8 @@ if (isset($POST['time_sub'])) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $query_count = $row['TOTAL'];
                 $query_race = $row['a.race'];
-                $query_arr[count,race] = array($query_count, $query_race);
+                $query_arr[count] = array($query_count);
+				$query_arr[race] = array($query_race);
             }
         } elseif ($form_demo == "FM") {
             $query = '(SELECT COUNT(a.f_name) AS TOTAL
@@ -89,10 +90,11 @@ if (isset($POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_nameAND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = mysqli_query($db, $query);
-           while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($result)) {
                 $query_count = $row['TOTAL'];
                 $query_race = $row['a.race'];
-                $query_arr[count,race] = array($query_count, $query_race);
+                $query_arr[count] = array($query_count);
+				$query_arr[race] = array($query_race);
             }
         } elseif ($form_demo == "XM") {
             $query = '(SELECT COUNT(a.f_name, a.m_initial, a.l_name)
