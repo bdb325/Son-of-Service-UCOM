@@ -44,7 +44,7 @@ $result = $db->query($sql);
 echo "<table border='1'>";
 echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 while ($row = $result->fetch_assoc()) {
-  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['a.race']}M</td></tr>\n";
+  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['a.race']}</td></tr>\n";
 }
 echo "</table>";
 make_html_end();
