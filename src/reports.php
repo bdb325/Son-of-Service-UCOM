@@ -777,7 +777,7 @@ if (isset($_POST['not_time_sub'])) {
 	elseif ($form_noTime == 'Newsletter') {
         $querry = '(SELECT f_name AS FIRST, m_initial AS MIDDLE, l_name AS LAST, email_address AS EMAIL
                         FROM VOLUNTEER
-                        WHERE e_newsletter = "1")';
+                        WHERE e_newsletter = "TRUE")';
        $result = $db->query($sql);
 		echo "<table border='1'>";
 		echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
