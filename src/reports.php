@@ -43,9 +43,9 @@ if ($db->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$form_noTime = $db->real_escape_string($POST['noTime']);
-$form_time = $db->real_escape_string($POST['Time']);
-$form_demo = $db->real_escape_string($POST['demo']);
+$form_noTime = $POST['noTime'];
+$form_time = $POST['Time'];
+$form_demo = $POST['demo'];
 $query_arr = array();
 global $query_count;
 global $query_arr;
