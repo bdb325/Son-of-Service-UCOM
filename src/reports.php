@@ -27,31 +27,28 @@ make_html_begin(_("Select Report"), array());
 make_nav_begin();
 $db = conn_db();
 global $db;
-
-if (!$db)
-{
-    die_message(MSG_SYSTEM_ERROR, _("Error establishing database connection."), __FILE__, __LINE__);
+// Check connection
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
+
 
 
 require_once (SOS_PATH . 'include/global.php');
 require_once (SOS_PATH . 'include/config.php');
 require_once (SOS_PATH . 'functions/html.php');
 
-// Check connection
-if ($db->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-}
 
-$form_noTime = $POST['noTime'];
-$form_time = $POST['Time'];
-$form_demo = $POST['demo'];
+
 $query_arr = array();
 global $query_count;
 global $query_arr;
 
 
 if (isset($POST['time_sub'])) {
+	$form_noTime = $POST['noTime'];
+	$form_time = $POST['Time'];
+	$form_demo = $POST['demo'];
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL
@@ -762,6 +759,9 @@ if (isset($POST['time_sub'])) {
 }
 
 if (isset($POST['not_time_sub'])) {
+	$form_noTime = $POST['noTime'];
+	$form_time = $POST['Time'];
+	$form_demo = $POST['demo'];
 	if ($form_noTime == 'eachVol') {
 		$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
