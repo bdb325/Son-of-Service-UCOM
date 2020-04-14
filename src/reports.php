@@ -125,7 +125,7 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00")';
             $result = $db->query($sql);
 			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q1 </td></tr>";
+			echo "<tr><td>Total Number of Q1 Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
 			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
@@ -775,14 +775,14 @@ if (isset($_POST['not_time_sub'])) {
 		echo "</table>";
 	}
 	elseif ($form_noTime == 'Newsletter') {
-        $querry = '(SELECT f_name, m_initial, l_name, email_address
+        $querry = '(SELECT f_name AS FIRST, m_initial AS MIDDLE, l_name AS LAST, email_address AS EMAIL
                         FROM VOLUNTEER
                         WHERE e_newsletter = TRUE)';
        $result = $db->query($sql);
 		echo "<table border='1'>";
 		echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 		while ($row = $result->fetch_assoc()) {
-		   echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr>\n";
+		   echo "<tr><td>{$row['FIRST']}</td><td>{$row['MIDDLE']}</td><td>{$row['LAST']}</td><td>{$row['EMAIL']}</td></tr>\n";
 			}
 		echo "</table>";
 	}
