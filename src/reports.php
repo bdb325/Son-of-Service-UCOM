@@ -787,7 +787,7 @@ if (isset($_POST['not_time_sub'])) {
 		echo "</table>";
 	}
 	else {
-		$sql = '(SELECT a.f_name AS FIRST, a.m_initial AS MIDDLE, a.l_name AS LAST, SUM(b.time_worked) AS TIME_WORKED, a.required_hours AS REQUIRED
+		$sql = '(SELECT a.f_name AS FIRST, a.m_initial AS MIDDLE, a.l_name AS LAST, b.time_worked AS TIME_WORKED, a.required_hours AS REQUIRED
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL)';
         $result = $db->query($sql);
