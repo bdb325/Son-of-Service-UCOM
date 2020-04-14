@@ -774,11 +774,11 @@ if (isset($_POST['not_time_sub'])) {
 		}
 		echo "</table>";
 	}
-	elseif ($form_noTime == 'Newsletter') {
-        $querry = '(SELECT f_name AS FIRST, m_initial AS MIDDLE, l_name AS LAST, email_address AS EMAIL
+	elseif ($form_noTime == 'Newsletter') { 
+        $query = '(SELECT f_name AS FIRST, m_initial AS MIDDLE, l_name AS LAST, email_address AS EMAIL
                         FROM VOLUNTEER
                         WHERE e_newsletter = 1)';
-       $result = $db->query($sql);
+       $result = $db->query($query);
 		echo "<table border='1'>";
 		echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 		while ($row = $result->fetch_assoc()) {
