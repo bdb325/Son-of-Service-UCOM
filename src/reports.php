@@ -45,10 +45,10 @@ global $query_count;
 global $query_arr;
 
 
-if (isset($POST['time_sub'])) {
-	$form_noTime = $POST['noTime'];
-	$form_time = $POST['Time'];
-	$form_demo = $POST['demo'];
+if (isset($_POST['time_sub'])) {
+	$form_noTime = $_POST['noTime'];
+	$form_time = $_POST['Time'];
+	$form_demo = $_POST['demo'];
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL
@@ -758,10 +758,10 @@ if (isset($POST['time_sub'])) {
 	}
 }
 
-if (isset($POST['not_time_sub'])) {
-	$form_noTime = $POST['noTime'];
-	$form_time = $POST['Time'];
-	$form_demo = $POST['demo'];
+if (isset($_POST['not_time_sub'])) {
+	$form_noTime = $_POST['noTime'];
+	$form_time = $_POST['Time'];
+	$form_demo = $_POST['demo'];
 	if ($form_noTime == 'eachVol') {
 		$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
