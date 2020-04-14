@@ -75,8 +75,9 @@ if (isset($POST['time_sub'])) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $query_count = $row['TOTAL'];
                 $query_race = $row['a.race'];
-                $query_arr[count] = array($query_count);
-				$query_arr[race] = array($query_race);
+                $query_arr[count] = $query_count;
+				$query_arr[race] = $query_race;
+				$_SESSION['results'] = $query_arr; 
             }
         } elseif ($form_demo == "FM") {
             $query = '(SELECT COUNT(a.f_name) AS TOTAL
