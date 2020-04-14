@@ -37,13 +37,15 @@ if ($db->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$sql = "SELECT * FROM VOLUNTEER WHERE e_newsletter = TRUE";
+$sql = '(SELECT COUNT(a.f_name) AS TOTAL
+					FROM VOLUNTEER a, HOURS b
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 
 $result = $db->query($sql);
 echo "<table border='1'>";
 echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 while ($row = $result->fetch_assoc()) {
-  echo "<tr><td>{$row['f_name']}</td><td>{$row['m_initial']}</td><td>{$row['l_name']}</td><td>{$row['email_address']}</td></tr>\n";
+  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
 }
 echo "</table>";
 make_html_end();
