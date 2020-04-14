@@ -39,8 +39,7 @@ if ($db->connect_error) {
 
 $sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male"
-					GROUP BY a.race)';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male")';
 $result = $db->query($sql);
 echo "<table border='1'>";
 echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
