@@ -54,12 +54,14 @@ global $query_arr;
 if (isset($POST['time_sub'])) {
 	if ($form_time == "Q1") {
         if ($form_demo == "MM") {
-            $query = '(SELECT COUNT(a.f_name)
+            $query = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
-            $result = mysqli_query($db, $query);
-            for ($set = array (); $row = mysqli_fetch_assoc($result); $set[array_shift($row)] = $row); 
-			$_SESSION['results'] = $set; 
+            if ($result = mysqli_query($db, $query)) {
+			$_SESSION['results'] = $result['TOTAL']; 
+			}
+            //for ($set = array (); $row = mysqli_fetch_assoc($result); $set[array_shift($row)] = $row); 
+			
 			
 				 
 			
