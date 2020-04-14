@@ -802,7 +802,7 @@ if (isset($POST['not_time_sub'])) {
 ?>
 <form method ="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/reports.php">
 	<label for="time">Time Period:</label>
-  <select id="Time">
+  <select name="Time">
     <option value="Q1">Q1</option>
     <option value="Q2">Q2</option>
     <option value="Q3">Q3</option>
@@ -813,7 +813,7 @@ if (isset($POST['not_time_sub'])) {
     <option value="None">N/A</option>
   </select> <br>
     <label for="demo">Demographics:</label>
-  <select id="demo">
+  <select name="demo">
     <option value="MM">Male - Hispanic</option>
     <option value="MR">Male - Racial Demographics</option>
     <option value="FM">Female - Hispanic</option>
@@ -826,7 +826,7 @@ if (isset($POST['not_time_sub'])) {
    <br><br>
    ---------------------------------------------------------------------------------------<br><br>
    	<label for="noTime">Not Time Related:</label>
-  <select id="noTime">
+  <select name="noTime">
     <option value="eachVol">Total Number of Volunteers</option>
     <option value="Newsletter">Newsletter</option>
     <option value="comServ">Community Service</option>
