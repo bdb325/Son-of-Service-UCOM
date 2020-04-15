@@ -833,6 +833,10 @@ hr.dash
 
 }
 
+.results_table {
+	border: 2px solid black;
+	background-color: #ffffff;
+}
 
 .clearfix:after {
 		visibility: hidden;
