@@ -845,5 +845,10 @@ hr.dash
 	clear: both;
 	height: 0;
 }
+#addvolunteer.th{
+	text-align: right;
+	padding-right: 1em;
+}
+
 * html .clearfix             { zoom: 1; } /** IE6 */
 *:first-child+html .clearfix { zoom: 1; } /** IE7 */
