@@ -55,81 +55,81 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q1 Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q1 Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } elseif ($form_demo == "MR") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q1 Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q1 Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } elseif ($form_demo == "FM") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q1 Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q1 Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } elseif ($form_demo == "FR") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_nameAND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q1 Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q1 Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } elseif ($form_demo == "XM") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q1 Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q1 Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } elseif ($form_demo == "XR") {
             $sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q1 Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q1 Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         } else {
             $sql = '(SELECT COUNT(a.f_name) as TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00")';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q1 Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q1 Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
         }
     }
 	elseif ($form_time == "Q2") {
@@ -138,12 +138,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q2 Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q2 Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -151,24 +151,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q2 Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q2 Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q2 Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q2 Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -176,24 +176,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q2 Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q2 Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q2 Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q2 Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -201,24 +201,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q2 Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q2 Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q2 Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q2 Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 	elseif ($form_time == "Q3") {
@@ -227,12 +227,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q3 Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q3 Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -240,24 +240,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q3 Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q3 Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q3 Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q3 Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -265,24 +265,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q3 Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q3 Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q3 Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q3 Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -290,24 +290,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q3 Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q3 Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q3 Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q3 Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 	elseif ($form_time == "Q4") {
@@ -316,12 +316,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q4 Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q4 Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -329,24 +329,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q4 Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q4 Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q4 Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q4 Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -354,24 +354,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q4 Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q4 Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q4 Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q4 Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -379,24 +379,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Q4 Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Q4 Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Q4 Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Q4 Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 	elseif ($form_time == "First") {
@@ -405,12 +405,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 1st Half Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 1st Half Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -418,24 +418,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 1st Half Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 1st Half Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 1st Half Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 1st Half Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -443,24 +443,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 1st Half Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 1st Half Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 1st Half Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 1st Half Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -468,24 +468,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 1st Half Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 1st Half Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 1st Half Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 1st Half Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 	elseif ($form_time == "Second") {
@@ -494,12 +494,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 2nd Half Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 2nd Half Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -507,24 +507,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 2nd Half Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 2nd Half Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 2nd Half Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 2nd Half Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -532,24 +532,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
            $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 2nd Half Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 2nd Half Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 2nd Half Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 2nd Half Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 			
 		}
 		elseif ($form_demo == "XR") {
@@ -558,24 +558,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of 2nd Half Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of 2nd Half Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of 2nd Half Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of 2nd Half Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 		elseif ($form_time == "Annual") {
@@ -584,12 +584,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Annual Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Annual Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -597,24 +597,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Annual Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Annual Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Annual Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Annual Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -622,24 +622,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
            $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Annual Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Annual Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Annual Non-Binary -  Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Annual Non-Binary -  Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -647,24 +647,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Annual Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Annual Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Annual Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Annual Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 	else {
@@ -673,12 +673,12 @@ if (isset($_POST['time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Male - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Male - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -686,24 +686,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Male Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Male Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Female - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Female - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -711,24 +711,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Female Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Female Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name)  AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Non-Binary - Hispanic Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Non-Binary - Hispanic Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
@@ -736,24 +736,24 @@ if (isset($_POST['time_sub'])) {
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Racial Breakdown of Non-Binary Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Racial Breakdown of Non-Binary Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td><td>{$row['RACE']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name)';
 			$result = $db->query($sql);
-			echo "<table border='1'>";
-			echo "<tr><td>Total Number of Volunteers</td></tr>";
+			print "<table border='1'>";
+			print "<tr><td>Total Number of Volunteers</td></tr>";
 			while ($row = $result->fetch_assoc()) {
-			  echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+			  print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 			}
-			echo "</table>";
+			print "</table>";
 		}
 	}
 }
@@ -767,36 +767,36 @@ if (isset($_POST['not_time_sub'])) {
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name)';
         $result = $db->query($sql);
-		echo "<table border='1'>";
-		echo "<tr><td>Total Number of Volunteers</td></tr>";
+		print "<table border='1'>";
+		print "<tr><td>Total Number of Volunteers</td></tr>";
 		while ($row = $result->fetch_assoc()) {
-		    echo "<tr><td>{$row['TOTAL']}</td></tr>\n";
+		    print "<tr><td>{$row['TOTAL']}</td></tr>\n";
 		}
-		echo "</table>";
+		print "</table>";
 	}
 	elseif ($form_noTime == 'Newsletter') { 
         $query = '(SELECT f_name AS FIRST, m_initial AS MIDDLE, l_name AS LAST, email_address AS EMAIL
                         FROM VOLUNTEER
                         WHERE e_newsletter = 1)';
        $result = $db->query($query);
-		echo "<table border='1'>";
-		echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
+		print "<table border='1'>";
+		print "<tr><td>First</td><td>Middle</td><td>Last</td><td>Email</td></tr>";
 		while ($row = $result->fetch_assoc()) {
-		   echo "<tr><td>{$row['FIRST']}</td><td>{$row['MIDDLE']}</td><td>{$row['LAST']}</td><td>{$row['EMAIL']}</td></tr>\n";
+		   print "<tr><td>{$row['FIRST']}</td><td>{$row['MIDDLE']}</td><td>{$row['LAST']}</td><td>{$row['EMAIL']}</td></tr>\n";
 			}
-		echo "</table>";
+		print "</table>";
 	}
 	else {
 		$sql = '(SELECT a.f_name AS FIRST, a.m_initial AS MIDDLE, a.l_name AS LAST, b.time_worked AS TIME_WORKED, a.required_hours AS REQUIRED
 					FROM VOLUNTEER a, HOURS b
 					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name=a.l_name AND a.required_hours IS NOT NULL)';
         $result = $db->query($sql);
-		echo "<table border='1'>";
-		echo "<tr><td>First</td><td>Middle</td><td>Last</td><td>Time Worked</td><td>Required Time</td></tr>";
+		print "<table border='1'>";
+		print "<tr><td>First</td><td>Middle</td><td>Last</td><td>Time Worked</td><td>Required Time</td></tr>";
 		while ($row = $result->fetch_assoc()) {
-		   echo "<tr><td>{$row['FIRST']}</td><td>{$row['MIDDLE']}</td><td>{$row['LAST']}</td><td>{$row['TIME_WORKED']}</td><td>{$row['REQUIRED']}</td></tr>\n";
+		   print "<tr><td>{$row['FIRST']}</td><td>{$row['MIDDLE']}</td><td>{$row['LAST']}</td><td>{$row['TIME_WORKED']}</td><td>{$row['REQUIRED']}</td></tr>\n";
 			}
-		echo "</table>";
+		print "</table>";
 	}
 }
 ?>
