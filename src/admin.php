@@ -127,7 +127,7 @@ if (isset($_POST['delete'])) {
       echo "Deleted Volunteer Successfully!";
     }
     elseif ($row < 1) {
-    echo "No volunteers found matching your criteria. Please try again."
+    echo "No volunteers found matching your criteria. Please try again.";
   }
   else {
       echo "Error : " . $stmt . "<br>" . $sql->error;
