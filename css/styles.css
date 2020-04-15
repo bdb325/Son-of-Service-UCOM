@@ -832,13 +832,18 @@ hr.dash
 
 }
 
+table#results_table {
+	border: 2px solid black;
+	background-color: #ffffff;
+}
+
 
 .clearfix:after {
-		visibility: hidden;
-		display: block;
-		content: "";
-		clear: both;
-		height: 0;
- }
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+}
 * html .clearfix             { zoom: 1; } /** IE6 */
 *:first-child+html .clearfix { zoom: 1; } /** IE7 */
