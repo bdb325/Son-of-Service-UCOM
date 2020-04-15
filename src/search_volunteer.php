@@ -178,7 +178,7 @@ function volunteer_search_sql()
 
     // columns in volunteer table
     search_add('f_name', 'f_name', $where);
-    search_add('m_initial', 'm_initial', $where)
+    search_add('m_initial', 'm_initial', $where);
     search_add('l_name', 'l_name', $where);
     search_add('street_address', 'street_address', $where);
     search_add('city', 'city', $where);
