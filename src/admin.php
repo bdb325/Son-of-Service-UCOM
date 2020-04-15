@@ -126,10 +126,14 @@ if (isset($_POST['delete'])) {
     if ($row > 0) {
       echo "Deleted Volunteer Successfully!";
     }
+    elseif ($row < 1) {
+    echo "No volunteers found matching your criteria. Please try again."
   }
   else {
-    echo "Error : " . $stmt . "<br>" . $sql->error;
+      echo "Error : " . $stmt . "<br>" . $sql->error;
   }
+  }
+  
 }
 if (isset($_POST['searchUpdate'])) {
   global $var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16;
@@ -166,7 +170,6 @@ if (isset($_POST['searchUpdate'])) {
   updateVolunteerForm($var1,$var2,$var3,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12,$var13,$var14,$var15,$var16,$var17,$var18,$var19,$var20);
 }
   if (isset($_POST['update'])) {
-  /*  $stmt = $db->prepare($sql); */
   global $db;
       $first = ($_POST['firstna']);
       $indexFirst = $db->real_escape_string($_POST['firstna']);
@@ -197,27 +200,14 @@ if (isset($_POST['searchUpdate'])) {
      emergency_fName = '$emergency_fname', emergency_lName = '$emergency_lname', emergency_phone = '$emergency_phone', emergency_relationship = '$emergency_relationship' WHERE f_name = '$indexFirst'
       AND l_name = '$indexLast' AND email_address = '$indexEmail'";
       //19 values are prepared
-    /*  $stmt->bind_param("ssssssssssdssssssssssss", $first, $middle, $last, $race, $ethnicity, $gender, $veteran_status, $volunteer_type, $birth_date,
-    $emaiL_address, $phone_number, $country, $street_address, $state, $city, $postal, $emergency_fname, $emergency_lname,
-  $emergency_phone, $emergency_relationship, $indexFirst, $indexLast, $indexEmail); */
       if ($db->query($sql) === TRUE)
       {
         echo "Updated information successfully. Re-directing in 5 seconds";
         header('Refresh: 5; URL=http://ec2-54-237-6-145.compute-1.amazonaws.com/src/admin.php');
      }
       else {
-           // BLAINE FOR SOME REASON UPDATE ISNT WORKING FUCKING FIX IT DOG.
-           echo $first;
-           echo $indexFirst;
+          echo "Update unable to execute.";
          }
-
-    /* else {
-     echo $sql;
-     echo $stmt;
-     echo "Error : " . $stmt . $db->error;
-   }
-   */
-
  }
 
  if (isset($_POST['searchHours'])) {
