@@ -833,11 +833,9 @@ if (isset($_POST['not_time_sub'])) {
    </select>
    <input type="submit" name="not_time_sub" value="Submit for Not Time">
 </form>
-<br><br><br><br><br>
-   ---------------------------------------------------------------------------------------
-<br><br><br>
 
-<textarea name='query_result_data'></textarea>
+
+
 
 <?php
 make_html_end();
