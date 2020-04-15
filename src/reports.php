@@ -198,7 +198,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
