@@ -832,7 +832,7 @@ hr.dash
 
 }
 
-table#results_table {
+#results_table {
 	border: 2px solid black;
 	background-color: #ffffff;
 }
