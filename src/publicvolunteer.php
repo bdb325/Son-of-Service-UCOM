@@ -98,11 +98,6 @@ function volunteer_add()
                 }
                 $stmt->free_result();
 
-                  /* if ($stmt->rowCount() === 0)
-                    {echo "Your name wasn't found. Please check spelling and try again";}
-                  else {
-                    echo "Punched in!";
-                } */
             }
 
     if (!$stmt) {
@@ -111,7 +106,7 @@ function volunteer_add()
 
 
 } /* add_volunteer() */
-// test
+
 
 function volunteer_add_form()
 {
@@ -119,7 +114,7 @@ function volunteer_add_form()
 
     <form method="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/publicvolunteer.php">
 
-<table border="0" width="60%" cellspacing="0" cellpadding="0">
+<table id='addvolunteer' border="0" width="65%" cellspacing="0" cellpadding="0">
 <tr>
  <th class="vert"><?php echo _("First name"); ?></th>
  <td><input type="Text" name="first"></td>
@@ -268,7 +263,7 @@ function volunteer_add_form()
 </form>
 
 
-<h1> Returning Volunteers Click  <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/clock.php">Here</a> </h1>
+<h3> Returning Volunteers Click  <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/clock.php">Here</a> </h3>
       <h3> Admins login <a href="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/login.php">Here</a> </h3>
 
 

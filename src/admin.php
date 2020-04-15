@@ -15,7 +15,6 @@ session_start();
 ob_start();
 
 define('SOS_PATH', '../');
-
 require_once (SOS_PATH . 'include/global.php');
 require_once (SOS_PATH . 'functions/html.php');
 require_once (SOS_PATH . 'functions/table.php');
