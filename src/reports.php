@@ -122,7 +122,7 @@ if (isset($_POST['time_sub'])) {
         } else {
             $sql = '(SELECT COUNT(a.f_name) as TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-04-01 00:00:00")';
             $result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q1 Volunteers</td></tr>";
@@ -136,7 +136,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q2 Male - Hispanic Volunteers</td></tr>";
@@ -148,7 +148,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -161,7 +161,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q2 Female - Hispanic Volunteers</td></tr>";
@@ -173,7 +173,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -186,7 +186,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q2 Non-Binary - Hispanic Volunteers</td></tr>";
@@ -211,7 +211,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-04-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q2 Volunteers</td></tr>";
@@ -225,7 +225,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q3 Male - Hispanic Volunteers</td></tr>";
@@ -237,7 +237,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -250,7 +250,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q3 Female - Hispanic Volunteers</td></tr>";
@@ -262,7 +262,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -275,7 +275,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q3 Non-Binary - Hispanic Volunteers</td></tr>";
@@ -287,7 +287,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -300,7 +300,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2020-10-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q3 Volunteers</td></tr>";
@@ -314,7 +314,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q4 Male - Hispanic Volunteers</td></tr>";
@@ -326,7 +326,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -339,7 +339,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q4 Female - Hispanic Volunteers</td></tr>";
@@ -351,7 +351,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -364,7 +364,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q4 Non-Binary - Hispanic Volunteers</td></tr>";
@@ -376,7 +376,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -389,7 +389,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-10-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Q4 Volunteers</td></tr>";
@@ -403,7 +403,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 1st Half Male - Hispanic Volunteers</td></tr>";
@@ -415,7 +415,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -428,7 +428,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 1st Half Female - Hispanic Volunteers</td></tr>";
@@ -440,7 +440,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -453,7 +453,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 1st Half Non-Binary - Hispanic Volunteers</td></tr>";
@@ -465,7 +465,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -478,7 +478,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2020-07-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 1st Half Volunteers</td></tr>";
@@ -492,7 +492,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 2nd Half Male - Hispanic Volunteers</td></tr>";
@@ -504,7 +504,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -517,7 +517,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 2nd Half Female - Hispanic Volunteers</td></tr>";
@@ -529,7 +529,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
            $result = $db->query($sql);
 			print "<table border='1'>";
@@ -542,7 +542,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 2nd Half Non-Binary - Hispanic Volunteers</td></tr>";
@@ -555,7 +555,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -568,7 +568,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-07-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of 2nd Half Volunteers</td></tr>";
@@ -582,7 +582,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Annual Male - Hispanic Volunteers</td></tr>";
@@ -594,7 +594,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -607,7 +607,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Annual Female - Hispanic Volunteers</td></tr>";
@@ -619,7 +619,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender = "Female"
 					GROUP BY a.race)';
            $result = $db->query($sql);
 			print "<table border='1'>";
@@ -632,7 +632,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Annual Non-Binary -  Hispanic Volunteers</td></tr>";
@@ -644,7 +644,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00" AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -657,7 +657,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND b.time_in BETWEEN "2020-01-01 00:00:00" AND "2021-01-01 00:00:00")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Annual Volunteers</td></tr>";
@@ -671,7 +671,7 @@ if (isset($_POST['time_sub'])) {
 		if ($form_demo == "MM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.gender = "Male" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Male - Hispanic Volunteers</td></tr>";
@@ -683,7 +683,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "MR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Male"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.gender = "Male"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -696,7 +696,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FM") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.gender = "Female" AND a.ethnicity = "Hispanic")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Female - Hispanic Volunteers</td></tr>";
@@ -708,7 +708,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "FR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender = "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.gender = "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -721,7 +721,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XM") {
 			$sql = '(SELECT COUNT(a.f_name)  AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.ethnicity = "Hispanic" AND a.gender != "Male" AND a.gender != "Female")';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Non-Binary - Hispanic Volunteers</td></tr>";
@@ -733,7 +733,7 @@ if (isset($_POST['time_sub'])) {
 		elseif ($form_demo == "XR") {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL, a.race AS RACE
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name AND a.gender != "Male" AND a.gender != "Female"
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name AND a.gender != "Male" AND a.gender != "Female"
 					GROUP BY a.race)';
             $result = $db->query($sql);
 			print "<table border='1'>";
@@ -746,7 +746,7 @@ if (isset($_POST['time_sub'])) {
 		else {
 			$sql = '(SELECT COUNT(a.f_name) AS TOTAL
 					FROM VOLUNTEER a, HOURS b
-					WHERE b.f_name = a.f_name AND b.m_initial = a.m_inital AND b.l_name = a.l_name)';
+					WHERE b.f_name = a.f_name AND b.m_initial = a.m_initial AND b.l_name = a.l_name)';
 			$result = $db->query($sql);
 			print "<table border='1'>";
 			print "<tr><td>Total Number of Volunteers</td></tr>";
