@@ -204,3 +204,7 @@ p.subheading{
 .hidden_toggle label{
 	color:#326b00;
 }
+.results_table {
+    border: 2px solid black;
+    background-color: #ffffff;
+}

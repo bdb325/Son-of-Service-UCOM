@@ -172,3 +172,7 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-shadow ul.sf-shadow-off {
 	background: transparent;
 }
+.results_table {
+	border: 2px solid black;
+	background-color: #ffffff;
+}
