@@ -123,7 +123,7 @@ if (isset($_POST['delete'])) {
   if($stmt = $db->prepare($sql)) {
     $stmt->bind_param("sss", $first, $middle, $last);
     $stmt->execute();
-    $row = $db->affected_rows;
+    $row = $stmt->affected_rows;
     if ($row > 0) {
       echo "Deleted Volunteer Successfully!";
     }

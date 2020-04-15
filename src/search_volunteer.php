@@ -178,6 +178,7 @@ function volunteer_search_sql()
 
     // columns in volunteer table
     search_add('f_name', 'f_name', $where);
+    search_add('m_initial', 'm_initial', $where)
     search_add('l_name', 'l_name', $where);
     search_add('street_address', 'street_address', $where);
     search_add('city', 'city', $where);
@@ -345,10 +346,10 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 
 	  //  $fieldnames['volunteer_id']['checkbox'] = TRUE;
 	   // $fieldnames['volunteer_id']['label'] = _("Select");
-	    $fieldnames['first']['label'] = _("First");
-	    $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
-	    $fieldnames['last']['label'] = _("Last");
-	    $fieldnames['last']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
+	   // $fieldnames['first']['label'] = _("First");
+	   // $fieldnames['first']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
+	   // $fieldnames['last']['label'] = _("Last");
+	   // $fieldnames['last']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 	//    $fieldnames['organization']['label'] = _("Organization");
 	//    $fieldnames['organization']['link'] = SOS_PATH . "volunteer/?vid=#volunteer_id#";
 
@@ -383,7 +384,6 @@ function volunteer_search_display($sql, $offset, $results_per_page)
 	    $tab->end();
 
 	    // todo: what other mass actions?
-	    echo ("<INPUT type=\"submit\" name=\"button_email_volunteers\" value=\""._("E-mail")."\">\n");
 	    if (has_permission(PC_VOLUNTEER, PT_WRITE, NULL, NULL))
 	    {
     		echo ("<INPUT type=\"submit\" name=\"button_delete_volunteers\" value=\""._("Delete")."\">\n");
@@ -510,6 +510,10 @@ section.</P>
  <th class="vert"><?php echo _("First name"); ?></th>
  <td><input type="Text" name="f_name"></td>
  </tr>
+ <tr>
+ <th class="vert"><?php echo _("Middle Initial"); ?></th>
+ <td><input type="Text" name="m_initial"></td>
+ </tr>
 <tr>
  <th class="vert"><?php echo _("Last name"); ?></th>
  <td><input type="Text" name="l_name"></td>
@@ -538,64 +542,10 @@ section.</P>
  <td><input type="Text" name="email_address"></td>
  </tr>
 <?php
-// extended fields
-/*
-$sql = "SELECT * FROM extended_meta";
-$result = $db->Execute($sql);
-if (!$result)
-{
-    die_message(MSG_SYSTEM_ERROR, _("Error querying database."), __FILE__, __LINE__, $sql);
-}
-else
-{
-    while (!$result->EOF)
-    {
-	echo ("<tr>\n");
-	echo ("<th class=\"vert\">" . $result->fields['label'] . "</th>\n");
-	echo ("<td><input type=\"text\" name=\"extended_" . $result->fields['code'] . "\"></td>\n");
-	echo ("</tr>\n");
-	$result->MoveNext();
-    }
-}
 
-*/
 
 ?>
 </table>
-
-<TABLE border="0" style="margin:6pt">
-<TR>
-<TH colspan="2"><?php echo _("Availability");?></TH>
-</TR>
-<TR>
-<TH><?php echo _("Day of week");?></TH>
-<TD>
-<SELECT name="availability_day">
-<?php
-    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
-    for ($i = 1; $i <= 7; $i++)
-    {
-        echo ("<OPTION value=\"$i\">".$daysofweek[$i]."</OPTION>\n");
-    }
-?>
-</SELECT>
-</TD>
-</TR>
-<TR>
-<TH><?php echo _("Time of day");?></TH>
-<TD>
-<SELECT name="availability_time">
-<?php
-    echo ("<OPTION value=\"\">"._("--Select")."</OPTION>\n");
-    echo ("<OPTION value=\"1\">"._("Morning")."</OPTION>\n");
-    echo ("<OPTION value=\"2\">"._("Afternoon")."</OPTION>\n");
-    echo ("<OPTION value=\"3\">"._("Evening")."</OPTION>\n");
-    echo ("<OPTION value=\"3\">"._("Night")."</OPTION>\n");
-?>
-</SELECT>
-</TD>
-</TR>
-</TABLE>
 
 <TABLE border="0" style="margin:6pt">
 <tr>

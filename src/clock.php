@@ -31,7 +31,7 @@ global $db;
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-// note need to add two php codes. clock in and clock out
+
 $first = $db->real_escape_string($_POST['first']);
 $middle =$db->real_escape_string($_POST['middle']);
 $last = $db->real_escape_string($_POST['last']);
@@ -67,12 +67,7 @@ if (isset($_POST['punchIn'])) {
                   echo "Name wasn't found. Check spelling and try again.";
                 }
                 $stmt->free_result();
-
-                  /* if ($stmt->rowCount() === 0)
-                    {echo "Your name wasn't found. Please check spelling and try again";}
-                  else {
-                    echo "Punched in!";
-                } */
+  
             }
             else {
               echo "Error : " . $stmt . "<br>" . $db->error;
@@ -96,13 +91,6 @@ elseif (isset($_POST['punchOut'])) {
   else {
     echo "Error : " . $stmt . "<br>" . $con->error;
   }
-/*
-  if ($stmt->execute() === TRUE) {
-      echo "Punched out successfully";
-  } else {
-      echo "Error: " . $sql . "<br>" . $stmt->error;
-  */
-
       }
 
 
@@ -116,7 +104,7 @@ elseif (isset($_POST['punchOut'])) {
 ?>
 
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form method="post" action="http://ec2-54-237-6-145.compute-1.amazonaws.com/src/clock.php">
   <div>
       <label for="first">First Name:</label>
       <input type="text" name="first">
