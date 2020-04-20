@@ -26,10 +26,10 @@ if (preg_match('/config.php/i', $_SERVER['PHP_SELF']))
 $cfg['ado_path'] = SOS_PATH . 'adodb';
 
 $cfg['dbtype'] = 'mysql';	//default: mysql
-$cfg['dbhost'] = 'database-1.cbkwsq59mx5a.us-east-1.rds.amazonaws.com';
-$cfg['dbpass'] = 'lDWUp2cbP3ub6FMIHZYf';
-$cfg['dbuser'] = 'admin';
-$cfg['dbname'] = 'sos';
+$cfg['dbhost'] = '';
+$cfg['dbpass'] = '';
+$cfg['dbuser'] = '';
+$cfg['dbname'] = '';
 $cfg['dbpersist'] = FALSE;	//default: persistant connections on (true)
 
 $smtp_hostname = 'localhost';
