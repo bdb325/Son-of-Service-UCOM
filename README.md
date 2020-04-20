@@ -11,3 +11,10 @@ Mitchell DeJong
 Christopher Dausman 
 
 Emily Fulton
+
+CONFIGURATION:
+The configuration file can be found under include/config.php.
+
+Update the respective variable to reflect your DB server
+
+NOTE that SOS was re-configured to work with MySQL as a backend. Using other RDBMS's can (and likely will) cause unprecented problems. 
