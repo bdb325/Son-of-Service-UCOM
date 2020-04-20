@@ -116,11 +116,11 @@ function updateHoursForm($first, $middle, $last,$time_in,$time_out,$time_worked,
 if (isset($_POST['delete'])) {
 
   $first = $db->real_escape_string($_POST['first']);
-  $middle = $db->real_escape_string($_POST['middle']);
+  $emailDelete = $db->real_escape_string($_POST['emailDelete']);
   $last = $db->real_escape_string($_POST['last']);
-  $sql = "DELETE VOLUNTEER from VOLUNTEER WHERE VOLUNTEER.f_name = ? AND VOLUNTEER.m_initial = ? AND VOLUNTEER.l_name = ?";
+  $sql = "DELETE VOLUNTEER from VOLUNTEER WHERE VOLUNTEER.f_name = ? AND VOLUNTEER.email_address = ? AND VOLUNTEER.l_name = ?";
   if($stmt = $db->prepare($sql)) {
-    $stmt->bind_param("sss", $first, $middle, $last);
+    $stmt->bind_param("sss", $first, $emailDelete, $last);
     $stmt->execute();
     $row = $stmt->affected_rows;
     if ($row > 0) {
@@ -263,10 +263,10 @@ if (isset($_POST['hours'])) {
     <h1> Delete Volunteer </h1>
     <label for="first">First Name:</label>
     <input type="text" name="first">
-    <label for="middle">Middle Initial:</label>
-    <input type="text" name="middle">
     <label for="last">Last Name:</label>
     <input type="text" name="last">
+    <label for="emailDelete">Email Address:</label>
+    <input type="text" name="emailDelete">
     <input type="submit" name="delete" value="Delete Volunteer" />
   </div>
 </form>
@@ -289,10 +289,10 @@ if (isset($_POST['hours'])) {
     <p> Search a Volunteer to update their hours worked. </p>
     <label for="firstname">First Name:</label>
     <input type="text" name="firstname">
-    <label for="lastname">Last Name:</label>
-    <input type="text" name="lastname">
     <label for="middleinitial">Middle Initial:</label>
     <input type="text" name="middleinitial">
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="lastname">
     <input type="submit" name="searchHours" value="Update hour table information"/>
   </div>
 </form>
